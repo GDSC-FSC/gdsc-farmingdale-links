@@ -1,21 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect } from 'react'
 import { buttonLinks, navLinks } from './utils'
 import { GDSCIcon } from './components/icons'
 import { Button } from './components/index'
+import { ThemeProvider } from "./components/theme-provider"
 const name = "GDSC Farmingdale"
 export default function App() {
-  const [theme, setTheme] = useState('light')
-  useEffect(() => {
-    document.documentElement.classList.add(theme)
-    document.documentElement.classList.remove(theme === 'light' ? 'dark' : 'light')
-  }, [theme])
-  useEffect(() => {
-    const theme = localStorage.getItem('theme')
-    if(theme) setTheme(theme)
+  useEffect(() =>  {
+    const fetchJson = async (url: string) => {
+      const res = await fetch(url)
+      return await res.json()
+    }
   }, [])
-  useEffect(() => {
-    localStorage.setItem('theme', theme)
-  }, [theme])
   
   const handleMouseMove = (e: { clientX: number; clientY: number }) => {
     const cards = document.getElementsByClassName("card");
@@ -69,14 +64,19 @@ export default function App() {
     )
   }
   return (
-    <React.Fragment>
-      <section 
-      id={`card`}
-      onMouseMove={handleMouseMove}
-      className='rounded-md shadow-md w-[300px] mt-[50px] mb-[50px] h-[80vh] justify-around items-center flex flex-col light:glass-card border-2'>
-        <Header/>
-        <NavigationContainer/>
-      </section>
-    </React.Fragment>
+    <ThemeProvider
+      defaultTheme={`system`}
+      storageKey='vite-ui-theme'
+    >
+      <React.Fragment>
+        <section 
+        id={`card`}
+        onMouseMove={handleMouseMove}
+        className='rounded-md shadow-md w-[300px] mt-[50px] mb-[50px] h-[80vh] justify-around items-center flex flex-col light:glass-card border-2'>
+          <Header/>
+          <NavigationContainer/>
+        </section>
+      </React.Fragment>
+    </ThemeProvider>
   )
 }
