@@ -15,13 +15,24 @@ type Event = {
 export default function App() {
     const [events, setEvents] = useState<Event[]>([]);
 
+    const BASE_URL = 'https://gdsc.community.dev';
+
     useEffect(() => {
         async function fetchEvents() {
             try {
                 const response = await fetch('http://localhost:3000/events');
                 const data = await response.json();
                 console.log('Fetched data:', data);
-                setEvents(data);
+
+                const updatedData = data.map((event: Event) => {
+                    return {
+                        ...event,
+                        detailsLink: BASE_URL + event.detailsLink,
+                        thumbnailLink: BASE_URL + event.thumbnailLink,
+                    };
+                });
+
+                setEvents(updatedData);
             } catch (error) {
                 console.error('Failed to fetch events:', error);
             }
@@ -45,9 +56,11 @@ export default function App() {
     };
     const NavigationContainer = () => {
         const Buttons = () => {
+            console.log(event);
             return (
                 <div className="flex flex-col w-full gap-4 overflow-y-auto">
                     {events.map((event) => {
+                        console.log(event);
                         if (!event.title) return null;
                         return (
                             <Button
@@ -58,6 +71,7 @@ export default function App() {
                                 share={true}
                                 textStyles="font-bold text-[14px]"
                             />
+
                         );
                     })}
 
