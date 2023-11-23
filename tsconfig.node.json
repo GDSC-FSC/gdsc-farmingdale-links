@@ -1,13 +1,9 @@
 {
-  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
-    "isolatedModules": false,
-    "noEmit": false,
-    "outDir": "./dist"
+    "composite": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "vite.config.ts",
-    "src/lib/*.ts"
-  ]
+  "include": ["vite.config.ts"]
 }
