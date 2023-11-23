@@ -1,5 +1,5 @@
 import {CustomButtonProps} from '../../utils';
-import {ShareIcon} from '../icons';
+import {ShareIcon} from '../icons/components';
 
 const Button = ({title, containerStyles, link, textStyles, isDisabled, share}: CustomButtonProps) => {
     const handleClick = () => {

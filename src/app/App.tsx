@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {navLinks} from '../utils';
-import {GDSCIcon} from './icons';
-import {Button} from './index';
-import {ThemeProvider} from './theme-provider';
+import {GDSCIcon} from '../components/icons/components';
+import {Button} from '../components/dom/index';
+import {ThemeProvider} from '../components/providers/theme/theme-provider';
 
 const name = 'GDSC Farmingdale';
 

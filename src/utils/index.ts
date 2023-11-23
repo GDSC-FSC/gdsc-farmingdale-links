@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { GlobeIcon, InstagramIcon } from '../components/icons/index'
+import { GlobeIcon, InstagramIcon } from '../components/icons/components/index'
 type Link = {
     name: string;
     path: string;
