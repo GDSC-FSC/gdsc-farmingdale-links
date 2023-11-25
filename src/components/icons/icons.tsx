@@ -1,5 +1,5 @@
 import { cn } from '@nextui-org/react'
-
+import { GDSCIcon, GlobeIcon, InstagramIcon, ShareIcon } from './components'
 export const Icons  = {
   logo: (props: LucideProps) => (
     <>
