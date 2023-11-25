@@ -1,10 +1,10 @@
 {
     "name": "GDSC Farmingdale | Links",
     "short_name": "GDSC FSC Links",
-    "theme_color": "#BA9BDD",
-    "background_color": "#560BAD",
+    "theme_color": "#66A266",
+    "background_color": "#006400",
     "start_url": "/",
-    "description": "Mike Odnis' portfolio. Undergraduate, Computer Science student at Farmingdale State College.",
+    "description": "This web application is a means to keep up to date with what GDSC FSC is doing, and will include upcoming events, and serve as a central hub for all our domains.",
     "scope": "/",
     "dir": "ltr",
     "orientation": "portrait-primary",
@@ -12,39 +12,10 @@
     "display": "standalone",
     "icons": [
         {
-            "src": "/icon-72x72.png",
-            "type": "image/png",
-            "sizes": "72x72"
-        },
-        {
-            "src": "/icon-96x96.png",
-            "type": "image/png",
-            "sizes": "96x96"
-        },
-        {
-            "src": "/icon-128x128.png",
-            "type": "image/png",
-            "sizes": "128x128"
-        },
-        {
-            "src": "/icon-192x192.png",
-            "type": "image/png",
-            "sizes": "192x192"
-        },
-        {
-            "src": "/icon-256x256.png",
-            "type": "image/png",
-            "sizes": "256x256"
-        },
-        {
-            "src": "/icon-384x384.png",
-            "type": "image/png",
-            "sizes": "384x384"
-        },
-        {
-            "src": "/icon-512x512.png",
-            "type": "image/png",
-            "sizes": "512x512"
+            "src": "/assets/svgs/logo.svg",
+            "type": "image/svg+xml",
+            "sizes": "any",
+            "purpose": "maskable"
         }
     ]
 }
