@@ -4,7 +4,7 @@ declare global {
   namespace LucideReact {
     interface LucideIconWrapperProps extends LucideProps {}
 
-    export const LucideIcon: React.ForwardRefExoticComponent<LucideIconWrapperProps>;
+    const LucideIcon: React.ForwardRefExoticComponent<LucideIconWrapperProps>;
   }
 }
 
