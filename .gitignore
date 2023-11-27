@@ -25,3 +25,6 @@ dist-ssr
 
 .vercel
 dev-dist/
+
+.env
+.env.local

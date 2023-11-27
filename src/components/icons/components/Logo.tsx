@@ -1,9 +1,9 @@
-import React from 'react'
-
-function Logo() {
+export default function Logo({className}: {
+  className?: string
+}) {
   return (
-          <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <rect width="512" height="512" rx="256" fill="#0E0E0E" />
+        <svg width="512" height="512" viewBox="0 0 512 512" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+        <rect width="512" height="512" rx="256" fill="#0E0E0E"/>
         <rect x="33" y="242.514" width="206.171" height="73" rx="36.5" transform="rotate(-29.497 33 242.514)" fill="#EA4336" />
         <rect x="67.6865" y="207" width="206.171" height="73" rx="36.5" transform="rotate(30.1692 67.6865 207)" fill="#4286F5" />
         <rect width="206.171" height="73" rx="36.5" transform="matrix(-0.864545 0.502555 0.502555 0.864545 444.705 207)" fill="#FABC05" />
@@ -11,5 +11,3 @@ function Logo() {
       </svg>
   )
 }
-
-export default Logo
