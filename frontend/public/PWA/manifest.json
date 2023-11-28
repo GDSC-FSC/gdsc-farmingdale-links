@@ -1,0 +1,22 @@
+{
+    "name": "GDSC Farmingdale | Links",
+    "short_name": "GDSC FSC Links",
+    "theme_color": "#66A266",
+    "background_color": 
+    "#006400",
+    "start_url": "/",
+    "description": "This web application is a means to keep up to date with what GDSC FSC is doing, and will include upcoming events, and serve as a central hub for all our domains.",
+    "scope": "/",
+    "dir": "ltr",
+    "orientation": "portrait-primary",
+    "display_override": ["minimal-ui","browser","fullscreen"],
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "/assets/svgs/logo.svg",
+            "type": "image/svg+xml",
+            "sizes": "any",
+            "purpose": "maskable"
+        }
+    ]
+}
