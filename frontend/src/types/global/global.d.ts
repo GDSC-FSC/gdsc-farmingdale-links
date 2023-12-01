@@ -18,3 +18,17 @@ type IconsProps = {
   };
 };
 
+type Link = {
+    name: string;
+    path: string;
+    icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+}
+interface CustomButtonProps {
+  isDisabled?: boolean;
+  containerStyles?: string;
+  textStyles?: string;
+  link: string | undefined;
+  title: string;
+  share: boolean
+  handleClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
