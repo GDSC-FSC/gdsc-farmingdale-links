@@ -1,6 +1,8 @@
 import { GlobeIcon, InstagramIcon } from '../components/icons/components/index'
+import { toast } from 'sonner';
+import { sendEmail } from '@/lib/send-emails';
 
-const navLinks: Link[] = [
+export const navLinks: Link[] = [
   {
     name: "Home",
     path: "/",
@@ -12,7 +14,7 @@ const navLinks: Link[] = [
     icon: InstagramIcon,
   }
 ]
-const buttonLinks: Link[] = [
+export const buttonLinks: Link[] = [
   {
     name: "test1",
     path: "https://www.instagram.com/lemonade_ig/",
@@ -35,5 +37,11 @@ const buttonLinks: Link[] = [
   },
 ];
 
-
-export { navLinks, buttonLinks }
+// Wait for service
+export const  handleSendEmail = () =>{
+  try {
+    
+  } catch (error) {
+    
+  }
+}
