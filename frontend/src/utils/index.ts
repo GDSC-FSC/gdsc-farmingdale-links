@@ -40,8 +40,8 @@ export const buttonLinks: Link[] = [
 // Wait for service
 export const  handleSendEmail = () =>{
   try {
-    
+    // 
   } catch (error) {
-    
+    // 
   }
 }

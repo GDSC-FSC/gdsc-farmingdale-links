@@ -29,8 +29,6 @@ export const NavItem = ({
   isActive,
   onExpand,
 }: NavItemProps) => {
-  const { user } = useContext(UserContext);
-
   return (
     <AccordionItem
       value={user.id}
@@ -43,19 +41,9 @@ export const NavItem = ({
           isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
         )}
       >
-        <Div className="flex items-center gap-x-2">
-          <Div className="w-7 h-7 relative">
-            <Image
-              fill
-              src={user.avatar}
-              alt="User avatar"
-              className="rounded-sm object-cover"
-            />
-          </Div>
-          <span className="font-medium text-sm">
-            {user.name}
-          </span>
-        </Div>
+        <>
+          Trigger
+        </>
       </AccordionTrigger>
       <AccordionContent className="pt-1 text-neutral-700">
         <NavItems />
