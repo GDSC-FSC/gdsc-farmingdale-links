@@ -1,12 +1,16 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import million from 'million/compiler';
 import { VitePWA } from 'vite-plugin-pwa'
 import eslint from 'vite-plugin-eslint';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    million.vite({
+      auto: true,
+    }),
     react(),
     eslint({
       include: ['./src/**/*.tsx', './src/**/*.ts'],

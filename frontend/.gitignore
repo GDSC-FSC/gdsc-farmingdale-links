@@ -28,3 +28,4 @@ dev-dist/
 
 .env
 .env.local
+reminders.txt

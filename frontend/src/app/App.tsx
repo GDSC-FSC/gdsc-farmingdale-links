@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {navLinks} from '../utils';
-import {GDSCIcon} from '../components/icons/components';
-import {Button} from '../components/dom/index';
-import {ThemeProvider} from '../components/providers/theme/theme-provider';
+import React, { useEffect, useState } from 'react';
+import { navLinks } from '@/utils';
+import { Icons } from '@/components/icons/icons';
+import { Button } from '@/components/dom/index';
+import { ThemeProvider } from '@/components/providers/theme/theme-provider';
 
 const name = 'GDSC Farmingdale';
 
@@ -81,7 +81,9 @@ export default function App() {
         return (
             <div className="flex flex-col items-center justify-center w-[90%]">
                 <h3 className="mb-3">Events</h3>
-                
+                <Icons.logo props={{
+                    
+                }}/>
                 <Buttons/>
             </div>
         );
@@ -102,7 +104,7 @@ export default function App() {
         };
         return (
             <header className="flex flex-col items-center justify-center gap-2">
-                <GDSCIcon width={100} height={100}/>
+                <GDSCIcon className={``}/>
                 <h1 className="text-sm font-bold">{name}</h1>
                 <Links/>
             </header>

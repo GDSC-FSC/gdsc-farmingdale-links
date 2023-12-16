@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
-import App from './app/App.tsx';
-import './index.css';
 import { AnimatePresence } from "framer-motion"
-import '../src/styles/css/index.css'
-import '../src/styles/global/globals.css'
-import '../src/styles/global/globals.scss'
+import App from '@/app/App.tsx';
+import '@/styles/css/index.css'
+import '@/styles/global/globals.css'
+import '@/styles/global/globals.scss'
 
 export const RootLayout = ({children}: {children: React.ReactNode}) =>  {
   return (
