@@ -1,9 +1,9 @@
-import express from 'express';
-import { readEventsFromFile } from '../controllers/fileHandler';
+import { Request, Response, Router } from 'express';
+import { readEventsFromFile } from '#/controllers/fileHandler';
 
-const router = express.Router();
+const router = Router();
 
-router.get('/', (_req, res) => {
+router.get('/', (_req: Request, res: Response) => {
   res.header('Access-Control-Allow-Origin', '*');
   console.log('Requested past events');
   try {

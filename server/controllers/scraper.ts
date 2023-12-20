@@ -1,13 +1,7 @@
 import axios from 'axios';
 import { load } from 'cheerio';
 import puppeteer from 'puppeteer';
-import { College } from '../constant';
-
-type Events = {
-    title: string | null;
-    thumbnailLink: string | null;
-    detailsLink: string | null;
-};
+import { College } from '#/constant';
 
 export const scrapeEvents = async (): Promise<Events[]> => {
     const response = await axios.get(`https://gdsc.community.dev/${College}/`);
@@ -32,7 +26,6 @@ export const scrapeEvents = async (): Promise<Events[]> => {
     return events;
 };
 
-
 export const scrapePastEvents = async (): Promise<Events[]> => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -45,7 +38,8 @@ export const scrapePastEvents = async (): Promise<Events[]> => {
         const eventElements = document.querySelectorAll('[data-testid="container-block-24RneQKmFRW"]');
         const eventsArray: Events[] = [];
 
-        eventElements.forEach((elem) => {
+        // biome-ignore lint/complexity/noForEach: <explanation>
+eventElements.forEach((elem) => {
             const titleElement = elem.querySelector('a.link-styles__link_1ec3q .dynamic-text');
             const title = titleElement?.textContent?.replace(/^\s*\w+\s+\d+,\s+\d+\s*-\s*/, '').trim() || '';
             const thumbnailLink = elem.querySelector('img')?.src || null;

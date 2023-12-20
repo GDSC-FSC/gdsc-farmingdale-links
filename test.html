@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        height: 100%;
+
+        body {
+          width: 100dvw;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            font-size: medium;
+            font-weight: bold;
+            margin: 0;
+            padding-inline: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+
+            menu:nth-child(1) {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              color: blue;
+
+              li {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                color: blue;
+
+                img {
+                  margin-right: 10px;
+                }
+              }
+            }
+
+            menu:nth-child(2) {
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+
+              li {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                  color: blue;
+                }
+              }
+            }
+          }
+
+          main {
+            margin-top: 20px;
+            margin-inline: calc(17.5rem - 0.5vw);
+            display: flex;
+            flex-direction: row;
+
+            section {
+              width: 50rem;
+
+              article {
+                width: fit-content;
+
+                h2 {
+                  font-size: 2rem;
+                  font-weight: bold;
+                  text-align: left;
+                  margin-bottom: 1rem;
+                }
+
+                p {
+                  font-size: 1rem;
+                  text-align: left;
+                  text-indent: 2rem;
+                  overflow-wrap: break-word;
+                  word-wrap: break-word;
+                  word-break: break-word;
+                  hyphens: auto;
+                  margin-bottom: 1rem;
+                }
+              }
+            }
+
+            aside {
+              position: sticky;
+              margin-left: 2rem;
+              width: 20rem;
+              height: 20rem;
+              background: rgba(0, 0, 0, 0.2);
+              backdrop-filter: blur(5px);
+              border-radius: 10px;
+              padding: 1rem;
+            }
+          }
+
+          footer {
+            padding-inline: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: medium;
+            font-weight: bold;
+            position: absolute;
+
+            p:nth-child(1) {
+              margin-left: 40px;
+            }
+
+            p:last-child {
+              margin-right: 40px;
+            }
+          }
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+
+        html,
+        body {
+          background-color: #eee;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+
+        html,
+        body {
+          background-color: #181818;
+          color: whitesmoke;
+        }
+      }
+    </style>
+  </head>
+</head>
+
+<body>
+  <nav>
+    <menu>
+      <li>
+        <img src="public/assets/images/Logo.png" alt="Logo" width="40" height="40" aria-hidden="true" />
+        <a href="https://github.com/GDSC-FSC">
+          <span>GDSC</span> Farmingdale
+        </a>
+      </li>
+    </menu>
+    <menu>
+      <li>
+        <a href="https://">GitHub</a>
+      </li>
+    </menu>
+  </nav>
+  <header>
+    <picture>
+      <img src="public/assets/images/og.png" alt="" srcset="" width="100%" height="100%">
+    </picture>
+  </header>
+  <main>
+    <section>
+      <article>
+        <h2>
+          GDSC Links API
+        </h2>
+        <!-- Partition this section -->
+        <p>
+          The purpose of this
+          <a href="https://en.wikipedia.org/wiki/API" style="color:#E3366cc;" rel="noopener noreferrer">
+            API
+          </a>
+          &nbsp;is to provide a way for any GDSC <!-- Finish this later -->.
+          This api returns 2 json objects,
+          &nbsp;<strong>'past-events'</strong> (found in <i>"https://{domain}/api/past-events"</i>) and
+          <strong>'upcoming-events'</strong> (found in "https://{domain}/api/upcoming-events"). The 'past-events' object
+          contains an array of objects, each object containing the following properties: 'title', 'date', 'time',
+          'location', 'description', 'link', and 'image'. The 'upcoming-events' object contains an array of objects,
+          each object containing the following properties: 'title', 'date', 'time', 'location', 'description', 'link',
+          and 'image'. The 'image' property is a url to the image of the event. The 'link' property is a url to the
+          event page. The 'date' property is a string of the date of the event. The 'time' property is a string of the
+          time of the event. The 'location' property is a string of the location of the event. The 'description'
+          property is a string of the description of the event. The 'title' property is a string of the title of the
+          event.
+        </p>
+        <details>
+          
+        </details>
+        <details>
+
+        </details>
+        <details>
+
+        </details>
+        <!-- Add to this if you want -->
+      </article>
+    </section>
+    <aside>
+      This is a test
+    </aside>
+  </main>
+  <footer>
+    <article>
+      <p>© <span id="year"></span> GDSC Farmingdale</p>
+      <p>Created by <a href="https://github.com/GDSC-FSC/">
+          GDSC - FSC
+        </a>
+      </p>
+    </article>
+  </footer>
+  <script src="https://kit.fontawesome.com/a93e9f2175.js" crossorigin="anonymous"></script>
+
+  <!-- Footer script -->
+  <script>
+    const today = new Date();
+    const year = today.getFullYear();
+    document.getElementById("year").innerHTML = year;
+  </script>
+</body>
+
+</html>

@@ -3,5 +3,6 @@ services:
     portfolio:
         ports:
             - 3000:3000
+        # Change this 🌟
         container_name: portfolio-container
         image: ghcr.io/worker/portfolio:main

@@ -1,12 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-type Events = {
-    title: string | null;
-    thumbnailLink: string | null;
-    detailsLink: string | null;
-};
-
 export const saveEventsToFile = (events: Events[], filePath: string) => {
   const filteredEvents = events.filter(
     (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null
