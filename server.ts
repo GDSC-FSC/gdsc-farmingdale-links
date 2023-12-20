@@ -4,6 +4,8 @@ import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import express from 'express';
 import server from './server/app.ts';
+import { scrapeEvents, scrapePastEvents } from './server/controllers/scraper.ts';
+import { saveEventsToFile } from './server/controllers/fileHandler.ts';
 
 const __dirname: string = path.dirname(fileURLToPath(import.meta.url));
 const isTest = process.env.VITEST;
@@ -40,7 +42,6 @@ const createServer = async () => {
     }
 
     if (isProd) {
-        // @ts-expect-error - no types
         app.use((await import('compression')).default())
 
         app.use(
@@ -51,7 +52,7 @@ const createServer = async () => {
     }
 
     // api routes
-    app.use('/api', server)
+    app.use('/api', server.router)
 
     app.use('*', async (req, res) => {
         try {
@@ -90,6 +91,28 @@ const createServer = async () => {
             res.status(500).end(e.stack)
         }
     })
+
+    setInterval(async () => {
+        console.log('Weekly scrape started...');
+
+        const currentEvents = await scrapeEvents();
+        const pastEvents = await scrapePastEvents();
+
+        saveEventsToFile(currentEvents, '/data/upcoming-events.json');
+        saveEventsToFile(pastEvents, '/data/past-events.json');
+
+        console.log('Weekly scrape complete!');
+    }, 24 * 60 * 60 * 1000);
+
+    console.log('Initial scrape started...');
+
+    const initialUpcomingEvents = await scrapeEvents();
+    const initialPastEvents = await scrapePastEvents();
+    
+    saveEventsToFile(initialUpcomingEvents, './server/data/upcoming-events.json');
+    saveEventsToFile(initialPastEvents, './server/data/past-events.json');
+
+        console.log('Initial scrape complete!');
 
     return { app, vite }
 }

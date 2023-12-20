@@ -1,18 +1,26 @@
 import fs from 'fs';
 import path from 'path';
 
-export const saveEventsToFile = (events: Events[], filePath: string) => {
-  const filteredEvents = events.filter(
-    (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null
-  );
+const __dirname = path.resolve();
 
-  const outputPath = path.resolve(__dirname, filePath);
-  fs.writeFileSync(outputPath, JSON.stringify(filteredEvents, null, 2));
+export const saveEventsToFile = (events: Events[], filePath: string) => {
+  try {
+    const filteredEvents = events.filter(
+      (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null
+    );
+
+    const outputPath = path.resolve(__dirname, filePath); 
+
+    fs.writeFileSync(outputPath, JSON.stringify(filteredEvents, null, 2));
+  } catch (error) {
+    console.error(`An error occurred while saving events to the file: ${filePath}`, error);
+    throw error;
+  }
 };
 
 export const readEventsFromFile = (filePath: string) => {
   try {
-    const data = fs.readFileSync(path.resolve(__dirname, filePath), 'utf-8');
+    const data = fs.readFileSync(path.resolve(__dirname, 'server', 'data', filePath), 'utf-8');
     return JSON.parse(data);
   } catch (error) {
     console.error(`An error occurred reading the ${filePath} file:`, error);
