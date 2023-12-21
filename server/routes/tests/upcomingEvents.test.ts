@@ -1,2 +1,2 @@
-import request from "supertest";
-import server from "../../server";
+import { describe, test, expect } from "vitest";
+import server from "../../app";

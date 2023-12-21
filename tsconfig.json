@@ -23,6 +23,9 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "target": "ES2017",
+    "types": [
+      "vitest/globals"
+    ],
     "paths": {
       "@/*": ["src/*"],
       "#/*": ["server/*"]
