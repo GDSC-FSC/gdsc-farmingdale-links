@@ -1,29 +1,35 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-export const saveEventsToFile = (events: Events[], filePath: string) => {
+const dataDirectory = path.join(__dirname, '..', '..', 'server');
+
+export const saveEventsToFile = (events: Events[], filename: string) => {
   try {
     const filteredEvents = events.filter(
       (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null
     );
 
-    const outputPath = path.resolve(__dirname, filePath); 
+    const outputPath = path.join(dataDirectory, filename);
 
     fs.writeFileSync(outputPath, JSON.stringify(filteredEvents, null, 2));
   } catch (error) {
-    console.error(`An error occurred while saving events to the file: ${filePath}`, error);
+    console.error(`An error occurred while saving events to the file: ${filename}`, error);
     throw error;
   }
 };
 
-export const readEventsFromFile = (filePath: string) => {
+export const readEventsFromFile = (filename: string) => {
   try {
-    const data = fs.readFileSync(path.resolve(__dirname, 'server', 'data', filePath), 'utf-8');
+    const filePath = path.join(dataDirectory, filename);
+
+    const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
-    console.error(`An error occurred reading the ${filePath} file:`, error);
+    console.error(`An error occurred reading the ${filename} file:`, error);
     throw error;
   }
 };
