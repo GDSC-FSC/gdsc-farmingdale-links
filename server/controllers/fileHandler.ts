@@ -9,7 +9,7 @@ export const saveEventsToFile = (events: Events[], filePath: string) => {
       (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null
     );
 
-    const outputPath = path.resolve(__dirname, filePath); 
+    const outputPath = path.resolve(__dirname,  filePath); 
 
     fs.writeFileSync(outputPath, JSON.stringify(filteredEvents, null, 2));
   } catch (error) {
