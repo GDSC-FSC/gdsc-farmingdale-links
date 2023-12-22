@@ -28,4 +28,5 @@ dev-dist/
 
 .env
 .env.local
+vite.config.ts.timestamp*
 reminders.txt
