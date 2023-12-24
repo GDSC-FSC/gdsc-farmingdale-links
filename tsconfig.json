@@ -35,7 +35,7 @@
     "src/**/*",
     "types/*",
     "node_modules/vite/types/*"
-, "server/app.ts", "vite.config.ts", "custom.d.ts", "src/components/effects/FadeIn.js", "../server/types/server.ts"  ],
+, "server/**/*", "vite.config.ts", "custom.d.ts", "src/components/effects/FadeIn.js" ],
   "exclude": [
     "node_modules",
     "dist"

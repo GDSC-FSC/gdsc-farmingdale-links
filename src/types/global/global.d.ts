@@ -32,3 +32,8 @@ interface CustomButtonProps {
   share: boolean
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+interface ApiJsonResponse<T> {
+    status: number;
+    response?: T;
+}
