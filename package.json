@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Mike Odnis",
   "scripts": {
+    "setup": "husky install",
     "dev": "nodemon --watch server --watch server.ts --exec tsx server.ts",
     "build": "npm run clean && npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/app/client",
@@ -68,6 +69,8 @@
     "express": "~4.18.2",
     "firebase": "^10.7.1",
     "framer-motion": "^10.16.16",
+    "jotai": "^2.6.0",
+    "jotai-effect": "^0.2.3",
     "lucide-react": "^0.299.0",
     "million": "^2.6.4",
     "nodemon": "^3.0.2",

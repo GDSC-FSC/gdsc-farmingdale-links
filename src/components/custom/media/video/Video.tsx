@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react'
 
 import { Props as MediaProps } from '@/types/frontend/custom-component';
 
+// TODO: use emotion instead of scss
 import classes from './index.module.scss'
 
 export const Video: React.FC<MediaProps> = props => {

@@ -3,7 +3,10 @@ import { ThemeProvider, Events } from '../components/providers'
 const Providers: FC = ({children}: PropsWithChildren) => {
   return (
     <>
-      <ThemeProvider>
+      <ThemeProvider
+        defaultTheme={`system`}
+        storageKey="vite-ui-theme"
+      >
         <Events>
           {children}
         </Events>

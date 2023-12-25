@@ -6,36 +6,17 @@ import { ThemeProvider } from '@/components/providers/theme/theme-provider';
 
 const name = 'GDSC Farmingdale';
 
-type Event = {
-    title: string;
-    thumbnailLink: string;
-    detailsLink: string;
-};
-
 export default function App() {
-    const [pastEvents, setPastEvents] = useState<Event[]>([]);
-    const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+    const [pastEvents, setPastEvents] = useState<Events[]>([]);
+    const [upcomingEvents, setUpcomingEvents] = useState<Events[]>([]);
     useEffect(() => {
-
         async function fetchPastEvents() {
             try {
-                // The forward slash might be a problem
-                console.log(import.meta.env.BASE_URL)
-                const response = await fetch(`${import.meta.env.BASE_URL}/api/past-events`);
-                const data = await response.json();
-                console.log('Fetched data:', data);
-
-                // Just want the json payload
-                // const updatedData = data.map((event: Event) => {
-                //     return {
-                //         ...event,
-                //         detailsLink: BASE_URL + event.detailsLink,
-                //         thumbnailLink: BASE_URL + event.thumbnailLink,
-                //     };
-                // });
-
-                // setPastEvents(updatedData);
-                setPastEvents(data);
+                fetch(`${import.meta.env.BASE_URL}/api/past-events`)
+                    .then((response) => {response.json()
+                    .then((data) => {
+                        setPastEvents(data);
+                })});
             } catch (error) {
                 console.error('Failed to fetch past events:', error);
             }
@@ -43,20 +24,21 @@ export default function App() {
 
         async function fetchUpcomingEvents() {
             try {
-                console.log(import.meta.env.BASE_URL)
-                const response = await fetch(`${import.meta.env.BASE_URL}/api/upcoming-events`);
-                const data = await response.json();
-                console.log('Fetched data:', data);
-                setUpcomingEvents(data);
+                fetch(`${import.meta.env.BASE_URL}/api/upcoming-events`)
+                    .then((response) => {
+                        response.json()
+                        .then((data) => {
+                            setUpcomingEvents(data);
+                        })
+                    });
             } catch (error) {
                 console.error('Failed to fetch past events:', error);
             }
         }
-
         fetchPastEvents();
         fetchUpcomingEvents();
-    }, []);
-
+    }, []);    
+    const events = [...pastEvents, ...upcomingEvents];
 
     const handleMouseMove = (e: { clientX: number; clientY: number }) => {
         const cards = document.getElementsByClassName('card');
@@ -130,10 +112,6 @@ export default function App() {
         );
     };
     return (
-        <ThemeProvider
-            defaultTheme={`system`}
-            storageKey="vite-ui-theme"
-        >
             <React.Fragment>
                 <section
                     id={`card`}
@@ -143,6 +121,5 @@ export default function App() {
                     <NavigationContainer/>
                 </section>
             </React.Fragment>
-        </ThemeProvider>
     );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,8 +8,15 @@ const __dirname = path.dirname(__filename);
 
 const dataDirectory = path.join(__dirname, '..', '..', 'server');
 
-export const saveEventsToFile = (events: Events[], filename: string) => {
+export const saveEventsToFile = async (events: Events[], filename: string) => {
   try {
+    try {
+      await fs.promises.mkdir(dataDirectory);
+    } catch (mkdirError: any) {
+      if (mkdirError.code !== 'EEXIST') {
+        throw mkdirError;
+      }
+    }
     const filteredEvents = events.filter(
       (event) => event.title !== null && event.thumbnailLink !== null && event.detailsLink !== null
     );
@@ -22,8 +30,15 @@ export const saveEventsToFile = (events: Events[], filename: string) => {
   }
 };
 
-export const readEventsFromFile = (filename: string) => {
+export const readEventsFromFile = async (filename: string) => {
   try {
+    try {
+      await fs.promises.mkdir(dataDirectory);
+    } catch (mkdirError: any) {
+      if (mkdirError.code !== 'EEXIST') {
+        throw mkdirError;
+      }
+    }
     const filePath = path.join(dataDirectory, filename);
 
     const data = fs.readFileSync(filePath, 'utf-8');

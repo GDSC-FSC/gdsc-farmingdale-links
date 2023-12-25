@@ -24,7 +24,8 @@
     "sourceMap": true,
     "target": "ES2017",
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "vite/client"
     ],
     "paths": {
       "@/*": ["src/*"],
@@ -35,7 +36,7 @@
     "src/**/*",
     "types/*",
     "node_modules/vite/types/*"
-, "server/**/*", "vite.config.ts", "custom.d.ts", "src/components/effects/FadeIn.js" ],
+, "server/**/*", "vite.config.ts", "custom.d.ts", ],
   "exclude": [
     "node_modules",
     "dist"
