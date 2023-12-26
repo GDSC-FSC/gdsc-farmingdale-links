@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import { AnimatePresence } from "framer-motion"
@@ -17,7 +17,10 @@ export const RootLayout = ({children}: {children: React.ReactNode}) =>  {
   )
 }
 
-ReactDOM.createRoot(document.getElementById('root')! as HTMLElement).render(
+const container = document.getElementById('root')! as HTMLElement
+const root = createRoot(container)
+
+root.render(
   <React.StrictMode>
     <NextUIProvider>
       <AnimatePresence>
@@ -29,6 +32,6 @@ ReactDOM.createRoot(document.getElementById('root')! as HTMLElement).render(
       </AnimatePresence>
     </NextUIProvider>
   </React.StrictMode>,
-);
+)
 
 reportWebVitals()

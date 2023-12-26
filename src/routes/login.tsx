@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import { Container, ContainerProps, Typography } from "@mui/joy";
 import { LoginButton } from "../components";
 

@@ -1,5 +1,6 @@
 import { PropsWithChildren, cloneElement, isValidElement, DetailedReactHTMLElement, ImgHTMLAttributes, FC, Children } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const LazyImageWrapper: FC<PropsWithChildren<any>> = (props) => {
   const { children } = props;
   const cloneChildren = Children.map(children, (child) => {

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { navLinks } from '@/utils';
 import { Icons } from '@/components/icons/icons';
 import { Button } from '@/components/dom/index';
-import { ThemeProvider } from '@/components/providers/theme/theme-provider';
 
 const name = 'GDSC Farmingdale';
 
@@ -10,19 +9,21 @@ export default function App() {
     const [pastEvents, setPastEvents] = useState<Events[]>([]);
     const [upcomingEvents, setUpcomingEvents] = useState<Events[]>([]);
     useEffect(() => {
-        async function fetchPastEvents() {
+        async function fetchPastEvents(): Promise<void> {
             try {
                 fetch(`${import.meta.env.BASE_URL}/api/past-events`)
-                    .then((response) => {response.json()
-                    .then((data) => {
-                        setPastEvents(data);
-                })});
+                    .then((response) => {
+                        response.json()
+                        .then((data) => {
+                            setPastEvents(data);
+                        })
+                    });
             } catch (error) {
                 console.error('Failed to fetch past events:', error);
             }
         }
 
-        async function fetchUpcomingEvents() {
+        async function fetchUpcomingEvents(): Promise<void> {
             try {
                 fetch(`${import.meta.env.BASE_URL}/api/upcoming-events`)
                     .then((response) => {
@@ -32,7 +33,7 @@ export default function App() {
                         })
                     });
             } catch (error) {
-                console.error('Failed to fetch past events:', error);
+                console.error('Failed to fetch upcoming events:', error);
             }
         }
         fetchPastEvents();

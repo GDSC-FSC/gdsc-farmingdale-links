@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import { createStore, Provider } from "jotai";
 import { createElement, ReactNode } from "react";
 
