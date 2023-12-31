@@ -7,7 +7,7 @@
   "author": "Mike Odnis",
   "scripts": {
     "dev": "nodemon --watch server --watch server.ts --exec tsx server.ts",
-    "buil%d": "npm run clean && npm run build:client && npm run build:server",
+    "build": "npm run clean && npm run build:client && npm run build:server",
     "build:client": "vite build --outDir dist/app/client",
     "build:server": "tsc -p tsconfig.server.json && vite build --ssr src/entry-server.tsx --outDir dist/entry",
     "clean": "rimraf dist",
