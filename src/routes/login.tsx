@@ -1,5 +1,5 @@
 import { Container, ContainerProps, Typography } from "@mui/joy";
-import { LoginButton } from "../components";
+import { LoginButton } from "@/src/components";
 
 export const Component = function Login(): JSX.Element {
   return (

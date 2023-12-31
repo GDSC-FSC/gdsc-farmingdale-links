@@ -7,11 +7,11 @@ import {
   PopoverContent,
   PopoverTrigger,
   PopoverClose,
-} from "@/components/ui/popover";
+} from "@/src/components/ui/popover";
+
 import { useContext, ElementRef, useRef } from "react";
-import { UserContext } from "@/contexts/UserContext";
-import { Button } from "@/components/ui/button";
-import { AuthItems, NavItems } from "@/components/NavItems";
+import { Button } from "@/src/components/ui/button";
+import { AuthItems, NavItems } from "@/src/components/NavItems";
 
 export const CustomPopover = ({
   children,
@@ -19,7 +19,6 @@ export const CustomPopover = ({
   align,
   sideOffset = 0,
 }: PopoverProps) => {
-  const { user } = useContext(UserContext);
   const closeRef = useRef<ElementRef<"button">>(null);
   return (
     <Popover>

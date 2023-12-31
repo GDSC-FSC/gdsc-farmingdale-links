@@ -1,5 +1,5 @@
 import { Container, Link, Typography } from "@mui/joy";
-import { usePageEffect } from "../core/page";
+import { usePageEffect } from "@/src/core/page";
 
 const appName = import.meta.env.VITE_APP_NAME;
 const appOrigin = import.meta.env.VITE_APP_ORIGIN;

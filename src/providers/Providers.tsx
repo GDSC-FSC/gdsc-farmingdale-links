@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
-import { ThemeProvider, Events } from '../components/providers'
-const Providers: FC = ({children}: PropsWithChildren) => {
+import { ThemeProvider, Events } from '@/src/components/providers'
+const Providers: FC = ({ children }: PropsWithChildren) => {
   return (
     <>
       <ThemeProvider

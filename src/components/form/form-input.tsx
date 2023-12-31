@@ -3,10 +3,10 @@
 import { forwardRef } from "react";
 import { useFormStatus } from "react-dom";
 
-import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Div } from "@/components/template/index";
+import { cn } from "@/src/lib/utils";
+import { Label } from "@/src/components/ui/label";
+import { Input } from "@/src/components/ui/input";
+import { Div } from "@/src/components/template/index";
 
 import { FormErrors } from "./form-errors";
 
@@ -41,7 +41,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
     <Div className="space-y-2">
       <Div className="space-y-1">
         {label ? (
-          <Label 
+          <Label
             htmlFor={id}
             className="text-xs font-semibold text-neutral-700"
           >

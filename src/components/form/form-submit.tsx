@@ -2,8 +2,8 @@
 
 import { useFormStatus } from "react-dom";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/src/lib/utils";
+import { Button } from "@/src/components/ui/button";
 
 export const FormSubmit = ({
   children,

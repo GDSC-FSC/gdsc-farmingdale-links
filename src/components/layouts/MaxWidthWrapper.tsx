@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/src/lib/utils'
 import { ReactNode } from 'react'
-import { Div } from '@/templates/index'
+import { Div } from '@/src/templates/index'
 
 const MaxWidthWrapper = ({
   className,

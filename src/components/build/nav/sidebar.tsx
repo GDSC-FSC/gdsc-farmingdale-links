@@ -2,9 +2,9 @@
 
 import { useLocalStorage } from "usehooks-ts";
 
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Accordion } from "@/components/ui/accordion";
+import { Button } from "@/src/components/ui/button";
+import { Separator } from "@/src/components/ui/separator";
+import { Accordion } from "@/src/components/ui/accordion";
 
 import { NavItem } from "./nav-item";
 
@@ -28,7 +28,7 @@ export const Sidebar = ({
       }
 
       return acc;
-  }, []);
+    }, []);
 
   const onExpand = (id: string) => {
     setExpanded((curr) => ({
@@ -45,7 +45,7 @@ export const Sidebar = ({
         className="space-y-2"
       >
         <>
-        {/*  */}
+          {/*  */}
           <NavItem
             key={user.id}
             isActive={true}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { navLinks } from '@/utils';
-import { Icons } from '@/components/icons/icons';
-import { Button } from '@/components/dom/index';
+import { navLinks } from '@/src//utils';
+import { Icons } from '@/src//components/icons/icons';
+import { Button } from '@/src//components/dom/index';
 
 const name = 'GDSC Farmingdale';
 
@@ -14,9 +14,9 @@ export default function App() {
                 fetch(`${import.meta.env.BASE_URL}/api/past-events`)
                     .then((response) => {
                         response.json()
-                        .then((data) => {
-                            setPastEvents(data);
-                        })
+                            .then((data) => {
+                                setPastEvents(data);
+                            })
                     });
             } catch (error) {
                 console.error('Failed to fetch past events:', error);
@@ -28,9 +28,9 @@ export default function App() {
                 fetch(`${import.meta.env.BASE_URL}/api/upcoming-events`)
                     .then((response) => {
                         response.json()
-                        .then((data) => {
-                            setUpcomingEvents(data);
-                        })
+                            .then((data) => {
+                                setUpcomingEvents(data);
+                            })
                     });
             } catch (error) {
                 console.error('Failed to fetch upcoming events:', error);
@@ -38,7 +38,7 @@ export default function App() {
         }
         fetchPastEvents();
         fetchUpcomingEvents();
-    }, []);    
+    }, []);
     const events = [...pastEvents, ...upcomingEvents];
 
     const handleMouseMove = (e: { clientX: number; clientY: number }) => {
@@ -78,14 +78,14 @@ export default function App() {
                 </div>
             );
         };
-    
+
         return (
             <div className="flex flex-col items-center justify-center w-[90%]">
                 <h3 className="mb-3">Events</h3>
                 <Icons.logo props={{
-                    
-                }}/>
-                <Buttons/>
+
+                }} />
+                <Buttons />
             </div>
         );
     };
@@ -96,31 +96,31 @@ export default function App() {
                     {navLinks.map((item) => {
                         return (
                             <a key={item.name} className="rounded-lg " href={item.path} target="_blank">
-                                {item.icon && <item.icon/>}
+                                {item.icon && <item.icon />}
                             </a>
                         );
                     })}
                 </div>
             );
         };
-    
+
         return (
             <header className="flex flex-col items-center justify-center gap-2">
-                <GDSCIcon className={``}/>
+                <GDSCIcon className={``} />
                 <h1 className="text-sm font-bold">{name}</h1>
-                <Links/>
+                <Links />
             </header>
         );
     };
     return (
-            <React.Fragment>
-                <section
-                    id={`card`}
-                    onMouseMove={handleMouseMove}
-                    className="rounded-md shadow-md w-[300px] mt-[50px] mb-[50px] h-[80vh] justify-around items-center flex flex-col light:glass-card border-2">
-                    <Header/>
-                    <NavigationContainer/>
-                </section>
-            </React.Fragment>
+        <React.Fragment>
+            <section
+                id={`card`}
+                onMouseMove={handleMouseMove}
+                className="rounded-md shadow-md w-[300px] mt-[50px] mb-[50px] h-[80vh] justify-around items-center flex flex-col light:glass-card border-2">
+                <Header />
+                <NavigationContainer />
+            </section>
+        </React.Fragment>
     );
 }

@@ -28,8 +28,7 @@
       "vite/client"
     ],
     "paths": {
-      "@/*": ["src/*"],
-      "#/*": ["server/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [

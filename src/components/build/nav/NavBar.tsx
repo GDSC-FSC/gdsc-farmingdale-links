@@ -1,11 +1,11 @@
 "use client"
 
-import { Logo } from "@/components/logo";
-import { CustomPopover } from "@/components/custom/Popover";
-import { Nav, Div } from "../template/index";
+import { Logo } from "@/src/components/logo";
+import { CustomPopover } from "@/src/components/custom/Popover";
+import { Nav, Div } from "@/src/template/index";
 import { MobileSidebar } from "./mobile-sidebar";
-import { ModeToggle } from "../custom/ThemeButton";
-import { Hint } from "../../custom/Hint";
+import { ModeToggle } from "@/src/custom/ThemeButton";
+import { Hint } from "@/src/@/src/custom/Hint";
 
 export const Navbar = () => {
   const { user } = useContext(UserContext);

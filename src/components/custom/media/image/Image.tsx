@@ -2,11 +2,11 @@
 
 import React from 'react'
 
-import { Props as MediaProps, StaticImageData } from '@/types/frontend/custom-component'
+import { Props as MediaProps, StaticImageData } from '@/src/types/frontend/custom-component'
 import { Image } from '@nextui-org/react'
 // TODO: use emotion instead of scss
 import classes from './index.module.scss'
-import { cssVariables } from '@/styles/cssVariables'
+import { cssVariables } from '@/src/styles/cssVariables'
 
 const { breakpoints } = cssVariables
 

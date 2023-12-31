@@ -1,7 +1,7 @@
 import React from 'react';
-import { MotionPicture } from '../constants/Motion';
-import { SemanticProps } from '../../types/frontend/semantic-props';
-import { cn } from '../../lib/utils';
+import { MotionPicture } from '@/src/components/constants/Motion';
+import { SemanticProps } from '@/src/types/frontend/semantic-props';
+import { cn } from '@/src/lib/utils';
 
 export const Picture = ({ framer, framerProps, attributes, key, style, className, children }: SemanticProps) => {
   type SectionMotionProps = typeof MotionPicture extends React.FC<infer P> ? P : never;
