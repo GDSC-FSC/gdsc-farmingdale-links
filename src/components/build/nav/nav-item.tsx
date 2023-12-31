@@ -1,22 +1,22 @@
 "use client";
 
-// 
-import { useRouter, usePathname } from "next/navigation";
 import {
   Home,
   Layout,
   Settings,
 } from "lucide-react";
-import { Div } from "../template/index";
-import { cn } from "@/lib/utils";
-import { 
+
+import { Div } from "@/src/components/templates/index";
+import { cn } from "@/src/lib/utils";
+import {
   AccordionContent,
-  AccordionItem, 
+  AccordionItem,
   AccordionTrigger
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
-import { NavItems } from "@/components/NavItems";
+} from "@/src/components/ui/accordion";
+
+import { Button } from "@/src/components/ui/button";
+import { Skeleton } from "@/src/components/ui/skeleton";
+import { NavItems } from "@/src/components/build/nav/nav-item";
 
 interface NavItemProps {
   isExpanded: boolean;

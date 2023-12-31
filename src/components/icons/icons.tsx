@@ -1,4 +1,4 @@
-import { cn } from "../../lib/utils"
+import { cn } from "@/src/@/src/lib/utils"
 import { Github } from 'lucide-react';
 import {
   GlobeIcon,
@@ -11,45 +11,45 @@ import {
 } from "./components"
 
 export const Icons: IconsProps = {
-  logo: ({className, props} : LucideIconWrapperProps ) => (
+  logo: ({ className, props }: LucideIconWrapperProps) => (
     <>
       <Logo className={cn('', className)} {...props} />
     </>
   ),
-  closeFilled: ({className, props} : LucideIconWrapperProps) => (
+  closeFilled: ({ className, props }: LucideIconWrapperProps) => (
     <>
-      <CloseFilledIcon className={cn('',className)} {...props} />
+      <CloseFilledIcon className={cn('', className)} {...props} />
     </>
   ),
-  search: ({className, props} : LucideIconWrapperProps) => (
+  search: ({ className, props }: LucideIconWrapperProps) => (
     <>
-      <SearchIcon className={cn('',className)} {...props} />
+      <SearchIcon className={cn('', className)} {...props} />
     </>
   ),
   webIcons: {
-    instagram: ({className, props} : LucideIconWrapperProps) => (
+    instagram: ({ className, props }: LucideIconWrapperProps) => (
       <>
-        <InstagramIcon className={cn('',className)} {...props} />
+        <InstagramIcon className={cn('', className)} {...props} />
       </>
     ),
-    globe: ({className, props} : LucideIconWrapperProps) => (
+    globe: ({ className, props }: LucideIconWrapperProps) => (
       <>
-        <GlobeIcon className={cn('',className)} {...props} />
+        <GlobeIcon className={cn('', className)} {...props} />
       </>
     ),
-    share: ({className, props} : LucideIconWrapperProps) => (
+    share: ({ className, props }: LucideIconWrapperProps) => (
       <>
-        <ShareIcon className={cn('',className)} {...props} />
+        <ShareIcon className={cn('', className)} {...props} />
       </>
     ),
-    gitHub: ({className, props} : LucideIconWrapperProps) => (
+    gitHub: ({ className, props }: LucideIconWrapperProps) => (
       <>
-        <Github className={cn('',className)} {...props} />
+        <Github className={cn('', className)} {...props} />
       </>
     ),
-    gdsc: ({className, props} : LucideIconWrapperProps) => (
+    gdsc: ({ className, props }: LucideIconWrapperProps) => (
       <>
-        <GDSCIcon className={cn('',className)} {...props} />
+        <GDSCIcon className={cn('', className)} {...props} />
       </>
     ),
   }

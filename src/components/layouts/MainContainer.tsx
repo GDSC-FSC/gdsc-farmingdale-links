@@ -1,4 +1,4 @@
-import { cn } from '../../lib/utils'
+import { cn } from '@/src/@/src/lib/utils'
 import { ReactNode } from 'react'
 
 const MaxWidthWrapper = ({
@@ -7,7 +7,7 @@ const MaxWidthWrapper = ({
 }: {
   className?: string
   children: ReactNode
-}) => {
+}): JSX.Element => {
   return (
     <div
       className={cn(

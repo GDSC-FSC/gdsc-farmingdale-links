@@ -1,7 +1,7 @@
 import React, { ElementType, Fragment } from 'react'
 
 import { CustomImage as Image } from './image/Image'
-import { Props } from '@/types/frontend/custom-component'
+import { Props } from '@/src/types/frontend/custom-component'
 import { Video } from './video/Video'
 
 export const Media: React.FC<Props> = props => {
@@ -14,8 +14,8 @@ export const Media: React.FC<Props> = props => {
     <Tag
       {...(htmlElement !== null
         ? {
-            className,
-          }
+          className,
+        }
         : {})}
     >
       {isVideo ? <Video {...props} /> : <Image {...props} />}

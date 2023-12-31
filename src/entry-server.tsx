@@ -1,6 +1,6 @@
 import ReactDomServer from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom/server'
-import App from '@/app/App';
+import App from '@/src//app/App';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
 const render = (url: string, _context: any) => {

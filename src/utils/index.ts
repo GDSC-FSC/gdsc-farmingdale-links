@@ -1,6 +1,6 @@
-import { Icons } from '@/components/icons/icons'
+import { Icons } from '@/src/components/icons/icons'
 import { toast } from 'sonner';
-// import { sendEmail } from '@/lib/send-emails';
+// import { sendEmail } from '@/src/lib/send-emails';
 
 export const navLinks: Link[] = [
   {

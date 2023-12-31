@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import { Main, Section, Article, Menu } from '../templates/index';
+import { Main, Section, Article, Menu } from '@/src/templates/index';
 import { Button } from '@nextui-org/react';
 
 export default function NotFound() {

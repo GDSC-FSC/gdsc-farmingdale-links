@@ -1,62 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import { navLinks } from '@/utils';
-import { Icons } from '@/components/icons/icons';
-import { Button } from '@/components/dom/index';
-import { ThemeProvider } from '@/components/providers/theme/theme-provider';
+import { navLinks } from '@/src//utils';
+import { Icons } from '@/src//components/icons/icons';
+import { Button } from '@/src//components/dom/index';
 
 const name = 'GDSC Farmingdale';
 
-type Event = {
-    title: string;
-    thumbnailLink: string;
-    detailsLink: string;
-};
-
 export default function App() {
-    const [pastEvents, setPastEvents] = useState<Event[]>([]);
-    const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
+    const [pastEvents, setPastEvents] = useState<Events[]>([]);
+    const [upcomingEvents, setUpcomingEvents] = useState<Events[]>([]);
     useEffect(() => {
-
-        async function fetchPastEvents() {
+        async function fetchPastEvents(): Promise<void> {
             try {
-                // The forward slash might be a problem
-                console.log(import.meta.env.BASE_URL)
-                const response = await fetch(`${import.meta.env.BASE_URL}/api/past-events`);
-                const data = await response.json();
-                console.log('Fetched data:', data);
-
-                // Just want the json payload
-                // const updatedData = data.map((event: Event) => {
-                //     return {
-                //         ...event,
-                //         detailsLink: BASE_URL + event.detailsLink,
-                //         thumbnailLink: BASE_URL + event.thumbnailLink,
-                //     };
-                // });
-
-                // setPastEvents(updatedData);
-                setPastEvents(data);
+                fetch(`${import.meta.env.BASE_URL}/api/past-events`)
+                    .then((response) => {
+                        response.json()
+                            .then((data) => {
+                                setPastEvents(data);
+                            })
+                    });
             } catch (error) {
                 console.error('Failed to fetch past events:', error);
             }
         }
 
-        async function fetchUpcomingEvents() {
+        async function fetchUpcomingEvents(): Promise<void> {
             try {
-                console.log(import.meta.env.BASE_URL)
-                const response = await fetch(`${import.meta.env.BASE_URL}/api/upcoming-events`);
-                const data = await response.json();
-                console.log('Fetched data:', data);
-                setUpcomingEvents(data);
+                fetch(`${import.meta.env.BASE_URL}/api/upcoming-events`)
+                    .then((response) => {
+                        response.json()
+                            .then((data) => {
+                                setUpcomingEvents(data);
+                            })
+                    });
             } catch (error) {
-                console.error('Failed to fetch past events:', error);
+                console.error('Failed to fetch upcoming events:', error);
             }
         }
-
         fetchPastEvents();
         fetchUpcomingEvents();
     }, []);
-
+    const events = [...pastEvents, ...upcomingEvents];
 
     const handleMouseMove = (e: { clientX: number; clientY: number }) => {
         const cards = document.getElementsByClassName('card');
@@ -95,14 +78,14 @@ export default function App() {
                 </div>
             );
         };
-    
+
         return (
             <div className="flex flex-col items-center justify-center w-[90%]">
                 <h3 className="mb-3">Events</h3>
                 <Icons.logo props={{
-                    
-                }}/>
-                <Buttons/>
+
+                }} />
+                <Buttons />
             </div>
         );
     };
@@ -113,36 +96,31 @@ export default function App() {
                     {navLinks.map((item) => {
                         return (
                             <a key={item.name} className="rounded-lg " href={item.path} target="_blank">
-                                {item.icon && <item.icon/>}
+                                {item.icon && <item.icon />}
                             </a>
                         );
                     })}
                 </div>
             );
         };
-    
+
         return (
             <header className="flex flex-col items-center justify-center gap-2">
-                <GDSCIcon className={``}/>
+                <GDSCIcon className={``} />
                 <h1 className="text-sm font-bold">{name}</h1>
-                <Links/>
+                <Links />
             </header>
         );
     };
     return (
-        <ThemeProvider
-            defaultTheme={`system`}
-            storageKey="vite-ui-theme"
-        >
-            <React.Fragment>
-                <section
-                    id={`card`}
-                    onMouseMove={handleMouseMove}
-                    className="rounded-md shadow-md w-[300px] mt-[50px] mb-[50px] h-[80vh] justify-around items-center flex flex-col light:glass-card border-2">
-                    <Header/>
-                    <NavigationContainer/>
-                </section>
-            </React.Fragment>
-        </ThemeProvider>
+        <React.Fragment>
+            <section
+                id={`card`}
+                onMouseMove={handleMouseMove}
+                className="rounded-md shadow-md w-[300px] mt-[50px] mb-[50px] h-[80vh] justify-around items-center flex flex-col light:glass-card border-2">
+                <Header />
+                <NavigationContainer />
+            </section>
+        </React.Fragment>
     );
 }
