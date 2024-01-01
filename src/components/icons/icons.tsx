@@ -1,4 +1,4 @@
-import { cn } from "@/src/@/src/lib/utils"
+import { cn } from "@/src/lib/utils"
 import { Github } from 'lucide-react';
 import {
   GlobeIcon,
@@ -11,43 +11,45 @@ import {
 } from "./components"
 
 export const Icons: IconsProps = {
-  logo: ({ className, props }: LucideIconWrapperProps) => (
+  logo: ({ className }: SVGIconProps) => (
     <>
-      <Logo className={cn('', className)} {...props} />
+      <Logo size={`0`} className={cn('', className)} props={{
+        
+      }} />
     </>
   ),
-  closeFilled: ({ className, props }: LucideIconWrapperProps) => (
+  closeFilled: ({ className, props }: SVGIconProps) => (
     <>
       <CloseFilledIcon className={cn('', className)} {...props} />
     </>
   ),
-  search: ({ className, props }: LucideIconWrapperProps) => (
+  search: ({ className, props }: SVGIconProps) => (
     <>
       <SearchIcon className={cn('', className)} {...props} />
     </>
   ),
   webIcons: {
-    instagram: ({ className, props }: LucideIconWrapperProps) => (
+    instagram: ({ className, props }: SVGIconProps) => (
       <>
         <InstagramIcon className={cn('', className)} {...props} />
       </>
     ),
-    globe: ({ className, props }: LucideIconWrapperProps) => (
+    globe: ({ className, props }: SVGIconProps) => (
       <>
         <GlobeIcon className={cn('', className)} {...props} />
       </>
     ),
-    share: ({ className, props }: LucideIconWrapperProps) => (
+    share: ({ className, props }: SVGIconProps) => (
       <>
         <ShareIcon className={cn('', className)} {...props} />
       </>
     ),
-    gitHub: ({ className, props }: LucideIconWrapperProps) => (
+    gitHub: ({ className, props }: SVGIconProps) => (
       <>
         <Github className={cn('', className)} {...props} />
       </>
     ),
-    gdsc: ({ className, props }: LucideIconWrapperProps) => (
+    gdsc: ({ className, props }: SVGIconProps) => (
       <>
         <GDSCIcon className={cn('', className)} {...props} />
       </>

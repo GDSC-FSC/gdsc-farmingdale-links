@@ -23,12 +23,10 @@ const publicEnvVars = [
 export default defineProject(async ({ mode }) => {
   const envDir = fileURLToPath(new URL("..", import.meta.url));
   const env = loadEnv(mode, envDir, "");
-
   publicEnvVars.forEach((key) => {
     if (!env[key]) throw new Error(`Missing environment variable: ${key}`);
     process.env[`VITE_${key}`] = env[key];
   });
-
   return {
     build: {
       rollupOptions: {
@@ -66,20 +64,7 @@ export default defineProject(async ({ mode }) => {
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      '#': path.resolve(__dirname, './server'),
+      '@': path.resolve(__dirname, './'),
     }
   }}
-  // This is for deploying?? 🌟
-  // build: {
-  //   outDir: './server/dist',
-  //   emptyOutDir: true
-  // },
-  // server: {
-  //   proxy: {
-  //     '/events': {
-  //       target: 'http://localhost:3000'
-  //     }
-  //   }
-  // }
 })

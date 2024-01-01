@@ -1,27 +1,38 @@
-type LucideIconWrapperProps = {
+const sizes = ["0","1","2","3","4","5","6","7","8","9","10","11","12","14","16","20","24","28","32","36","40","44","48","52","56","60","64","72","80","96"] as const;
+
+type TwSize<Dimension extends string> =
+  Dimension extends `size-${infer N}`
+  ? {
+    dimension: N;
+  }
+  : never;
+
+type SVGIconProps = {
   className?: string;
-  props: typeof LucideReact['LucideIcon'];
+  props: React.SVGProps<SVGSVGElement>;
+  size: `${typeof sizes[number]}` | '4';
 };
 
-type IconsParams = ({ className, props }: LucideIconWrapperProps) => JSX.Element;
+type SVGIconParams = ({ className, size, props }: SVGIconProps) => JSX.Element;
 
 type IconsProps = {
-  logo: IconsParams;
-  closeFilled: IconsParams;
-  search: IconsParams;
+  logo: SVGIconParams;
+  closeFilled: SVGIconParams;
+  search: SVGIconParams;
   webIcons: {
-    instagram: IconsParams;
-    globe: IconsParams;
-    share: IconsParams;
-    gitHub: IconsParams;
-    gdsc: IconsParams;
+    instagram: SVGIconParams;
+    globe: SVGIconParams;
+    share: SVGIconParams;
+    gitHub: SVGIconParams;
+    gdsc: SVGIconParams;
   };
 };
 
+
 type Link = {
-    name: string;
-    path: string;
-    icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  name: string;
+  path: string;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 interface CustomButtonProps {
   isDisabled?: boolean;
@@ -34,6 +45,6 @@ interface CustomButtonProps {
 }
 
 interface ApiJsonResponse<T> {
-    status: number;
-    response?: T;
+  status: number;
+  response?: T;
 }
