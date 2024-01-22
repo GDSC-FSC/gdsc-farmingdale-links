@@ -1,4 +1,4 @@
-import React, { ElementType, Fragment } from 'react'
+import { ElementType, Fragment } from 'react'
 
 import { CustomImage as Image } from './image/Image'
 import { Props } from '@/src/types/frontend/custom-component'

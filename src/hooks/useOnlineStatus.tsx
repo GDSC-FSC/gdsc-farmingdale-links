@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useOnlineStatus = () => {
+export const useOnlineStatus = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   const handleOnline = () => {
@@ -23,5 +23,3 @@ const useOnlineStatus = () => {
 
   return isOnline;
 };
-
-export default useOnlineStatus;

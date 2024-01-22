@@ -1,5 +1,5 @@
 import { XCircle } from "lucide-react";
-import { Div } from "@/src/template/index";
+import { Div } from "@/src/components/templates/index";
 
 interface FormErrorsProps {
   id: string;

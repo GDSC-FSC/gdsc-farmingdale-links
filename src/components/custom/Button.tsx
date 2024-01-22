@@ -1,7 +1,8 @@
 import { ShareIcon } from '@/src/components/icons/components';
-import { Button, Link } from '@nextui-org/react';
+import { Link } from '@nextui-org/react';
+import { Button } from '../ui/button';
 import { cn } from '@/src/lib/utils';
-import React, { ElementType } from 'react'
+import { ElementType } from 'react'
 import { CustomButtonProps } from '@/src/types/frontend/custom-component';
 
 const classes = {

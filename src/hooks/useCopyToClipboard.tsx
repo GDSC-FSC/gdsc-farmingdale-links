@@ -1,3 +1,4 @@
+import { Button } from '../components/ui/button';
 import { useCallback, useState } from 'react';
 // eslint-disable-next-line react-refresh/only-export-components
 export function useCopyToClipboard() {
@@ -19,8 +20,8 @@ export function useCopyToClipboard() {
 export function CopyToClipboard({ children }: { children: string }) {
   const { copied, copyToClipboard } = useCopyToClipboard();
   return (
-    <button onClick={() => copyToClipboard(children)}>
+    <Button onClick={() => copyToClipboard(children)}>
       {copied ? 'Copied' : 'Copy'}
-    </button>
+    </Button>
   );
 }

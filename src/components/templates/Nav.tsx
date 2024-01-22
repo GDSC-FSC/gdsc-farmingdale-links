@@ -1,9 +1,9 @@
-import React from 'react';
-import { MotionNav } from '@/src/components/constants/Motion';
+
+import { MotionNav } from '@/src/constants/Motion';
 import { SemanticProps } from '@/src/types/frontend/semantic-props';
 import { cn } from '@/src/lib/utils';
 
-export const Nav = ({ framer, children, className, style, framerProps, attributes, key }: SemanticProps) => {
+export const Nav: React.FC<Prettify<SemanticProps<'nav'>>> = ({ framer, children, className, style, framerProps, attributes, key }) => {
   type SectionMotionProps = typeof MotionNav extends React.FC<infer P> ? P : never;
   return (
     <>

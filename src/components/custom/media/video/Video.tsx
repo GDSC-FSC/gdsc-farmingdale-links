@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useEffect, useRef } from 'react'
 
 import { Props as MediaProps } from '@/src/types/frontend/custom-component';
@@ -37,7 +35,7 @@ export const Video: React.FC<MediaProps> = props => {
         onClick={onClick}
         ref={videoRef}
       >
-        <source src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${filename}`} />
+        <source src={`${import.meta.url}/assets/videos/${filename}`} />
       </video>
     )
   }

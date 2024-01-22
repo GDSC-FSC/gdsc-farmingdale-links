@@ -51,7 +51,6 @@ const createServer = async () => {
         )
     }
 
-    // api routes
     app.use('/api', server.router)
 
     app.use('*', async (req, res) => {
@@ -108,7 +107,7 @@ const createServer = async () => {
 
     const initialUpcomingEvents = await scrapeEvents();
     const initialPastEvents = await scrapePastEvents();
-    
+
     saveEventsToFile(initialUpcomingEvents, './data/upcoming-events.json');
     saveEventsToFile(initialPastEvents, './data/past-events.json');
 

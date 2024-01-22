@@ -9,7 +9,7 @@ import {
   PopoverClose,
 } from "@/src/components/ui/popover";
 
-import { useContext, ElementRef, useRef } from "react";
+import { ElementRef, useRef } from "react";
 import { Button } from "@/src/components/ui/button";
 import { AuthItems, NavItems } from "@/src/components/NavItems";
 

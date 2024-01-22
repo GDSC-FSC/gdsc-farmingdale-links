@@ -1,4 +1,3 @@
-import React, { PropsWithChildren } from 'react';
 import { HTMLMotionProps } from 'framer-motion';
 
 type Semantics =
@@ -13,10 +12,14 @@ type Semantics =
   | 'nav'
   | 'picture'
   | 'section';
-export interface SemanticProps extends PropsWithChildren {
+
+
+export interface SemanticProps<T extends Semantics> extends React.PropsWithChildren<React.HTMLProps<HTMLElement>> {
+  ref?: React.Ref<HTMLElement>;
   framer?: boolean;
-  framerProps?: HTMLMotionProps<Semantics>;
-  attributes?: React.HTMLAttributes<HTMLElement>;
+  element?: T;
+  framerProps?: HTMLMotionProps<T>;
+  attributes?: JSX.IntrinsicElements[T];
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;

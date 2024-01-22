@@ -1,13 +1,9 @@
-import { useLocation } from 'react-router-dom';
-import { Main, Section, Article, Menu } from '@/src/templates/index';
+import { useRouteError } from 'react-router-dom';
+import { Main, Section, Article, Menu } from '@/src/components/templates/index';
 import { Button } from '@nextui-org/react';
 
 export default function NotFound() {
-  const location = useLocation();
-  const { statusText, message } = (location.state as { statusText: string; message: string }) || {
-    statusText: '404',
-    message: 'The requested page could not be found.',
-  };
+  const err = useRouteError() as RouteError;
 
   return (
     <>
@@ -15,14 +11,14 @@ export default function NotFound() {
         <Section className={``}>
           <Article className={``}>
             <h1 className={``}>
-              <span>{statusText}</span>
+              <span>{err.status}</span>
               <i> - </i>
               <span>
-                <>Not Found</>
+                <>{err.name}</>
               </span>
             </h1>
             <p>
-              <b>{message}</b>
+              <b>{err.statusText}</b>
             </p>
           </Article>
           <Menu className={`flex  justify-around`}>
@@ -42,3 +38,5 @@ export default function NotFound() {
     </>
   );
 }
+
+type RouteError = Error & { status?: number; statusText?: string };

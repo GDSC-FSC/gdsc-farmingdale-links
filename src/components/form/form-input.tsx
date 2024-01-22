@@ -1,12 +1,12 @@
 "use client";
 
 import { forwardRef } from "react";
-import { useFormStatus } from "react-dom";
+import { useFormState } from "react-hook-form";
 
 import { cn } from "@/src/lib/utils";
 import { Label } from "@/src/components/ui/label";
 import { Input } from "@/src/components/ui/input";
-import { Div } from "@/src/components/template/index";
+import { Div } from "@/src/components/templates/index";
 
 import { FormErrors } from "./form-errors";
 
@@ -35,7 +35,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
   defaultValue = "",
   onBlur
 }, ref) => {
-  const { pending } = useFormStatus();
+  const { isLoading } = useFormState();
 
   return (
     <Div className="space-y-2">
@@ -57,7 +57,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
           id={id}
           placeholder={placeholder}
           type={type}
-          disabled={pending || disabled}
+          disabled={isLoading || disabled}
           className={cn(
             "text-sm px-2 py-1 h-7",
             className,

@@ -1,9 +1,9 @@
-import React from 'react';
-import { MotionFooter } from '@/src/components/constants/Motion';
+
+import { MotionFooter } from '@/src/constants/Motion';
 import { SemanticProps } from '@/src/types/frontend/semantic-props';
 import { cn } from '@/src/lib/utils';
 
-export const Footer = ({ framer, children, className, style, framerProps, attributes, key }: SemanticProps) => {
+export const Footer: React.FC<Prettify<SemanticProps<'footer'>>> = ({ framer, children, className, style, framerProps, attributes, key }) => {
   type SectionMotionProps = typeof MotionFooter extends React.FC<infer P> ? P : never;
   return (
     <>

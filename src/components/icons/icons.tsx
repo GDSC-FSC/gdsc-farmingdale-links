@@ -1,58 +1,64 @@
 import { cn } from "@/src/lib/utils"
-import { Github } from 'lucide-react';
 import {
-  GlobeIcon,
-  InstagramIcon,
-  GDSCIcon,
-  ShareIcon,
-  CloseFilledIcon,
-  SearchIcon,
-  Logo
+  AnonymousIcon as Anonymous,
+  CloseFilledIcon as CloseFilled,
+  EmailIcon as Email,
+  GDSCIcon as GDSC,
+  GitHubIcon as GitHub,
+  GlobeIcon as Globe,
+  GoogleIcon as Google,
+  InstagramIcon as Instagram,
+  LinkedInIcon as LinkedIn,
+  LogoIcon as Logo,
+  SearchIcon as Search,
+  ShareIcon as Share,
 } from "./components"
 
 export const Icons: IconsProps = {
-  logo: ({ className }: SVGIconProps) => (
+  logo: ({ className, size, ...props }: SVGIconProps) => (
     <>
-      <Logo size={`0`} className={cn('', className)} props={{
-        
-      }} />
-    </>
-  ),
-  closeFilled: ({ className, props }: SVGIconProps) => (
-    <>
-      <CloseFilledIcon className={cn('', className)} {...props} />
-    </>
-  ),
-  search: ({ className, props }: SVGIconProps) => (
-    <>
-      <SearchIcon className={cn('', className)} {...props} />
+      <Logo size={size} className={cn('', className)} {...props} />
     </>
   ),
   webIcons: {
-    instagram: ({ className, props }: SVGIconProps) => (
-      <>
-        <InstagramIcon className={cn('', className)} {...props} />
-      </>
-    ),
-    globe: ({ className, props }: SVGIconProps) => (
-      <>
-        <GlobeIcon className={cn('', className)} {...props} />
-      </>
-    ),
-    share: ({ className, props }: SVGIconProps) => (
-      <>
-        <ShareIcon className={cn('', className)} {...props} />
-      </>
-    ),
-    gitHub: ({ className, props }: SVGIconProps) => (
-      <>
-        <Github className={cn('', className)} {...props} />
-      </>
-    ),
-    gdsc: ({ className, props }: SVGIconProps) => (
-      <>
-        <GDSCIcon className={cn('', className)} {...props} />
-      </>
-    ),
+    gdsc: ({ className, size, ...props }: SVGIconProps) => (<>
+      <GDSC size={size} className={cn('', className)} {...props} />
+    </>)
+  },
+  socialIcons: {
+    linkedIn: ({ className, size, ...props }: SVGIconProps) => (<>
+      <LinkedIn size={size} className={cn('', className)} {...props} />
+    </>),
+    instagram: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Instagram size={size} className={cn('', className)} {...props} />
+    </>),
+    gitHub: ({ className, size, ...props }: SVGIconProps) => (<>
+      <GitHub size={size} className={cn('', className)} {...props} />
+    </>),
+  },
+  functionalIcons: {
+    share: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Share size={size} className={cn('', className)} {...props} />
+    </>),
+    search: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Search size={size} className={cn('', className)} {...props} />
+    </>),
+    close: ({ className, size, ...props }: SVGIconProps) => (<>
+      <CloseFilled size={size} className={cn('', className)} {...props} />
+    </>),
+    email: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Email size={size} className={cn('', className)} {...props} />
+    </>),
+    globe: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Globe size={size} className={cn('', className)} {...props} />
+    </>)
+  },
+  auth: {
+    anonymous: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Anonymous size={size} className={cn('', className)} {...props} />
+    </>),
+    google: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Google size={size} className={cn('', className)} {...props} />
+    </>)
   }
 }

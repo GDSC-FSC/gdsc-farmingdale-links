@@ -25,17 +25,13 @@
     "target": "ES2017",
     "types": [
       "vitest/globals",
-      "vite/client"
+      "vite/client",
     ],
     "paths": {
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "types/*",
-    "node_modules/vite/types/*"
-, "server/**/*", "vite.config.ts", "custom.d.ts", ],
+  "include": ["src/**/*.ts", "**/*.tsx", "**/*.d.ts", "vite.config.ts"],
   "exclude": [
     "node_modules",
     "dist"

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { load } from 'cheerio';
 import puppeteer from 'puppeteer';
-import { College } from '#/constant';
+import { College } from '@/server/constant';
 
 export const scrapeEvents = async (): Promise<Events[]> => {
     const response = await axios.get(`https://gdsc.community.dev/${College}/`);

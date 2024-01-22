@@ -8,18 +8,19 @@ import eslint from 'vite-plugin-eslint';
 import { defineProject } from "vitest/config";
 
 const publicEnvVars = [
-  "APP_ENV",
+  "FIREBASE_APIKEY",
+  "FIREBASE_AUTHDOMAIN",
+  "FIREBASE_PROJECTID",
+  "FIREBASE_STORAGEBUCKET",
+  "FIREBASE_MESSAGINGSENDERID",
+  "FIREBASE_APPID",
+  "FIREBASE_MEASUREMENTID",
   "APP_NAME",
   "APP_ORIGIN",
-  "GOOGLE_CLOUD_PROJECT",
-  "FIREBASE_APP_ID",
-  "FIREBASE_API_KEY",
-  "FIREBASE_AUTH_DOMAIN",
-  "GA_MEASUREMENT_ID",
+  "API_ORIGIN",
+  "APP_EMAIL",
 ];
 
-
-// https://vitejs.dev/config/
 export default defineProject(async ({ mode }) => {
   const envDir = fileURLToPath(new URL("..", import.meta.url));
   const env = loadEnv(mode, envDir, "");
@@ -38,33 +39,29 @@ export default defineProject(async ({ mode }) => {
         },
       },
     },
-  plugins: [
-    million.vite({
-      auto: true,
-    }),
-    react({
-      jsxImportSource: "@emotion/react",
-      babel: {
-        plugins: ["@emotion/babel-plugin"],
-      },
-    }),
-    eslint({
-      include: ['./src/**/*.tsx', './src/**/*.ts', './server/**/*.ts'],
-      exclude: ['node_modules/**', './src/**/*.d.ts'],
-    }),
-    VitePWA({
-      workbox: {
-        cleanupOutdatedCaches: true,
-        globPatterns: ['**/*'],
-      },
-      registerType: 'autoUpdate',
-      injectRegister: 'auto',
-      includeAssets: ['**/*'],
-    }),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './'),
+    plugins: [
+      million.vite({
+        auto: true,
+      }),
+      react(),
+      eslint({
+        include: ['./src/**/*.tsx', './src/**/*.ts', './server/**/*.ts'],
+        exclude: ['node_modules/**', './src/**/*.d.ts'],
+      }),
+      VitePWA({
+        workbox: {
+          cleanupOutdatedCaches: true,
+          globPatterns: ['**/*'],
+        },
+        registerType: 'autoUpdate',
+        injectRegister: 'auto',
+        includeAssets: ['**/*'],
+      }),
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(import.meta.dirname, './'),
+      }
     }
-  }}
+  }
 })

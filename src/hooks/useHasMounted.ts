@@ -1,21 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from "react";
 
-export default function useHasMounted({ loading, time }: { loading?: boolean } & { time: number }) {
-    const [hasMounted, setHasMounted] = useState(false);
-    
-    useEffect(() => {
-        const originalTitle = document.title;
+export const useHasMounted = () => {
+  const [loading, setLoading] = useState(true);
 
-        const handleContentLoaded = () => {
-            setTimeout(() => {
-                setHasMounted(true)
-            }, time);
-        }
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
 
-        if (loading) {
-        } else {
-            setHasMounted(true)
-        }
-    }, []);
-    return hasMounted;
-}
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return loading;
+};

@@ -1,9 +1,9 @@
-import React from 'react';
-import { MotionSection } from '@/src/components/constants/Motion';
+
+import { MotionSection } from '@/src/constants/Motion';
 import { SemanticProps } from '@/src/types/frontend/semantic-props';
 import { cn } from '@/src/lib/utils';
 
-export const Section = ({ framer, children, className, style, framerProps, attributes, key }: NonNullable<SemanticProps>) => {
+export const Section: React.FC<Prettify<SemanticProps<'section'>>> = ({ framer, children, className, style, framerProps, attributes, key }) => {
   type SectionMotionProps = typeof MotionSection extends React.FC<infer P> ? P : never;
   return (
     <>

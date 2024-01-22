@@ -1,3 +1,4 @@
+import { AriaAttributes, DOMAttributes } from "react";
 declare module '*.png' {
   import React = require('react');
 
@@ -15,3 +16,9 @@ declare module '*.svg' {
 }
 
 declare module "*.css";
+
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    fetchpriority?: 'high' | 'low' | 'auto';
+  }
+}

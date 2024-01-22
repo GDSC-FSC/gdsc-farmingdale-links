@@ -1,16 +1,12 @@
-import GlobeIcon from "./GlobeIcon";
-import InstagramIcon from "./InstagramIcon";
-import GDSCIcon from "./GDSCIcon";
-import ShareIcon from "./ShareIcon";
-import CloseFilledIcon from "./CloseFilledIcon";
-import SearchIcon from "./SearchIcon";
-import Logo from "./Logo";
-export {
-    GlobeIcon,
-    InstagramIcon,
-    GDSCIcon,
-    ShareIcon,
-    CloseFilledIcon,
-    SearchIcon,
-    Logo
-}
+export * from "./AnonymousIcon";
+export * from "./CloseFilledIcon";
+export * from "./EmailIcon";
+export * from "./GDSCIcon";
+export * from "./GitHubIcon";
+export * from "./GlobeIcon";
+export * from "./GoogleIcon";
+export * from "./InstagramIcon";
+export * from "./LinkedInIcon";
+export * from "./LogoIcon";
+export * from "./SearchIcon";
+export * from "./ShareIcon";

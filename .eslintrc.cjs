@@ -20,4 +20,13 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      files: ["./src/components/ui/**/*"],
+      rules: {
+        "max-len": "off",
+        "no-unused-vars": "off"
+      }
+    }
+  ]
 }

@@ -9,7 +9,7 @@ export function usePageEffect(
   deps: React.DependencyList = [],
 ) {
   const location = useLocation();
-  
+
   React.useEffect(() => {
     const previousTitle = document.title;
 

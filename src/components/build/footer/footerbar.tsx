@@ -1,9 +1,16 @@
-import { Footer as Foot } from '@/src/components/templates/index'
+import { Footer as FooterContainer } from '@/src/components/templates/index'
+
+interface FooterProps {
+
+}
 
 export const Footer = () => {
   return (
-    <Foot>
-
-    </Foot>
+    <FooterContainer>
+        <a href="#top">Top</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+    </FooterContainer>
   )
 }

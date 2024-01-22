@@ -1,9 +1,9 @@
-import React from 'react';
-import { MotionMenu } from '@/src/components/constants/Motion';
+
+import { MotionMenu } from '@/src/constants/Motion';
 import { SemanticProps } from '@/src/types/frontend/semantic-props';
 import { cn } from '@/src/lib/utils';
 
-export const Menu = ({ framer, children, className, style, framerProps, attributes, key }: SemanticProps) => {
+export const Menu: React.FC<Prettify<SemanticProps<'menu'>>> = ({ framer, children, className, style, framerProps, attributes, key }) => {
   type SectionMotionProps = typeof MotionMenu extends React.FC<infer P> ? P : never;
   return (
     <>

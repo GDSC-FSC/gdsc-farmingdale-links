@@ -59,7 +59,7 @@ This project leverages the following libraries and tools:
 - [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [tailwindcss](https://tailwindcss.com/)
-- [nextUI](https://nextui.org/)
+
 - ... and many more listed in the project's [package.json](package.json) file.
 
 ## License

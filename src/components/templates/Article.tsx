@@ -1,9 +1,9 @@
-import React from 'react';
-import { MotionArticle } from '@/src/components/constants/Motion';
+
+import { MotionArticle } from '@/src/constants/Motion';
 import { SemanticProps } from '@/src/types/frontend/semantic-props';
 import { cn } from '@/src/lib/utils';
 
-export const Article = ({ framer, children, className, style, framerProps, attributes, key }: SemanticProps) => {
+export const Article: React.FC<Prettify<SemanticProps<'article'>>> = ({ framer, children, className, attributes, style, framerProps, key }) => {
   type SectionMotionProps = typeof MotionArticle extends React.FC<infer P> ? P : never;
   return (
     <>

@@ -1,9 +1,9 @@
-import React from 'react';
-import { MotionDiv } from '@/src/components/constants/Motion';
+
+import { MotionDiv } from '@/src/constants/Motion';
 import { SemanticProps } from '@/src/types/frontend/semantic-props';
 import { cn } from '@/src/lib/utils';
 
-export const  Div = ({ framer, children, className, style, framerProps, attributes, key }: SemanticProps) => {
+export const Div: React.FC<Prettify<SemanticProps<'div'>>> = ({ framer, children, className, style, attributes,  framerProps, key }) => {
   type SectionMotionProps = typeof MotionDiv extends React.FC<infer P> ? P : never;
   return (
     <>
@@ -12,7 +12,7 @@ export const  Div = ({ framer, children, className, style, framerProps, attribut
           {children}
         </MotionDiv>
       ) : (
-        <div {...attributes} className={cn('', className)} style={style}>
+        <div {...attributes}  className={cn('', className)} style={style}>
           {children}
         </div>
       )}

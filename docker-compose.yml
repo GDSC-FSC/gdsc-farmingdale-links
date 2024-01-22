@@ -1,9 +1,0 @@
-name: portfolio
-services:
-    portfolio:
-        ports:
-            - 3000:3000
-        # Change this 🌟
-        # There's a list of commands for this, do later ‼️
-        container_name: portfolio-container
-        image: ghcr.io/womb0comb0/portfolio:main

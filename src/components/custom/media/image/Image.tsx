@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import { useState } from 'react'
 
 import { Props as MediaProps, StaticImageData } from '@/src/types/frontend/custom-component'
 import { Image } from '@nextui-org/react'
@@ -21,7 +21,7 @@ export const CustomImage: React.FC<MediaProps> = props => {
     alt: altFromProps,
   } = props
 
-  const [isLoading, setIsLoading] = React.useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   let width: number | undefined
   let height: number | undefined

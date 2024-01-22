@@ -1,9 +1,9 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import { AnimatePresence } from "framer-motion"
-import App from '@/src/src/app/App';
+import App from '@/src/app/App';
 import reportWebVitals from './reportWebVitals';
 import '@/src/styles/css/index.css'
 import '@/src/styles/global/globals.css'
@@ -21,7 +21,7 @@ const container = document.getElementById('root')! as HTMLElement
 const root = createRoot(container)
 
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <NextUIProvider>
       <AnimatePresence>
         <Router>
@@ -31,7 +31,7 @@ root.render(
         </Router>
       </AnimatePresence>
     </NextUIProvider>
-  </React.StrictMode>,
+  </StrictMode>,
 )
 
 reportWebVitals()
