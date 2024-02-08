@@ -5,6 +5,8 @@ import {
   getAuth,
   signInAnonymously,
   signInWithPopup,
+  sendPasswordResetEmail,
+  confirmPasswordReset
 } from "firebase/auth";
 import { atom, useAtomValue } from "jotai";
 import { atomEffect } from "jotai-effect";
@@ -80,3 +82,17 @@ export function useSignIn(
 }
 
 export type SignInMethod = "google.com" | "anonymous";
+
+  export const passwordReset = async (email: string) => {
+    if(!email) return;
+    const auth = getAuth(app);
+    return await sendPasswordResetEmail(auth, email)
+  }
+
+  export const confirmThePasswordReset = async (
+    oobCode:string, newPassword:string
+  ) => {
+    if(!oobCode && !newPassword) return;
+    const auth = getAuth(app);
+    return await confirmPasswordReset(auth, oobCode, newPassword)
+  }
