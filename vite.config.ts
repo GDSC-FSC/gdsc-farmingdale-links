@@ -19,6 +19,8 @@ const publicEnvVars = [
   "APP_ORIGIN",
   "API_ORIGIN",
   "APP_EMAIL",
+  "LINKS_API_KEY",
+  "LINKS_API_URL",
 ];
 
 export default defineProject(async ({ mode }) => {

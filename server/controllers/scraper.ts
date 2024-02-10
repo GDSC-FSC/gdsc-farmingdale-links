@@ -1,7 +1,13 @@
 import axios from 'axios';
 import { load } from 'cheerio';
 import puppeteer from 'puppeteer';
-import { College } from '@/server/constant';
+import { College } from '../constant/index';
+
+type Events = {
+    title: string | null;
+    thumbnailLink: string | null;
+    detailsLink: string | null;
+};
 
 export const scrapeEvents = async (): Promise<Events[]> => {
     const response = await axios.get(`https://gdsc.community.dev/${College}/`);
@@ -11,7 +17,9 @@ export const scrapeEvents = async (): Promise<Events[]> => {
     const events: Events[] = [];
 
     $('#--ruSKZrkro').each((_i, elem) => {
-        const title = $(elem).find('div.dynamic-text').text().trim() || $(elem).find('div.dynamic-text div').text().trim();
+        const titleWithDate = $(elem).find('strong div.dynamic-text').text().trim() || $(elem).find('div.dynamic-text div').text().trim();
+
+        const title = titleWithDate.replace(/^.*?\b\d{1,2},?\s\d{4}/, '').trim()
 
         const thumbnailLink = $(elem).find('img').attr('src') || null;
         const detailsLink = $(elem).find('a.link-styles__link_1ec3q').attr('href') || null;
@@ -38,7 +46,6 @@ export const scrapePastEvents = async (): Promise<Events[]> => {
         const eventElements = document.querySelectorAll('[data-testid="container-block-24RneQKmFRW"]');
         const eventsArray: Events[] = [];
 
-        // biome-ignore lint/complexity/noForEach: <explanation>
 eventElements.forEach((elem) => {
             const titleElement = elem.querySelector('a.link-styles__link_1ec3q .dynamic-text');
             const title = titleElement?.textContent?.replace(/^\s*\w+\s+\d+,\s+\d+\s*-\s*/, '').trim() || '';
