@@ -19,12 +19,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    '@typescript-eslint/no-explicit-any':
-    [
-      'off',
-      // Check back
-      { allowExplicitAny: true}
-    ]
+    '@typescript-eslint/no-explicit-any': 'warn',
   },
   overrides: [
     {
