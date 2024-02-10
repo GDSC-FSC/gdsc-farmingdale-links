@@ -17,10 +17,10 @@ export function useCopyToClipboard() {
   }, []);
   return { copied, copyToClipboard };
 }
-export function CopyToClipboard({ children }: { children: string }) {
+export function CopyToClipboard({ content }: Readonly<{ content: string }>) {
   const { copied, copyToClipboard } = useCopyToClipboard();
   return (
-    <Button onClick={() => copyToClipboard(children)}>
+    <Button onClick={() => copyToClipboard(content)}>
       {copied ? 'Copied' : 'Copy'}
     </Button>
   );

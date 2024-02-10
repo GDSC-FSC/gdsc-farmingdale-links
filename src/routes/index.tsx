@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import { createElement } from "react";
 import {
   createBrowserRouter,
@@ -8,28 +5,27 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { NotFound } from "@/src/components/dom/index";
-import { CenterLayout, ContainerWrapper } from "@/src/components/layouts/index";
+import { MainLayout, BaseLayout } from '@/src/components/layout'
 
-/**
- * Application routes
- * https://reactrouter.com/en/main/routers/create-browser-router
- */
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
   {
     path: "",
     element: <BaseLayout />,
     errorElement: <NotFound />,
+    loader: () => import('../components/loading'),
     children: [
       { path: "privacy", lazy: () => import("./privacy") },
       { path: "terms", lazy: () => import("./terms") },
       { path: "accessibility", lazy: () => import("./accessibility") },
+      { path: "cookies", lazy: () => import('./cookies')}
     ],
   },
   {
     path: "/auth",
-    element: <CenterLayout Element={`main`} />,
+    element: <MainLayout />,
     errorElement: <NotFound />,
+    loader: () => import('../components/loading'),
     children: [
       { index: true, element: <Navigate to="/login" replace /> },
       { path: "/login", lazy: () => import("./auth/login") },

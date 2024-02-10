@@ -4,8 +4,6 @@ import { useState } from 'react'
 
 import { Props as MediaProps, StaticImageData } from '@/src/types/frontend/custom-component'
 import { Image } from '@nextui-org/react'
-// TODO: use emotion instead of scss
-import classes from './index.module.scss'
 import { cssVariables } from '@/src/styles/cssVariables'
 
 const { breakpoints } = cssVariables
@@ -52,7 +50,7 @@ export const CustomImage: React.FC<MediaProps> = props => {
 
   return (
     <Image
-      className={[isLoading && classes.placeholder, classes.image, imgClassName]
+      className={[isLoading && `bg-black/[0.05]`, imgClassName]
         .filter(Boolean)
         .join(' ')}
       src={typeof src === 'string' ? src : src.src}
@@ -67,6 +65,7 @@ export const CustomImage: React.FC<MediaProps> = props => {
       width={!fill ? width : undefined}
       height={!fill ? height : undefined}
       sizes={sizes}
+      fetchpriority={fetchpriority}
     />
   )
 }

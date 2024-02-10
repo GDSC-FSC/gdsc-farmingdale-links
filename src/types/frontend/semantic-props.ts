@@ -13,7 +13,6 @@ type Semantics =
   | 'picture'
   | 'section';
 
-
 export interface SemanticProps<T extends Semantics> extends React.PropsWithChildren<React.HTMLProps<HTMLElement>> {
   ref?: React.Ref<HTMLElement>;
   framer?: boolean;

@@ -4,22 +4,22 @@ const navLinks: Link[] = [
   {
     name: "Home",
     path: "/",
-    icon: Icons.webIcons.globe,
+    icon: Icons.webIcons.gdsc
   },
   {
     name: "Instagram",
     path: "https://www.instagram.com/lemonade_ig/",
-    icon: Icons.webIcons.instagram,
+    icon: Icons.socialIcons.instagram,
   },
   {
     name: "Email",
     path: "mailto:",
-    icon: Icons.webIcons.share,
+    icon: Icons.functionalIcons.email,
   },
   {
     name: "LinkedIn",
     path: "https://www.linkedin.com/company/lemonade-ig/",
-    icon: Icons.webIcons.share,
+    icon: Icons.socialIcons.linkedIn,
   },
 
 ]

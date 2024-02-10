@@ -8,13 +8,10 @@ import { Accordion } from "@/src/components/ui/accordion";
 
 import { NavItem } from "./nav-item";
 
-interface SidebarProps {
-  storageKey?: string;
-}
-
 export const Sidebar = ({
   storageKey = "t-sidebar-state",
 }: SidebarProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
     storageKey,
     {}

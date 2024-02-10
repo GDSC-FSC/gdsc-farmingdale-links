@@ -31,6 +31,7 @@ type IconsProps = {
     close: SVGIconParams;
     email: SVGIconParams;
     globe: SVGIconParams;
+    map: SVGIconParams;
   };
   auth: {
     anonymous: SVGIconParams;
@@ -38,6 +39,63 @@ type IconsProps = {
   }
 };
 
+type User = {
+  id: string
+  name: string
+  email: string
+  password?: string,
+  avatar: string
+}
+
+interface UserContextInterface {
+  user: User
+  setUser: React.Dispatch<React.SetStateAction<User>>
+  onLogout: () => Promise<void>;
+  onLogin: () => Promise<void>;
+  onResetPassword: () => Promise<void>;
+  onForgotPassword: () => Promise<void>;
+}
+
+type UserProviderProps = {
+  children: React.ReactNode
+}
+
+interface FormSubmitProps {
+  children: React.ReactNode;
+  isDisabled?: boolean;
+  className?: string;
+  variant?: "link" | "default" | "outline" | "destructive" | "secondary" | "ghost";
+}
+
+interface FormInputProps {
+  id: string;
+  label?: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  errors?: FieldErrors;
+  className?: string;
+  defaultValue?: string;
+  onBlur?: () => void;
+}
+
+interface SidebarProps {
+  storageKey?: string;
+}
+
+interface HintProps {
+  children: React.ReactNode;
+  description: string;
+  side?: "left" | "right" | "top" | "bottom";
+  sideOffset?: number;
+}
+
+interface NavItemProps {
+  isExpanded: boolean;
+  isActive: boolean;
+  onExpand: (id: string) => void;
+}
 
 type Link = {
   name: string;
@@ -54,9 +112,38 @@ interface CustomButtonProps {
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
+type PrimitiveSemanticProps<E extends HTMLElement = HTMLElement> = {
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
+  children?: ReactNode;
+} & React.DetailedHTMLProps<React.HTMLAttributes<E>, E>;
+
 interface ApiJsonResponse<T> {
   status: number;
   response?: T;
+}
+
+interface FooterProps {
+    left: {
+    socials: {
+      socialHandles: {
+        icon: React.ComponentType;
+        aria: string
+        url: string
+      }[],
+      contactHandles: {
+        icon: React.ComponentType;
+        aria: string
+        url: string
+      }[]
+    }
+  },
+  middle: {
+    title: string;
+    url: string
+  }[],
+  right: {
+    component: React.ReactNode
+  },
 }
 
 type Prettify<T> = {

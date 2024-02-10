@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import { useFormState } from "react-hook-form";
 
@@ -7,21 +5,7 @@ import { cn } from "@/src/lib/utils";
 import { Label } from "@/src/components/ui/label";
 import { Input } from "@/src/components/ui/input";
 import { Div } from "@/src/components/templates/index";
-
 import { FormErrors } from "./form-errors";
-
-interface FormInputProps {
-  id: string;
-  label?: string;
-  type?: string;
-  placeholder?: string;
-  required?: boolean;
-  disabled?: boolean;
-  errors?: Record<string, string[] | undefined>;
-  className?: string;
-  defaultValue?: string;
-  onBlur?: () => void;
-}
 
 export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(({
   id,

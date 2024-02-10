@@ -1,11 +1,3 @@
-"use client";
-
-import {
-  Home,
-  Layout,
-  Settings,
-} from "lucide-react";
-
 import { Div } from "@/src/components/templates/index";
 import { cn } from "@/src/lib/utils";
 import {
@@ -17,12 +9,6 @@ import {
 import { Button } from "@/src/components/ui/button";
 import { Skeleton } from "@/src/components/ui/skeleton";
 import { NavItems } from "@/src/components/build/nav/nav-item";
-
-interface NavItemProps {
-  isExpanded: boolean;
-  isActive: boolean;
-  onExpand: (id: string) => void;
-}
 
 export const NavItem = ({
   isExpanded,

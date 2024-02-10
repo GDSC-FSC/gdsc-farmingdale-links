@@ -2,17 +2,16 @@
 
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
-// 
-import { usePathname } from "next/navigation";
+import { useNavigate } from 'react-router-dom'
 
-import { useMobileSidebar } from "@/src/hooks/use-mobile-sidebar";
+import { useMobileSidebar } from "@/src/hooks/index";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent } from "@/src/components/ui/sheet";
 
 import { Sidebar } from "./sidebar";
 
 export const MobileSidebar = () => {
-  const pathname = usePathname();
+  const pathname = useNavigate();
   const [isMounted, setIsMounted] = useState(false);
 
   const onOpen = useMobileSidebar((state) => state.onOpen);

@@ -1,15 +1,15 @@
-import { StrictMode } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { NextUIProvider } from '@nextui-org/react';
 import { AnimatePresence } from "framer-motion"
 import App from '@/src/app/App';
 import reportWebVitals from './reportWebVitals';
-import '@/src/styles/css/index.css'
-import '@/src/styles/global/globals.css'
-import '@/src/styles/global/globals.scss'
+import '@/src/styles/globals.css'
 
-export const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export const RootLayout: React.FC<Readonly<{
+  children: React.ReactNode
+}>> = ({ children }) => {
   return (
     <>
       {children}
@@ -17,11 +17,11 @@ export const RootLayout = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const container = document.getElementById('root')! as HTMLElement
+const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)
 
 root.render(
-  <StrictMode>
+  <React.StrictMode>
     <NextUIProvider>
       <AnimatePresence>
         <Router>
@@ -31,7 +31,7 @@ root.render(
         </Router>
       </AnimatePresence>
     </NextUIProvider>
-  </StrictMode>,
+  </React.StrictMode>,
 )
 
 reportWebVitals()

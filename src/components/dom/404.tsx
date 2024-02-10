@@ -2,29 +2,65 @@ import { useRouteError } from 'react-router-dom';
 import { Main, Section, Article, Menu } from '@/src/components/templates/index';
 import { Button } from '@nextui-org/react';
 
-export default function NotFound() {
+export const NotFound =  function NotFound(): JSX.Element {
   const err = useRouteError() as RouteError;
 
   return (
     <>
       <Main className="flex flex-col items-center justify-center w-screen h-screen">
-        <Section className={``}>
-          <Article className={``}>
-            <h1 className={``}>
-              <span>{err.status}</span>
-              <i> - </i>
-              <span>
+        <Section
+          className={`
+
+          `}
+        >
+          <Article
+            className={`
+
+            `}
+          >
+            <h1
+              className={`
+
+              `}
+            >
+              <span
+                className={``}
+              >
+                {err.status}
+              </span>
+              <i
+                className={`
+
+                `}
+              > - </i>
+              <span
+                className={`
+
+                `}
+              >
                 <>{err.name}</>
               </span>
             </h1>
-            <p>
-              <b>{err.statusText}</b>
+            <p
+              className={`
+
+              `}
+            >
+              <b
+                className={``}
+              >
+                {err.statusText}
+              </b>
             </p>
           </Article>
           <Menu className={`flex  justify-around`}>
-            <li>
-              <Button radius={`md`} color={`primary`} variant={`ghost`}>
+            <li
+              className={`
 
+              `}
+            >
+              <Button radius={`md`} color={`primary`} variant={`ghost`}>
+                
               </Button>
             </li>
             <li>

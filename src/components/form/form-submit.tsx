@@ -1,21 +1,20 @@
 "use client";
 
-import { useFormStatus } from "react-dom";
+import { useFormState } from "react-hook-form";
 
 import { cn } from "@/src/lib/utils";
 import { Button } from "@/src/components/ui/button";
 
 export const FormSubmit = ({
   children,
-  disabled,
+  isDisabled,
   className,
   variant
 }: FormSubmitProps) => {
-  const { pending } = useFormStatus();
-
+  const { disabled } = useFormState();
   return (
     <Button
-      disabled={pending || disabled}
+      disabled={disabled || isDisabled}
       type="submit"
       variant={variant}
       size="sm"

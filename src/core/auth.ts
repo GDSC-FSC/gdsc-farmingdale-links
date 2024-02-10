@@ -64,7 +64,7 @@ export function useSignIn(
       provider.addScope("profile");
       provider.addScope("email");
       provider.setCustomParameters({
-        // login_hint: ...
+        // loginHint: "",
         prompt: "consent",
       });
       p = signInWithPopup(auth, provider);

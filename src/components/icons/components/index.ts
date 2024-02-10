@@ -8,5 +8,6 @@ export * from "./GoogleIcon";
 export * from "./InstagramIcon";
 export * from "./LinkedInIcon";
 export * from "./LogoIcon";
+export * from './MapIcon';
 export * from "./SearchIcon";
 export * from "./ShareIcon";

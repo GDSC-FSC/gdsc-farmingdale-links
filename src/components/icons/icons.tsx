@@ -10,6 +10,7 @@ import {
   InstagramIcon as Instagram,
   LinkedInIcon as LinkedIn,
   LogoIcon as Logo,
+  MapIcon as Map,
   SearchIcon as Search,
   ShareIcon as Share,
 } from "./components"
@@ -51,7 +52,10 @@ export const Icons: IconsProps = {
     </>),
     globe: ({ className, size, ...props }: SVGIconProps) => (<>
       <Globe size={size} className={cn('', className)} {...props} />
-    </>)
+    </>),
+    map: ({ className, size, ...props }: SVGIconProps) => (<>
+      <Map size={size} className={cn('', className)} {...props} />
+      </>)
   },
   auth: {
     anonymous: ({ className, size, ...props }: SVGIconProps) => (<>

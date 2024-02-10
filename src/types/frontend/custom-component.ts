@@ -2,11 +2,11 @@ import type { ElementType, Ref } from 'react'
 
 
 export interface Props {
-  src?: string | StaticImageData // for static media
+  src?: string | StaticImageData
   alt?: string
-  resource?: string | Media // for Payload media
-  size?: string // for NextImage only
-  fill?: boolean // for NextImage only
+  resource?: string | Media
+  size?: string
+  fill?: boolean
   className?: string
   imgClassName?: string
   videoClassName?: string
@@ -14,6 +14,7 @@ export interface Props {
   onClick?: () => void
   onLoad?: () => void
   ref?: Ref<null | HTMLImageElement | HTMLVideoElement>
+  fetchpriority?: 'high' | 'low' | 'auto'
 }
 
 export interface StaticImageData {

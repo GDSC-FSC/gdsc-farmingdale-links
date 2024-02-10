@@ -5,13 +5,6 @@ import {
   TooltipTrigger
 } from "@/src/components/ui/tooltip";
 
-interface HintProps {
-  children: React.ReactNode;
-  description: string;
-  side?: "left" | "right" | "top" | "bottom";
-  sideOffset?: number;
-}
-
 export const Hint = ({
   children,
   description,

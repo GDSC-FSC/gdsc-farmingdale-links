@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -75,3 +76,74 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 100;
+    src: local(""), url(../../../public/fonts/Palanquin-Thin.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 200;
+    src: local(""), url(../../../public/fonts/Palanquin-ExtraLight.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 300;
+    src: local(""), url(../../../public/fonts/Palanquin-Light.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url(../../../public/fonts/Palanquin-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 500;
+    src: local(""), url(../../../public/assets/fonts/Palanquin-Medium.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 600;
+    src: local(""), url(../../../public/fonts/Palanquin-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: Palanquin;
+    font-style: normal;
+    font-weight: 700;
+    src: local(""), url(../../../public/fonts/Palanquin-Bold.ttf) format("truetype");
+}
+
+:host,html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    font-family: Palanquin,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    transition: all;
+    list-style: none;
+    scroll-behavior: smooth;
+    transition: all;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+

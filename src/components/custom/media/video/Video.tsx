@@ -1,22 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Props as MediaProps } from '@/src/types/frontend/custom-component';
-
-// TODO: use emotion instead of scss
-import classes from './index.module.scss'
 
 export const Video: React.FC<MediaProps> = props => {
   const { videoClassName, resource, onClick } = props
 
   const videoRef = useRef<HTMLVideoElement>(null)
-  // const [showFallback] = useState<boolean>()
+  // Mix this with existing
+  const [showFallback, setShowFallback] = useState<boolean>()
 
   useEffect(() => {
     const { current: video } = videoRef
     if (video) {
       video.addEventListener('suspend', () => {
-        // setShowFallback(true);
-        // console.warn('Video was suspended, rendering fallback image.')
+        setShowFallback(true);
+        console.warn('Video was suspended, rendering fallback image.')
       })
     }
   }, [])
@@ -31,7 +29,7 @@ export const Video: React.FC<MediaProps> = props => {
         muted
         loop
         controls={false}
-        className={[classes.video, videoClassName].filter(Boolean).join(' ')}
+        className={[` max-w-full w-full bg-foreground-100`, videoClassName].filter(Boolean).join(' ')}
         onClick={onClick}
         ref={videoRef}
       >
