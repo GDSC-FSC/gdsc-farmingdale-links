@@ -18,7 +18,11 @@ const FooterLeftList: React.FC<{
     >
       {links.map((link, index) => (
         <li key={index}>
-          <Link href={link.link}>
+          <Link
+            href={link.link}
+            target={`_self`}
+            rel={`noopener noreferrer`}
+          >
             {link.icon}
           </Link>
         </li>

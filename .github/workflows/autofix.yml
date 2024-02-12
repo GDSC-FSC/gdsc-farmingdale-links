@@ -1,33 +1,21 @@
 name: autofix.ci
-
 on:
-  push:
-    branches:
-      - main
-
   pull_request:
-    branches:
-      - main
+  push:
+    branches: [ "main" ]
+permissions:
+  contents: read
 
 jobs:
   autofix:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-
-      - name: Use Node.js lts/*
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: 16
 
-      - name: Install
-        run: pnpm install
+      - run: npm ci
+      - run: npx prettier --write .
 
-      - name: Lint
-        run: pnpm run lint --fix
-
-      - uses: autofix-ci/action@v1
+      - uses: autofix-ci/action@d3e591514b99d0fca6779455ff8338516663f7cc

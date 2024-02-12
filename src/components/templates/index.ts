@@ -1,6 +1,6 @@
 import { lazy, memo } from 'react';
 export * from './semantics';
-export * from './primitivess'
+export * from './primitives'
 export const {
   MemoArticle,
   MemoDiv,

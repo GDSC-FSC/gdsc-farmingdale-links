@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,14 +8,16 @@ import * as z from "zod";
 import { CommandDialog, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandInput } from "../ui/command";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Search, searchSchema } from "../../schema/search";
-
+import { useSearchStore } from '@/src/core/store';
 
 const camelToKebab = (str: string) => {
   return str.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
 };
 
 export function CommandMenu() {
-  const [open, setOpen] = useState(false);
+  const setOpen = useSearchStore((state) => state.setOpen);
+  const open = useSearchStore((state) => state.open);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -35,12 +37,12 @@ export function CommandMenu() {
     const down = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen(!open);
       }
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [open, setOpen ]);
 
   const handleShortcutAction = useCallback((route: string) => {
     const kebabRoute = camelToKebab(route);

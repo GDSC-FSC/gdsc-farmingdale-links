@@ -1,5 +1,5 @@
-import { Router, Response, Request } from 'express';
 import { readEventsFromFile } from '@/server/controllers/fileHandler';
+import { Router, Response, Request } from 'express';
 
 const router: Router = Router();
 

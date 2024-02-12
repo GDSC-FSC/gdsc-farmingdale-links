@@ -10,3 +10,27 @@ export const MotionMenu = motion.menu;
 export const MotionNav = motion.nav;
 export const MotionPicture = motion.picture;
 export const MotionSection = motion.section;
+export const MotionAside = motion.aside;
+
+export const CrossFadeVariants = {
+  fadeOut: {
+    opacity: 1,
+    transition: {
+      repeat: Infinity,
+      repeatType: 'reverse',
+      delay: 7,
+      duration: 10,
+      repeatDelay: 7
+    }
+  },
+  fadeIn: {
+    opacity: 0,
+    transition: {
+      repeat: Infinity,
+      repeatType: 'reverse',
+      delay: 7,
+      duration: 10,
+      repeatDelay: 7
+    }
+  }
+}

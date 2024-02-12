@@ -1,29 +1,23 @@
-"use client"
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/components/ui/avatar"
-import { UserContext } from "@/contexts/UserContext"
-import { useContext } from "react"
-import { CustomPopover } from "@/components/custom/Popover"
+} from "@/src/components/ui/avatar"
+import { useCurrentUser } from "@/src/core/auth"
+import { CustomPopover } from "@/src/components/custom/Popover"
 
 export function UserAvatar() {
-  const { user } = useContext(UserContext)
+  const user = useCurrentUser()
   return (
     <CustomPopover side="bottom" >
       <Avatar
         className={`
-          cursor-pointer
-          relative
-          flex
-          items-center
-          justify-center
+          cursor-pointer relative flex items-center justify-center
         `}
       >
-        <AvatarImage src={user ? user.avatar : `/assets/images/NoImage.jpg`} alt={`${user.name}`} />
+        <AvatarImage src={user ? user.photoURL! : `/assets/images/NoImage.jpg`} alt={`${user?.displayName || ''}`} />
         <AvatarFallback>
-          {user.name ? user.name.charAt(0): user.email.charAt(0)}
+          {user ? user.displayName!.charAt(0) : 'U'}
         </AvatarFallback>
       </Avatar>
     </CustomPopover>

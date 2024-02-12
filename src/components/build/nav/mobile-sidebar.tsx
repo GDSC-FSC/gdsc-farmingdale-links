@@ -1,13 +1,9 @@
-"use client";
-
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-
 import { useMobileSidebar } from "@/src/hooks/index";
 import { Button } from "@/src/components/ui/button";
 import { Sheet, SheetContent } from "@/src/components/ui/sheet";
-
 import { Sidebar } from "./sidebar";
 
 export const MobileSidebar = () => {

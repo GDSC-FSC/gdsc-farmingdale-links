@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { usePageEffect } from "@/src/core/page";
-import { ContainerWrapper } from "@/src/components/layouts";
 import { constructMetadata } from "../utils/metadata";
 import { appName, appOrigin } from "@/src/constants/app";
 
@@ -16,7 +15,7 @@ export const Component = function Terms(): JSX.Element {
     url: import.meta.url,
   })
   return (
-    <ContainerWrapper Element={`article`}>
+    <>
       <h1 className={`
 
       `}>
@@ -229,6 +228,6 @@ export const Component = function Terms(): JSX.Element {
         the laws of United States. You irrevocably submit to the exclusive
         jurisdiction of the courts in that State or location.
       </p>
-    </ContainerWrapper>
+    </>
   );
 };

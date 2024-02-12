@@ -15,6 +15,7 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
     loader: () => import('../components/loading'),
     children: [
+      { path: "/", lazy: () => import("../app/App") },
       { path: "privacy", lazy: () => import("./privacy") },
       { path: "terms", lazy: () => import("./terms") },
       { path: "accessibility", lazy: () => import("./accessibility") },
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
 ]);
 
 export function Router(): JSX.Element {
-  return createElement(RouterProvider, { router });
+  return createElement(RouterProvider, { router })
 }
 
 // Clean up on module reload (HMR)

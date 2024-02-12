@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 export const PrimitiveDiv = React.forwardRef<HTMLElement, PrimitiveSemanticProps<HTMLElement>>(
   ({ as: ElementComponent = 'div', children, ...props }, ref) => {

@@ -23,10 +23,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["./src/components/ui/**/*"],
+      files: ["./src/components/ui/**/*", "./src/**/*.d.ts", "custom.d.ts"],
       rules: {
         "max-len": "off",
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        '@typescript-eslint/no-explicit-any': 'off'
       }
     }
   ]

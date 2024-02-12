@@ -8,8 +8,7 @@
   <meta name="description"
     content="
             This web application is a means to keep up to date with what GDSC FSC is doing, and will include upcoming events, and serve as a central hub for all our domains. " />
-  <meta name="keywords"
-    content="
+  <meta name="keywords" content="
             " />
   <meta name="author" content="Mike Odnis" />
 
@@ -58,6 +57,74 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@OdnisMike" />
   <meta name="twitter:image" content="https://web103-listicle.vercel.app/LargeLogo.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    // function to update GTM that consent is granted
+    // You can set each type of cookie separately here
+    window.consentGranted = function () {
+      console.log("consent granted");
+      gtag("consent", "update", {
+        ad_storage: "granted",
+        analytics_storage: "granted",
+        functionality_storage: "granted",
+        personalization_storage: "granted",
+        security_storage: "granted",
+      });
+    };
+
+    // checks the "cookie-consent" cookie
+    window.getCookieConsent = function () {
+      try {
+        const consent = document.cookie.match(/cookie-consent=([^;]+)/)[1];
+        return consent;
+      } catch (error) {
+        return "unk";
+      }
+    };
+
+    if (window.getCookieConsent() == "granted") {
+      // If cookies already approved, set that
+      console.log("cookies already approved");
+      gtag("consent", "default", {
+        ad_storage: "granted",
+        analytics_storage: "granted",
+        functionality_storage: "granted",
+        personalization_storage: "granted",
+        security_storage: "granted",
+      });
+    } else {
+      // default all to 'denied'.
+      console.log("default set to denied");
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "denied",
+      });
+    }
+  </script>
+  <!-- Google Tag Manager -->
+  <script is:inline>
+    (function (w, d, s, l, i) {
+      console.log("GTM");
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", 'GTM-MFMS52QM');
+  </script>
+  <!-- End Google Tag Manager -->
 </head>
 
 <body id="root"
@@ -241,6 +308,9 @@
         }
       }
     </style>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFMS52QM" height="0" width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
     <nav>
       <menu style="
           padding:0;
@@ -249,7 +319,8 @@
           width: 80px;
           height:80px;
           user-select:none;
-          color:#747474;background-color:transparent;cursor:pointer;" onClick="
+          color:#747474;background-color:transparent;cursor:pointer;"
+        onClick="
             ()=> window.open(`https://gdsc.community.dev/farmingdale-state-college/`, `_blank`, `noopener noreferrer`)">
         <svg fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox='0 0 512 512' style="
                   height:4rem;
@@ -259,8 +330,8 @@
             fill="#EA4336" />
           <rect x="67.6865" y="207" width="206.171" height="73" rx="36.5" transform="rotate(30.1692 67.6865 207)"
             fill="#4286F5" />
-          <rect width="206.171" height="73" rx="36.5" transform="matrix(-0.864545 0.502555 0.502555 0.864545 444.705 207)"
-            fill="#FABC05" />
+          <rect width="206.171" height="73" rx="36.5"
+            transform="matrix(-0.864545 0.502555 0.502555 0.864545 444.705 207)" fill="#FABC05" />
           <rect width="206.171" height="73" rx="36.5"
             transform="matrix(-0.870382 -0.492378 -0.492378 0.870382 481.391 242.514)" fill="#0D9D58" />
         </svg>

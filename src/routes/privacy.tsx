@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/src/components/custom";
 import { usePageEffect } from "@/src/core/page";
-import { ContainerWrapper } from "../components/layouts";
 import { appName, appOrigin, appEmail as email } from "@/src/constants/app";
 import { constructMetadata } from "../utils/metadata";
 
@@ -15,7 +14,7 @@ export const Component = function Privacy(): JSX.Element {
     url: import.meta.url,
   });
   return (
-    <ContainerWrapper Element={`article`}>
+    <>
       <h1 className={`
 
       `}>
@@ -27,7 +26,7 @@ export const Component = function Privacy(): JSX.Element {
         Your privacy is important to us. It is {appName}&#39; policy to respect
         your privacy and comply with any applicable law and regulation regarding
         any personal information we may collect about you, including across our
-        website, <Link to={appOrigin}>{appOrigin}</Link>, and other sites we
+        website, <Link href={appOrigin}>{appOrigin}</Link>, and other sites we
         own and operate.
       </p>
       <p className={`
@@ -396,8 +395,8 @@ export const Component = function Privacy(): JSX.Element {
       <p className={`
 
       `}>
-        {appName} Support Team (<Link to={`mailto:${email}`}>{email}</Link>)
+        {appName} Support Team (<Link href={`mailto:${email}`}>{email}</Link>)
       </p>
-    </ContainerWrapper>
+    </>
   );
 };

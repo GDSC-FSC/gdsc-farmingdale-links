@@ -1,19 +1,23 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { NextUIProvider } from '@nextui-org/react';
-import { AnimatePresence } from "framer-motion"
-import App from '@/src/app/App';
+import {
+  BrowserRouter as Router, Routes,
+  useLocation
+} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import '@/src/styles/globals.css'
-
+import Providers from '@/src/providers/Providers';
+import { Router as BaseRouter } from '@/src/routes';
 export const RootLayout: React.FC<Readonly<{
   children: React.ReactNode
 }>> = ({ children }) => {
+  const location = useLocation();
   return (
-    <>
-      {children}
-    </>
+    <Providers>
+      <Routes location={location} key={location.pathname}>
+        {children}
+      </Routes>
+    </Providers>
   )
 }
 
@@ -22,15 +26,13 @@ const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
-    <NextUIProvider>
-      <AnimatePresence>
-        <Router>
-          <RootLayout>
-            <App />
-          </RootLayout>
-        </Router>
-      </AnimatePresence>
-    </NextUIProvider>
+    <>
+      <Router>
+        <RootLayout>
+          <BaseRouter />
+        </RootLayout>
+      </Router>
+    </>
   </React.StrictMode>,
 )
 

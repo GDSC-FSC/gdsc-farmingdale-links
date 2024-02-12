@@ -39,7 +39,7 @@ type IconsProps = {
   }
 };
 
-type User = {
+interface User {
   id: string
   name: string
   email: string
@@ -48,12 +48,8 @@ type User = {
 }
 
 interface UserContextInterface {
-  user: User
-  setUser: React.Dispatch<React.SetStateAction<User>>
-  onLogout: () => Promise<void>;
-  onLogin: () => Promise<void>;
-  onResetPassword: () => Promise<void>;
-  onForgotPassword: () => Promise<void>;
+  user: User;
+  setUser: (user: User) => void;
 }
 
 type UserProviderProps = {
@@ -65,6 +61,13 @@ interface FormSubmitProps {
   isDisabled?: boolean;
   className?: string;
   variant?: "link" | "default" | "outline" | "destructive" | "secondary" | "ghost";
+}
+
+interface PopoverProps {
+  children: React.ReactNode;
+  side?: "left" | "right" | "top" | "bottom";
+  align?: "start" | "center" | "end";
+  sideOffset?: number;
 }
 
 interface FormInputProps {
@@ -110,6 +113,11 @@ interface CustomButtonProps {
   title: string;
   share: boolean
   handleClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+interface SearchState {
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }
 
 type PrimitiveSemanticProps<E extends HTMLElement = HTMLElement> = {

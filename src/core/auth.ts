@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   GoogleAuthProvider,
   User,
@@ -14,6 +15,7 @@ import { loadable } from "jotai/utils";
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { app } from "./firebase";
+import { toast } from "sonner";
 
 export const currentUserValue = atom<User | null | undefined>(undefined);
 
@@ -75,24 +77,57 @@ export function useSignIn(
     if (!p) throw new Error(`Not supported: ${signInMethod}`);
 
     setInFlight(true);
-    p.then(() => navigate("/")).finally(() => setInFlight(false));
+    p.then(() => {
+      navigate("/")
+      toast.success("Logged in successfully! 🎉");
+    }).finally(() => setInFlight(false));
   }, [signInMethod, navigate]);
 
   return [signIn, inFlight] as const;
 }
 
+export function useSignOut(): [signOut: () => void, inFlight: boolean] {
+  const navigate = useNavigate();
+  const [inFlight, setInFlight] = useState(false);
+
+  const signOut = useCallback(() => {
+    const auth = getAuth(app);
+    setInFlight(true);
+    auth.signOut().then(() => {
+      navigate("/")
+      toast.success("Signed out successfully! 🎉");
+    }).finally(() => setInFlight(false));
+  }, [navigate]);
+
+  return [signOut, inFlight] as const;
+}
+
+export const passwordReset = async (email: string) => {
+  if (!email) return;
+  const auth = getAuth(app);
+
+  try {
+    await sendPasswordResetEmail(auth, email);
+    toast.success("Password reset email sent successfully! 🎉");
+  } catch (error: any) {
+    console.error(error);
+    toast.error(`Password reset error: ${error.message || new Error}`);
+  }
+};
+
+export const confirmThePasswordReset = async (oobCode: string, newPassword: string) => {
+  if (!oobCode || !newPassword) return;
+  const auth = getAuth(app);
+
+  try {
+    await confirmPasswordReset(auth, oobCode, newPassword);
+    toast.success("Password reset successful! 🎉");
+  } catch (error: any) {
+    console.error(error);
+    toast.error(`Password reset confirmation error: ${error.message || new Error}`);
+  }
+};
+
 export type SignInMethod = "google.com" | "anonymous";
-
-  export const passwordReset = async (email: string) => {
-    if(!email) return;
-    const auth = getAuth(app);
-    return await sendPasswordResetEmail(auth, email)
-  }
-
-  export const confirmThePasswordReset = async (
-    oobCode:string, newPassword:string
-  ) => {
-    if(!oobCode && !newPassword) return;
-    const auth = getAuth(app);
-    return await confirmPasswordReset(auth, oobCode, newPassword)
-  }
+export const signout: SignOutMethod = `Sign out`;
+type SignOutMethod = "Sign out";

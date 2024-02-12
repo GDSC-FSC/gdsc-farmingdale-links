@@ -1,11 +1,9 @@
-"use client";
-
 import { useLocalStorage } from "usehooks-ts";
 
 import { Button } from "@/src/components/ui/button";
 import { Separator } from "@/src/components/ui/separator";
 import { Accordion } from "@/src/components/ui/accordion";
-
+import { useCurrentUser } from "@/src/core/auth";
 import { NavItem } from "./nav-item";
 
 export const Sidebar = ({
@@ -16,7 +14,6 @@ export const Sidebar = ({
     storageKey,
     {}
   );
-
 
   const defaultAccordionValue: string[] = Object.keys(expanded)
     .reduce((acc: string[], key: string) => {
@@ -33,7 +30,7 @@ export const Sidebar = ({
       [id]: !expanded[id],
     }));
   };
-
+  const user = useCurrentUser();
   return (
     <>
       <Accordion
@@ -42,11 +39,10 @@ export const Sidebar = ({
         className="space-y-2"
       >
         <>
-          {/*  */}
           <NavItem
-            key={user.id}
+            key={user?.uid}
             isActive={true}
-            isExpanded={expanded[user.id]}
+            isExpanded={expanded[user?.uid || ""]}
             onExpand={onExpand}
           />
         </>

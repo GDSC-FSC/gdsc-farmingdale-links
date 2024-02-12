@@ -66,5 +66,5 @@ export const FooterList: FooterProps[] = [
   }
 ]
 
-export const CardClasses = ``
+export const CardClasses = `bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] border border-black border-opacity-10 rounded-xl border bg-card text-card-foreground shadow`
 export const EmailRegex = /^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/

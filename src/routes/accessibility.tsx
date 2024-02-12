@@ -1,15 +1,13 @@
 import { constructMetadata } from '@/src/utils/metadata';
-import { ContainerWrapper } from '@/src/components/layouts/index';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '@/src/constants/app';
-import { Link } from 'react-router-dom';
+import { Link } from '@/src/components/custom';
 
 export const Component = function  Accessibility (): JSX.Element  {
   usePageEffect({ title: `Accessibility` });
   constructMetadata({ title: `Accessibility`, description: `Accessibility Policy`, url: import.meta.url, image: `${import.meta.url}/assets/images/og.png`  });
   return (
     <>
-    <ContainerWrapper Element={`main`}>
       <h1 className={`
 
       `}>
@@ -18,7 +16,7 @@ export const Component = function  Accessibility (): JSX.Element  {
       <p className={`
 
       `}>
-        {appName} is committed to making our website, <Link to={appOrigin}>{appOrigin}</Link>, accessible to all individuals, including those with disabilities. We strive to ensure that our website complies with the Web Content Accessibility Guidelines <Link to={`https://www.w3.org/TR/WCAG21/#requirements-for-wcag-2-1`} className={`underline`}>(WCAG) 2.1 Level AA</Link>.
+        {appName} is committed to making our website, <Link href={appOrigin}>{appOrigin}</Link>, accessible to all individuals, including those with disabilities. We strive to ensure that our website complies with the Web Content Accessibility Guidelines <Link href={`https://www.w3.org/TR/WCAG21/#requirements-for-wcag-2-1`} className={`underline`}>(WCAG) 2.1 Level AA</Link>.
       </p>
       <p className={`
 
@@ -42,7 +40,7 @@ export const Component = function  Accessibility (): JSX.Element  {
         </li>
       </ol>
       <p>
-          While we are committed to making our website accessible, we understand that not all areas of our website may be <Link className={`underline`} to={`https://www.ada.gov/`}>ADA</Link> or <Link className={`underline`} to={`https://www.w3.org/WAI/standards-guidelines/wcag/glance/`}>WCAG</Link> compliant, and are actively working to increase our compliance level. If you have any questions or concerns about the accessibility of our website, please contact us at <Link className={`underline`} to={`mailto:${appEmail}`}>{appEmail}</Link>.
+          While we are committed to making our website accessible, we understand that not all areas of our website may be <Link className={`underline`} href={`https://www.ada.gov/`}>ADA</Link> or <Link className={`underline`} href={`https://www.w3.org/WAI/standards-guidelines/wcag/glance/`}>WCAG</Link> compliant, and are actively working to increase our compliance level. If you have any questions or concerns about the accessibility of our website, please contact us at <Link className={`underline`} href={`mailto:${appEmail}`}>{appEmail}</Link>.
       </p>
       <p className={`
 
@@ -54,7 +52,6 @@ export const Component = function  Accessibility (): JSX.Element  {
       `}>
         This policy was last updated on 26 December 2023.
       </p>
-    </ContainerWrapper>
     </>
   )
 }

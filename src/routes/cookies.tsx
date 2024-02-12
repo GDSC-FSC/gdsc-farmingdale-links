@@ -1,9 +1,8 @@
 import { constructMetadata } from '@/src/utils/metadata';
-import { ContainerWrapper } from '@/src/components/layouts/index';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '@/src/constants/app';
 
-export const Component = function Cookies (): JSX.Element {
+export const Component = function Cookies(): JSX.Element {
   usePageEffect({
     title: 'Cookie Policy'
   })
@@ -15,13 +14,9 @@ export const Component = function Cookies (): JSX.Element {
   })
   return (
     <>
-      <ContainerWrapper Element={`main`}>
         <h1>Cookie Policy for GDSC Farmingdale | Links</h1>
-
         <p>This is the Cookie Policy for GDSC Farmingdale | Links, accessible from gdsc-farmingdale-links.vercel.app</p>
-
         <p><strong>What Are Cookies</strong></p>
-
         <p>As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.</p>
 
         <p><strong>How We Use Cookies</strong></p>
@@ -39,49 +34,22 @@ export const Component = function Cookies (): JSX.Element {
             <p>Account related cookies</p>
             <p>If you create an account with us then we will use cookies for the management of the signup process and general administration. These cookies will usually be deleted when you log out however in some cases they may remain afterwards to remember your site preferences when logged out.</p>
           </li>
-
-
-
-
-
-
-
         </ul>
-
         <p><strong>Third Party Cookies</strong></p>
-
         <p>In some special cases we also use cookies provided by trusted third parties. The following section details which third party cookies you might encounter through this site.</p>
-
         <ul>
-
           <li>
             <p>This site uses Google Analytics which is one of the most widespread and trusted analytics solution on the web for helping us to understand how you use the site and ways that we can improve your experience. These cookies may track things such as how long you spend on the site and the pages that you visit so we can continue to produce engaging content.</p>
             <p>For more information on Google Analytics cookies, see the official Google Analytics page.</p>
           </li>
-
-
-
-
-
-
-
-
-
         </ul>
-
         <p><strong>More Information</strong></p>
-
         <p>Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the features you use on our site.</p>
-
         <p>For more general information on cookies, please read <a href="https://www.cookiepolicygenerator.com/sample-cookies-policy/">the Cookies Policy article</a>.</p>
-
         <p>However if you are still looking for more information then you can contact us through one of our preferred contact methods:</p>
-
         <ul>
           <li>Email: mikeodnis3242004@gmail.com</li>
-
         </ul>
-      </ContainerWrapper>
     </>
   )
 }
