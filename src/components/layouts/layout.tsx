@@ -1,5 +1,6 @@
 import { Fragment, Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { CenterLayout, ContainerWrapper } from ".";
 
 export function MainLayout(): JSX.Element {
   return (
@@ -25,7 +26,11 @@ export function BaseLayout(): JSX.Element {
   );
 }
 
-const SemanticLayout = ({ children }: { children: React.ReactNode }) => {
+const SemanticLayout = ({
+  children
+}: Readonly<{
+  children: React.ReactNode
+}>) => {
   return (
     <>
       {children}

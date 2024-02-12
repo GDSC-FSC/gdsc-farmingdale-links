@@ -1,4 +1,5 @@
 import { lazy, memo } from 'react';
+export * from './metadata'
 export * from './semantics';
 export * from './primitives'
 export const {

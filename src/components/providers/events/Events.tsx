@@ -1,7 +1,9 @@
-import { PropsWithChildren } from 'react'
+import React from 'react'
 import { Toaster } from 'sonner'
 
-export const Events = ({children}:PropsWithChildren) => {
+export const Events: React.FC<{
+  children: React.ReactNode
+}> = ({children}) => {
   return (
     <>
       <Toaster />

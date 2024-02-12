@@ -1,11 +1,11 @@
-import { constructMetadata } from '@/src/utils/metadata';
+import { ConstructMetadata } from '@/src/components/templates/metadata';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '@/src/constants/app';
 import { Link } from '@/src/components/custom';
 
-export const Component = function  Accessibility (): JSX.Element  {
+export const Component = function Accessibility(): JSX.Element {
   usePageEffect({ title: `Accessibility` });
-  constructMetadata({ title: `Accessibility`, description: `Accessibility Policy`, url: import.meta.url, image: `${import.meta.url}/assets/images/og.png`  });
+  ConstructMetadata({ title: `Accessibility`, description: `Accessibility Policy`, url: import.meta.url, image: `${import.meta.url}/assets/images/og.png` });
   return (
     <>
       <h1 className={`
@@ -40,7 +40,7 @@ export const Component = function  Accessibility (): JSX.Element  {
         </li>
       </ol>
       <p>
-          While we are committed to making our website accessible, we understand that not all areas of our website may be <Link className={`underline`} href={`https://www.ada.gov/`}>ADA</Link> or <Link className={`underline`} href={`https://www.w3.org/WAI/standards-guidelines/wcag/glance/`}>WCAG</Link> compliant, and are actively working to increase our compliance level. If you have any questions or concerns about the accessibility of our website, please contact us at <Link className={`underline`} href={`mailto:${appEmail}`}>{appEmail}</Link>.
+        While we are committed to making our website accessible, we understand that not all areas of our website may be <Link className={`underline`} href={`https://www.ada.gov/`}>ADA</Link> or <Link className={`underline`} href={`https://www.w3.org/WAI/standards-guidelines/wcag/glance/`}>WCAG</Link> compliant, and are actively working to increase our compliance level. If you have any questions or concerns about the accessibility of our website, please contact us at <Link className={`underline`} href={`mailto:${appEmail}`}>{appEmail}</Link>.
       </p>
       <p className={`
 

@@ -1,4 +1,3 @@
-import { Button } from '../components/ui/button';
 import { useCallback, useState } from 'react';
 // eslint-disable-next-line react-refresh/only-export-components
 export function useCopyToClipboard() {
@@ -8,7 +7,7 @@ export function useCopyToClipboard() {
       return navigator.clipboard.writeText(text)
         .then(() => {
           setCopied(true);
-          setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
+          setTimeout(() => setCopied(false), 2000);
         })
         .catch((error) => {
           console.error('Error copying to clipboard:', error);
@@ -16,12 +15,4 @@ export function useCopyToClipboard() {
     }
   }, []);
   return { copied, copyToClipboard };
-}
-export function CopyToClipboard({ content }: Readonly<{ content: string }>) {
-  const { copied, copyToClipboard } = useCopyToClipboard();
-  return (
-    <Button onClick={() => copyToClipboard(content)}>
-      {copied ? 'Copied' : 'Copy'}
-    </Button>
-  );
 }

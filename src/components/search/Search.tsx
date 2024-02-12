@@ -72,7 +72,7 @@ export function CommandMenu() {
         </form>
       </Form>
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandEmpty>No results found...</CommandEmpty>
         <SearchGroups groups={SearchGroupsList.groups} handleShortcutAction={handleShortcutAction} />
       </CommandList>
     </CommandDialog>

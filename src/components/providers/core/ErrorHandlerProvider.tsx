@@ -16,7 +16,7 @@ export function useErrorHandler() {
 interface ErrorHandlerProviderProps {
   children: ReactNode;
 }
-export function ErrorHandlerProvider({ children }: ErrorHandlerProviderProps) {
+export function ErrorHandlerProvider({ children }: Readonly<ErrorHandlerProviderProps>) {
   const [error, setError] = useState<Error | null>(null);
   const handleError = (error: Error) => { setError(error); };
   const clearError = () => { setError(null); };

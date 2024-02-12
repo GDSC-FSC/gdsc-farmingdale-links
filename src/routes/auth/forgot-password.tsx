@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { constructMetadata } from '@/src/utils/metadata';
+import { ConstructMetadata } from '@/src/components/templates/metadata';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '@/src/constants/app';
 import { Link } from "@/src/components/custom";
 
 export const Component = function ForgotPassword(): JSX.Element {
   usePageEffect({
-      title: `Forgot Password`
+    title: `Forgot Password`
   });
-  constructMetadata({
+  ConstructMetadata({
     title: `Forgot Password`,
     description: `Forgot Password`,
     url: import.meta.url,

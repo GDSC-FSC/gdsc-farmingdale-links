@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { NotFound } from "@/src/components/dom/index";
-import { MainLayout, BaseLayout } from '@/src/components/layout'
+import { MainLayout, BaseLayout } from '@/src/components/layouts/index'
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const router = createBrowserRouter([
@@ -13,20 +13,21 @@ export const router = createBrowserRouter([
     path: "",
     element: <BaseLayout />,
     errorElement: <NotFound />,
-    loader: () => import('../components/loading'),
+    loader: () => import('../components/dom/loading'),
     children: [
       { path: "/", lazy: () => import("../app/App") },
       { path: "privacy", lazy: () => import("./privacy") },
       { path: "terms", lazy: () => import("./terms") },
       { path: "accessibility", lazy: () => import("./accessibility") },
-      { path: "cookies", lazy: () => import('./cookies')}
+      { path: "cookies", lazy: () => import('./cookies') },
+      { path: "contact", lazy: () => import('./contact') }
     ],
   },
   {
     path: "/auth",
     element: <MainLayout />,
     errorElement: <NotFound />,
-    loader: () => import('../components/loading'),
+    loader: () => import('../components/dom/loading'),
     children: [
       { index: true, element: <Navigate to="/login" replace /> },
       { path: "/login", lazy: () => import("./auth/login") },

@@ -5,8 +5,8 @@ export const ContainerWrapper = ({
   Element = `div`
 }: {
   className?: string
-    children: React.ReactNode,
-    Element: React.ElementType
+  children: React.ReactNode,
+  Element: React.ElementType
 }): JSX.Element => {
   return (
     <Element

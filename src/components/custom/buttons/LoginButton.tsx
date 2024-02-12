@@ -1,4 +1,4 @@
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { SignInMethod, useSignIn } from "@/src/core/auth";
 import { AnonymousIcon, GoogleIcon } from "@/src/components/icons/components";
 

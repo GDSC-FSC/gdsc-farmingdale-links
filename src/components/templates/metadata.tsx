@@ -1,3 +1,4 @@
+import React from 'react'
 import { appName, appDescription, appOg, appOrigin } from "@/src/constants/app"
 interface MetadataProps {
   title?: string
@@ -6,7 +7,7 @@ interface MetadataProps {
   url?: string
 }
 
-export const constructMetadata = ({ title, description, image, url }: MetadataProps) => {
+export const ConstructMetadata: React.FC<MetadataProps> = ({ title, description, image, url }) => {
   return (
     <>
       <head>

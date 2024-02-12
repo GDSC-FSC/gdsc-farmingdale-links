@@ -23,7 +23,7 @@ export const signInSchema = z.object({
 }).required();
 
 export const resetSchema = z.object({
-      password: z.string().min(10, {
+    password: z.string().min(10, {
       message: "Please enter a password of at least 10 characters",
     }),
     confirmPassword: z.string(),

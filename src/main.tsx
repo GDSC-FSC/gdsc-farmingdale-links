@@ -10,7 +10,7 @@ import Providers from '@/src/providers/Providers';
 import { Router as BaseRouter } from '@/src/routes';
 import { useOnlineStatus } from './hooks';
 import Fallback from '@/src/components/dom/Fallback';
-
+import { StoreProvider } from '@/src/core/store'
 export const RootLayout: React.FC<Readonly<{
   children: React.ReactNode
 }>> = ({ children }) => {
@@ -18,11 +18,13 @@ export const RootLayout: React.FC<Readonly<{
   const isOnline = useOnlineStatus();
   return (
     <Providers>
-      <Routes location={location} key={location.pathname}>
-        {isOnline ? (
-          children
-        ) : (<Fallback />)}
-      </Routes>
+      <StoreProvider>
+        <Routes location={location} key={location.pathname}>
+          {isOnline ? (
+            children
+          ) : (<Fallback />)}
+        </Routes>
+      </StoreProvider>
     </Providers>
   )
 }

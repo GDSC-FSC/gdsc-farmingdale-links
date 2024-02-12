@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useAnimate } from "framer-motion";
 import { useEffect } from "react";
-import { Div } from "./templates/index";
+import { Div } from "../templates/index";
 export default function Loading() {
   const text = "Loading HelpLine";
   const characters = text.toUpperCase().split("");

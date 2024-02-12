@@ -1,6 +1,6 @@
 import { Link } from "@/src/components/custom";
 import { usePageEffect } from "@/src/core/page";
-import { constructMetadata } from "../utils/metadata";
+import { ConstructMetadata } from "../components/templates/metadata";
 import { appName, appOrigin } from "@/src/constants/app";
 
 /**
@@ -9,7 +9,7 @@ import { appName, appOrigin } from "@/src/constants/app";
 
 export const Component = function Terms(): JSX.Element {
   usePageEffect({ title: "Terms of Use" });
-  constructMetadata({
+  ConstructMetadata({
     title: "Terms of Use",
     description: "Terms of Use",
     url: import.meta.url,

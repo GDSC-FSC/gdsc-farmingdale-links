@@ -83,6 +83,13 @@ interface FormInputProps {
   onBlur?: () => void;
 }
 
+interface ContactFormProps {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 interface SidebarProps {
   storageKey?: string;
 }
