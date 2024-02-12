@@ -4,7 +4,7 @@ import {
   PopoverTrigger,
 } from "@/src/components/ui/popover";
 
-import { AuthItems, NavItems } from "@/src/components/custom/nav/index";
+import { NavItems } from "@/src/components/build/nav/index";
 
 export const CustomPopover = ({
   children,
@@ -25,7 +25,6 @@ export const CustomPopover = ({
       >
         <>
           <NavItems />
-          <AuthItems />
         </>
       </PopoverContent>
     </Popover>

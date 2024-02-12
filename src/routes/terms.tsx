@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "@/src/components/custom";
 import { usePageEffect } from "@/src/core/page";
 import { constructMetadata } from "../utils/metadata";
 import { appName, appOrigin } from "@/src/constants/app";
@@ -25,13 +25,13 @@ export const Component = function Terms(): JSX.Element {
 
       `}>
         These Terms of Service govern your use of the website located at{" "}
-        <Link to={appOrigin}>{appOrigin}</Link> and any related services
+        <Link href={appOrigin}>{appOrigin}</Link> and any related services
         provided by {appName}.
       </p>
       <p className={`
 
       `}>
-        By accessing <Link to={appOrigin}>{appOrigin}</Link>, you agree to
+        By accessing <Link href={appOrigin}>{appOrigin}</Link>, you agree to
         abide by these Terms of Service and to comply with all applicable laws
         and regulations. If you do not agree with these Terms of Service, you
         are prohibited from using or accessing this website or using any other

@@ -1,7 +1,4 @@
 import { useLocalStorage } from "usehooks-ts";
-
-import { Button } from "@/src/components/ui/button";
-import { Separator } from "@/src/components/ui/separator";
 import { Accordion } from "@/src/components/ui/accordion";
 import { useCurrentUser } from "@/src/core/auth";
 import { NavItem } from "./nav-item";

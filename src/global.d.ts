@@ -157,3 +157,11 @@ interface FooterProps {
 type Prettify<T> = {
   [K in keyof T]: T[K];
 } & NonNullable<unknown>;
+
+interface Links {
+  id?: number;
+  name: string;
+  image: string;
+  link: string;
+  description: string;
+}

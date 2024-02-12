@@ -1,5 +1,6 @@
 import * as React from 'react'
-
+import { Link } from '@/src/components/custom';
+import { Button } from '@/src/components/ui/button';
 declare function consentGranted(): void;
 declare function getCookieConsent(): string;
 
@@ -39,27 +40,27 @@ export const CookieConsent = function CookieConsent() {
               <p className="mb-4 text-sm sm:text-base">
                 We use cookies to analyze our website and make your experience even
                 better. To learn more, see our{" "}
-                <a
+              <Link
                   className="text-blue-600 underline hover:text-blue-700"
                   href="/privacy-policy"
                 >
                   Privacy Policy.
-                </a>
+              </Link>
               </p>
 
               <div className="mx-auto">
-                <button
+              <Button
                   className="rounded-md bg-blue-600 p-2 text-white transition hover:bg-blue-700"
                   onClick={handleAccept}
                 >
                   Accept
-                </button>
-                <button
+                </Button>
+              <Button
                   className="ml-2 rounded-md bg-transparent p-2 text-slate-600 transition hover:bg-gray-200"
                   onClick={handleDecline}
                 >
                   Decline
-                </button>
+                </Button>
               </div>
             </div>
           </div>

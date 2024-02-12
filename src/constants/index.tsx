@@ -68,3 +68,29 @@ export const FooterList: FooterProps[] = [
 
 export const CardClasses = `bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] border border-black border-opacity-10 rounded-xl border bg-card text-card-foreground shadow`
 export const EmailRegex = /^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/
+
+import { AccessibilityIcon, AlertTriangleIcon, CookieIcon, GavelIcon, LockIcon, MailIcon, UserIcon, UserPlusIcon } from 'lucide-react';
+
+interface IconComponentsProps {
+  routes: {
+    legal: JSX.Element[],
+    auth: JSX.Element[]
+  }[]
+}
+
+export const iconComponents: IconComponentsProps['routes'] = [
+  {
+    legal: [
+      <AlertTriangleIcon />,
+      <GavelIcon />,
+      <AccessibilityIcon />,
+      <CookieIcon />,
+    ],
+    auth: [
+      <UserIcon />,
+      <UserPlusIcon />,
+      <MailIcon />,
+      <LockIcon />
+    ]
+  }
+]

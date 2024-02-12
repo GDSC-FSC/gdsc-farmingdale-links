@@ -73,7 +73,7 @@ export const FooterBar = () => {
               <ul>
                 {section.middle.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a href={link.url}>{link.title}</a>
+                    <Link href={link.url}>{link.title}</Link>
                   </li>
                 ))}
               </ul>

@@ -8,14 +8,20 @@ import reportWebVitals from './reportWebVitals';
 import '@/src/styles/globals.css'
 import Providers from '@/src/providers/Providers';
 import { Router as BaseRouter } from '@/src/routes';
+import { useOnlineStatus } from './hooks';
+import Fallback from '@/src/components/dom/Fallback';
+
 export const RootLayout: React.FC<Readonly<{
   children: React.ReactNode
 }>> = ({ children }) => {
   const location = useLocation();
+  const isOnline = useOnlineStatus();
   return (
     <Providers>
       <Routes location={location} key={location.pathname}>
-        {children}
+        {isOnline ? (
+          children
+        ) : (<Fallback />)}
       </Routes>
     </Providers>
   )

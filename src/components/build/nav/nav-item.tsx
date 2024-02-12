@@ -10,6 +10,7 @@ import { Button } from "@/src/components/ui/button";
 import { Skeleton } from "@/src/components/ui/skeleton";
 import { NavItems } from "./NavItems";
 import { useCurrentUser } from "@/src/core/auth";
+import { CustomImage as Image } from "@/src/components/custom";
 
 export const NavItem = ({
   isExpanded,
@@ -33,7 +34,7 @@ export const NavItem = ({
           <Div className="w-7 h-7 relative">
             <Image
               fill
-              src={user?.photoURL}
+              src={user?.photoURL || ""}
               alt="User avatar"
               className="rounded-sm object-cover"
             />

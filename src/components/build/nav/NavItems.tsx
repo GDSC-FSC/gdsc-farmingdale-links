@@ -2,7 +2,8 @@ import { Button } from "@/src/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
 import { cn } from "@/src/lib/utils";
 import { useCurrentUser } from "@/src/core/auth";
-import { LoginButton, LogoutButton } from "../../custom";
+import { LoginButton, LogoutButton } from "@/src/components/custom/index";
+import { iconComponents } from "@/src/constants";
 
 const AuthButtons = [
   <LoginButton signInMethod={`google.com`} />,
@@ -20,28 +21,28 @@ interface AuthRoutesProps {
 
 const AuthRoutes: AuthRoutesProps['routes'] = [
   {
-    label: "Forgot Password",
-    icon: <></>,
-    href: `/auth/forgot-password`,
-    authenticated: true,
-  },
-  {
-    label: "Reset Password",
-    icon: <> </>,
-    href: `/auth/reset-password`,
-    authenticated: true,
-  },
-  {
     label: "Login",
-    icon: <></>,
+    icon: iconComponents[0].auth[0],
     href: `/auth/login`,
     authenticated: false,
   },
   {
     label: "Signup",
-    icon: <></>,
+    icon: iconComponents[0].auth[1],
     href: `/auth/signup`,
     authenticated: false,
+  },
+  {
+    label: "Forgot Password",
+    icon: iconComponents[0].auth[2],
+    href: `/auth/forgot-password`,
+    authenticated: true,
+  },
+  {
+    label: "Reset Password",
+    icon: iconComponents[0].auth[3],
+    href: `/auth/reset-password`,
+    authenticated: true,
   },
 ];
 
@@ -80,7 +81,7 @@ export const NavItems = () => {
               <span className="ml-4">{route.label}</span>
             </Button>
           );
-        } else if (route.authenticated === false) {
+        } else if (route.authenticated !== !!user) {
           return (
             <Button
               key={index}

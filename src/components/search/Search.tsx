@@ -9,6 +9,7 @@ import { CommandDialog, CommandList, CommandEmpty, CommandGroup, CommandItem, Co
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Search, searchSchema } from "../../schema/search";
 import { useSearchStore } from '@/src/core/store';
+import { iconComponents } from '@/src/constants/index';
 
 const camelToKebab = (str: string) => {
   return str.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
@@ -119,19 +120,6 @@ export const SearchGroups: React.FC<SearchGroupsListProps> = ({ groups, handleSh
   );
 };
 
-import { AccessibilityIcon, AlertTriangleIcon, CookieIcon, GavelIcon, LockIcon, MailIcon, UserIcon, UserPlusIcon } from 'lucide-react';
-
-const iconComponents = [
-  <AlertTriangleIcon />,
-  <GavelIcon />,
-  <AccessibilityIcon />,
-  <CookieIcon />,
-  <UserIcon />,
-  <UserPlusIcon />,
-  <MailIcon />,
-  <LockIcon />
-];
-
 function Item({
   children,
   onSelect = () => { },
@@ -141,8 +129,15 @@ function Item({
 }) {
   return (
     <CommandItem onSelect={onSelect}>
-      {iconComponents.map((icon, index) => (
-        <div key={index}>{icon}</div>
+      {iconComponents.map((route, index) => (
+        <div key={index}>
+          {route.legal.map((icon, idx) => (
+            <div key={idx}>{icon}</div>
+          ))}
+          {route.auth.map((icon, idx) => (
+            <div key={idx}>{icon}</div>
+          ))}
+        </div>
       ))}
       <span>{children}</span>
     </CommandItem>

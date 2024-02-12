@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-
 import { Props as MediaProps } from '@/src/types/frontend/custom-component';
 
 export const Video: React.FC<MediaProps> = props => {
@@ -7,7 +6,7 @@ export const Video: React.FC<MediaProps> = props => {
 
   const videoRef = useRef<HTMLVideoElement>(null)
   // Mix this with existing
-  const [showFallback, setShowFallback] = useState<boolean>()
+  const [, setShowFallback] = useState<boolean>()
 
   useEffect(() => {
     const { current: video } = videoRef
@@ -29,7 +28,8 @@ export const Video: React.FC<MediaProps> = props => {
         muted
         loop
         controls={false}
-        className={[` max-w-full w-full bg-foreground-100`, videoClassName].filter(Boolean).join(' ')}
+        className={[`
+          max-w-full w-full bg-foreground-100`, videoClassName].filter(Boolean).join(' ')}
         onClick={onClick}
         ref={videoRef}
       >

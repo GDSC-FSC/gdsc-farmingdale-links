@@ -5,6 +5,8 @@ import {
   PopoverTrigger,
 } from "@/src/components/ui/popover";
 import { Button } from '@/src/components/ui/button';
+import { PrimitiveDiv as Div } from '@/src/components/templates/index';
+
 const Settings = () => {
   return (
     <>
@@ -27,33 +29,43 @@ const Settings = () => {
           side={`bottom`}
           sideOffset={0}
         >
-          <div className="grid gap-4">
-            <div className="space-y-2">
+          <Div className="grid gap-4">
+            <Div className="space-y-2">
               <h4 className="font-medium leading-none">Dimensions</h4>
-            </div>
-            <div className="grid gap-2">
-              <div className="grid grid-cols-3 items-center gap-4">
+            </Div>
+            <Div className="grid gap-2">
+              <Div className="grid grid-cols-3 items-center gap-4">
                 <SettingsContent />
-              </div>
-            </div>
-          </div>
+              </Div>
+            </Div>
+          </Div>
         </PopoverContent>
       </Popover>
     </>
   )
 }
+
 import { Language } from './Language';
+import { ModeToggle } from '@/src/components/providers/index';
+
 const settingContent = [
   {
     component: Language,
-    
+  },
+  {
+    component: ModeToggle,
   }
 ]
 
 const SettingsContent = () => {
   return (
     <>
-
+      {settingContent.map((content, index) => {
+        const { component: Component } = content;
+        return (
+          <Component key={index} />
+        )
+      })}
     </>
   )
 }

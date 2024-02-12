@@ -7,6 +7,8 @@ export const useSearchStore = create<SearchState>((set) => ({
   setOpen: (open) => set({ open }),
 }));
 
+
+
 export const store = createStore();
 
 export function StoreProvider(props: StoreProviderProps): JSX.Element {

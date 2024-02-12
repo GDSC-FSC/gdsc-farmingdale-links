@@ -34,7 +34,7 @@ function VideoCarousel() {
           poster={video.image}
           preload="auto"
         >
-          <source src={video.link} type={video.file_type} />
+          <source src={     video.link} type={video.file_type} />
         </video>
       ))}
     </>

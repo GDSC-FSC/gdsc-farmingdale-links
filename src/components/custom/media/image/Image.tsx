@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 
 import { Props as MediaProps, StaticImageData } from '@/src/types/frontend/custom-component'
@@ -17,6 +15,7 @@ export const CustomImage: React.FC<MediaProps> = props => {
     fill,
     src: srcFromProps,
     alt: altFromProps,
+    fetchpriority,
   } = props
 
   const [isLoading, setIsLoading] = useState(true)
