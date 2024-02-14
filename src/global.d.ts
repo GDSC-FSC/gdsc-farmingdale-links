@@ -127,6 +127,22 @@ interface SearchState {
   setOpen: (open: boolean) => void;
 }
 
+interface EventsState {
+  past: {
+    pastEvents: Events[];
+    setPastEvents: (pastEvents: Events[]) => void;
+  }
+  upcoming: {
+    upcomingEvents: Events[];
+    setUpcomingEvents: (upcomingEvents: Events[]) => void;
+  }
+}
+
+interface LinksState {
+  links: Links[];
+  setLinks: (links: Links[]) => void;
+}
+
 type PrimitiveSemanticProps<E extends HTMLElement = HTMLElement> = {
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>;
   children?: ReactNode;
@@ -159,6 +175,11 @@ interface FooterProps {
   right: {
     component: React.ReactNode
   },
+}
+
+interface LinkProps {
+  href: string
+  icon: JSX.Element
 }
 
 type Prettify<T> = {

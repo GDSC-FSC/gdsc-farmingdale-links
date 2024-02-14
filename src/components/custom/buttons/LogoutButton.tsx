@@ -17,7 +17,7 @@ export function LogoutButton(props: LogoutButtonProps): JSX.Element {
       }
       {...other}
     />
-  ) 
+  )
 }
 
 export type LogoutButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "children">

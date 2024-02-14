@@ -3,9 +3,9 @@ import { ThemeProvider, Events, ContextMenuProvider, CookieConsent } from '@/src
 import { AnimatePresence } from 'framer-motion'
 import { NextUIProvider } from '@nextui-org/react'
 import LazyImageWrapper from '@/src/components/wrappers/LazyImageWrapper'
-const Providers: React.FC<Readonly<{
+const Providers: React.FC<{
   children: React.ReactNode
-}>> = ({ children }) => {
+}> = ({ children }) => {
   return (
     <NextUIProvider>
       <ThemeProvider

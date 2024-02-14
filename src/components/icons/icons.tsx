@@ -55,7 +55,7 @@ export const Icons: IconsProps = {
     </>),
     map: ({ className, size, ...props }: SVGIconProps) => (<>
       <Map size={size} className={cn('', className)} {...props} />
-      </>)
+    </>)
   },
   auth: {
     anonymous: ({ className, size, ...props }: SVGIconProps) => (<>

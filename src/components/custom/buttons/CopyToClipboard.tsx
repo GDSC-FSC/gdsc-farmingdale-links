@@ -1,11 +1,14 @@
 import { useCopyToClipboard } from '@/src/hooks/index'
 import { Button } from '@/src/components/ui/button'
 
-export function CopyToClipboard({ content }: Readonly<{ content: string }>) {
+export function CopyToClipboard({ content, children }: { content: string } & { children?: React.ReactNode }) {
   const { copied, copyToClipboard } = useCopyToClipboard();
   return (
-    <Button onClick={() => copyToClipboard(content)}>
-      {copied ? 'Copied' : 'Copy'}
-    </Button>
+    <>
+      {children}
+      <Button onClick={() => copyToClipboard(content)}>
+        {copied ? 'Copied' : 'Copy'}
+      </Button>
+    </>
   );
 }

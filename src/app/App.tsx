@@ -1,10 +1,11 @@
-const name = 'GDSC Farmingdale';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import ContentCard from './components/ContentCard';
 
-export const Component = function App(): JSX.Element {
+const queryClient = new QueryClient();
+export const  App = () => {
   return (
-    <>
-      <h1>{name}</h1>
-      <p>Welcome to {name}!</p>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <ContentCard />
+    </QueryClientProvider>
   )
 }

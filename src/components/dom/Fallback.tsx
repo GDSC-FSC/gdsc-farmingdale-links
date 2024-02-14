@@ -4,6 +4,7 @@ export default function Fallback() {
   return (
     <CenterLayout Element={`main`}>
       <TicTacToe />
+      {/* <h1>Offline</h1> */}
     </CenterLayout>
   )
 }

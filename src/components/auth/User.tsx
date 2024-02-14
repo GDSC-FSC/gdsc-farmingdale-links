@@ -4,8 +4,7 @@ import {
   AvatarImage,
 } from "@/src/components/ui/avatar"
 import { useCurrentUser } from "@/src/core/auth"
-import { CustomPopover } from "@/src/components/custom/Popover"
-
+import { CustomPopover } from "../custom"
 export function UserAvatar() {
   const user = useCurrentUser()
   return (

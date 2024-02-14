@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { EmailRegex } from "@/src/constants";
+// import { EmailRegex } from "@/src/constants";
 
 export const signUpSchema = z
   .object({
@@ -37,7 +37,7 @@ export const resetSchema = z.object({
 export const forgotSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address"
-  }).regex(EmailRegex).min(5).max(255)
+  }).regex(/^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/).min(5).max(255)
 }).required()
 
 export type TSignUpSchema = z.infer<typeof signUpSchema>;

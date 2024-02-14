@@ -1,18 +1,25 @@
 import React from 'react'
 import { ConstructMetadata } from '@/src/components/templates/metadata';
-import { usePageEffect } from '../core/page';
+import { usePageEffect } from '@/src/core/page';
 import { appName, appOrigin, appEmail } from '@/src/constants/app';
 import { useState } from 'react'
 import { SubmitHandler } from 'react-hook-form'
-import { CustomButton as Button } from '@/components/custom';
-import { ContactForm, contactFormSchema } from '@/lib/form';
+import { CustomButton as Button } from '@/src/components/custom';
+import { ContactForm, contactFormSchema } from '@/src/schema/contact';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Input } from "@/components/ui/input"
-import ContactContainer from '@/components/custom/ContactContainer';
-import { Textarea } from '@/components/ui/textarea'
+import { Input } from "@/src/components/ui/input"
+import ContactContainer from '@/src/components/custom/core/ContactContainer';
+import { Textarea } from '@/src/components/ui/textarea'
 export const Component: React.FC = function Contact() {
-  const onSubmit: SubmitHandler<ContactFormProps> = (formData) => { window.location.href = `mailto:mikeodnis3242004@gmail.com?subject=${formData.subject}&body=${formData.message}` };
+  usePageEffect({ title: `Contact | ${appName}` });
+  ConstructMetadata({
+    title: `Contact | ${appName}`,
+    description: `Contact ${appName} for any inquiries`,
+    url: `${appOrigin}/contact`,
+    image: `${appOrigin}/logo.png`,
+  })
+  const onSubmit: SubmitHandler<ContactFormProps> = (formData) => { window.location.href = `mailto:${appEmail}?subject=${formData.subject}&body=${formData.message}` };
   const [charactersLeft, setCharactersLeft] = useState(500);
   const form = useForm<ContactForm>({
     resolver: zodResolver(contactFormSchema),

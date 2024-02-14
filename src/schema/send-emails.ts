@@ -1,10 +1,10 @@
 import { z } from "zod";
-import { EmailRegex } from "@/src/constants";
+// import { EmailRegex } from "@/src/constants";
 export const sendEmail = z
   .object({
     email: z.string().email({
       message: "Please enter a valid email address"
-    }).regex(EmailRegex).min(5).max(255),
+    }).regex(/^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/).min(5).max(255),
   }).required()
 
 export type TSendEmail = z.infer<typeof sendEmail>;

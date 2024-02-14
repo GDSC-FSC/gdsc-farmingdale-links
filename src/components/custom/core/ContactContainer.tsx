@@ -1,13 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { Card } from ".";
 import { CardHeader, CardTitle, CardDescription, CardContent } from '@/src/components/ui/card'
 const ContactContainer: React.FC<
-  Readonly<
-    Record<
-      string,
-      React.ReactNode
-    >
+  Record<
+    string,
+    React.ReactNode
   >
 > = ({ cardContent, cardTitle, cardDescription }) => {
   return (

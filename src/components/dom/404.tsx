@@ -2,7 +2,7 @@ import { useRouteError } from 'react-router-dom';
 import { Main, Section, Article, Menu } from '@/src/components/templates/index';
 import { Button } from '@nextui-org/react';
 
-export const NotFound =  function NotFound(): JSX.Element {
+export const NotFound = (): JSX.Element => {
   const err = useRouteError() as RouteError;
 
   return (
@@ -60,7 +60,7 @@ export const NotFound =  function NotFound(): JSX.Element {
               `}
             >
               <Button radius={`md`} color={`primary`} variant={`ghost`}>
-                
+
               </Button>
             </li>
             <li>

@@ -234,7 +234,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
               zIndex: 1000,
               translate: "translate(-50%, -50%)",
             }}
-              className={` bg-white fixed left-[50%] top-[50%] z-50 grid w-md translate-x-[-50%] translate-y-[-50%] backface-hidden p-[0.25rem] rounded-md border-[0.5px] border-[#41403e]/20`}
+            className={` bg-white fixed left-[50%] top-[50%] z-50 grid w-md translate-x-[-50%] translate-y-[-50%] backface-hidden p-[0.25rem] rounded-md border-[0.5px] border-[#41403e]/20`}
           >
             <CardHeader
               className={`text-center`}
@@ -295,8 +295,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
 
 const Container = React.forwardRef<React.ElementRef<typeof Article>, React.ComponentPropsWithoutRef<typeof Article>>(({ className, ...props }, ref) => {
   return <Article ref={ref} className={cn(`grid grid-cols-3 grid-rows-3
-        gap-2 rounded-lg h-fit w-fit p-2 shadow-lg`,className)} {...props} />;
+        gap-2 rounded-lg h-fit w-fit p-2 shadow-lg`, className)} {...props} />;
 });
 
 export default TicTacToe;
- 

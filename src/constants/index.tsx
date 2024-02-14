@@ -27,7 +27,7 @@ export const FooterList: FooterProps[] = [
           {
             icon: Icons.functionalIcons.globe,
             aria: "website",
-            url: ""
+            url: "https://gdsc.community.dev/farmingdale-state-college/"
           },
           {
             icon: Icons.functionalIcons.email,
@@ -58,6 +58,10 @@ export const FooterList: FooterProps[] = [
       {
         title: "Cookie Policy",
         url: "/cookies"
+      },
+      {
+        title: "Contact",
+        url: "/contact"
       }
     ],
     right: {

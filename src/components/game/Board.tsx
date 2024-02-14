@@ -1,4 +1,4 @@
-import { DIMENSIONS, DRAW } from "../../constants/constants";
+import { DIMENSIONS, DRAW } from "@/src/constants/TicTacToe";
 
 type Grid = Array<null | number>;
 export default class Board {

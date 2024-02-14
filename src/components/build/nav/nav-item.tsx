@@ -5,8 +5,6 @@ import {
   AccordionItem,
   AccordionTrigger
 } from "@/src/components/ui/accordion";
-
-import { Button } from "@/src/components/ui/button";
 import { Skeleton } from "@/src/components/ui/skeleton";
 import { NavItems } from "./NavItems";
 import { useCurrentUser } from "@/src/core/auth";

@@ -15,6 +15,7 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
     loader: () => import('../components/dom/loading'),
     children: [
+      { index: true, element: <Navigate to="/" replace /> },
       { path: "/", lazy: () => import("../app/App") },
       { path: "privacy", lazy: () => import("./privacy") },
       { path: "terms", lazy: () => import("./terms") },

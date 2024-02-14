@@ -1,1 +1,0 @@
-export const College = `farmingdale-state-college`

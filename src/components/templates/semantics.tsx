@@ -36,7 +36,7 @@ export const Aside: React.FC<SemanticProps<'aside'>> = ({ framer, children, clas
   );
 }
 
-export const Div: React.FC<SemanticProps<'div'>> = ({ framer, children, className, style, attributes,  framerProps, key }) => {
+export const Div: React.FC<SemanticProps<'div'>> = ({ framer, children, className, style, attributes, framerProps, key }) => {
   type SectionMotionProps = typeof Motion.MotionDiv extends React.FC<infer P> ? P : never;
   return (
     <>
@@ -45,7 +45,7 @@ export const Div: React.FC<SemanticProps<'div'>> = ({ framer, children, classNam
           {children}
         </Motion.MotionDiv>
       ) : (
-        <div {...attributes}  className={cn('', className)} style={style}>
+        <div {...attributes} className={cn('', className)} style={style}>
           {children}
         </div>
       )}

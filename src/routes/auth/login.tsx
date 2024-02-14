@@ -1,7 +1,7 @@
 import { LoginButton } from "@/src/components/custom/index";
 import { ContainerWrapper } from "@/src/components/layouts";
 
-export const Component = function Login(): JSX.Element  {
+export const Component = function Login(): JSX.Element {
   return (
     <ContainerWrapper Element={`article`}>
       <h2 className={`

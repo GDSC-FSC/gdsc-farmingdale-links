@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Fragment, Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { CenterLayout, ContainerWrapper } from ".";

@@ -16,15 +16,6 @@ const Card = React.forwardRef<
 
 Card.displayName = "Card"
 
-const Script = React.forwardRef<
-  HTMLSelectElement, React.HTMLAttributes<HTMLScriptElement>
->(({ ...props }) => (
-  <script
-    {...props}
-  />
-))
-
 export {
   Card,
-  Script
 }

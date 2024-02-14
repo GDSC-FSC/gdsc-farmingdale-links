@@ -4,7 +4,6 @@ import million from 'million/compiler';
 import { VitePWA } from 'vite-plugin-pwa'
 import eslint from 'vite-plugin-eslint';
 import { defineProject } from "vitest/config";
-import { imagetools } from 'vite-imagetools'
 
 export default defineProject(async () => {
   return {
@@ -19,13 +18,12 @@ export default defineProject(async () => {
       },
     },
     plugins: [
-      imagetools(),
       million.vite({
         auto: true,
       }),
       react(),
       eslint({
-        include: ['./src/**/*.tsx', './src/**/*.ts', './server/**/*.ts'],
+        include: ['./src/**/*.tsx', './src/**/*.ts'],
         exclude: ['node_modules/**', './src/**/*.d.ts'],
       }),
       VitePWA({

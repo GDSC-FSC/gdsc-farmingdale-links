@@ -17,9 +17,9 @@ import {
 
 export function ContextMenuProvider({
   children
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   useEffect(() => {
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault()

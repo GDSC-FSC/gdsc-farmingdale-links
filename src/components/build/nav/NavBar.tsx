@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Icons } from "../../icons/icons";
-import { CustomPopover } from "@/src/components/custom/Popover";
+import { CustomPopover } from "@/src/components/custom/index";
 import { Nav, PrimitiveDiv as Div } from "@/src/components/templates/index";
 import { MobileSidebar } from "./mobile-sidebar";
 import { ModeToggle } from "@/src/components/providers/theme/index";
@@ -10,7 +10,7 @@ import { UserAvatar } from "../../auth";
 import { SearchButton } from "../../search";
 
 export const Navbar = memo(function NavBar() {
-  const user  = useCurrentUser();
+  const user = useCurrentUser();
   return (
     <Nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm  flex items-center bg-background">
       <Div className="flex items-center gap-x-4 justify-center">

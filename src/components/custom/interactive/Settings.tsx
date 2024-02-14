@@ -45,7 +45,7 @@ const Settings = () => {
   )
 }
 
-import { Language } from './Language';
+import { Language } from '../core/Language';
 import { ModeToggle } from '@/src/components/providers/index';
 
 const settingContent = [

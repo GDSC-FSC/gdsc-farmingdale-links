@@ -1,38 +1,13 @@
-import React, { Suspense } from 'react'
-import { Pagination } from '@/src/components/ui/pagination'
-import { Skeleton } from '@/src/components/ui/skeleton'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/src/components/ui/card"
-import { Button } from "@/src/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/src/components/ui/tabs"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/src/components/ui/dialog"
-import { DotsHorizontalIcon } from "@radix-ui/react-icons"
-import { CiGlobe } from "react-icons/ci";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { Card, CardContent, CardHeader } from "@/src/components/ui/card"
+import { Tabs, TabsList } from "@/src/components/ui/tabs"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/src/components/ui/scroll-area"
 import { Picture, Section, Article, Aside, Header } from '@/src/components/templates'
 import { Link } from '@/src/components/custom'
-
-interface Link {
-  href: string
-  icon: JSX.Element
-}
-
-const links: Link[] = [
-  { href: 'https://mikeodnis.com', icon: <CiGlobe />, },
-  { href: 'https://twitter.com/OdnisMike', icon: <FaXTwitter />, },
-  { href: 'https://github.com/WomB0ComB0', icon: <FaGithub />, },
-  { href: 'https://linkedin.com/mikeodnis', icon: <FaLinkedin />, },
-]
-
+import { TabsContentWrapper } from '../ui/TabsContentWrapper'
+import TabsTriggers from '../ui/TabsTriggers'
+import { links } from '@/src/constants/card-content'
+import { Links, PastEvents, UpcomingEvents } from "../server/index";
 const ContentCard = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -192,223 +167,24 @@ const ContentCard = () => {
                 flex flex-row items-center justify-center w-full h-9  rounded-lg p-1 text-white bg-black bg-opacity-20 backdrop-filter backdrop-blur-[10px] relative shadow-md transition-all ease-in-out duration-[85ms]
               `}
             >
-              <TabsTrigger
-                value="links"
-                className={`
-                  w-1/3
-                  font-semibold
-                `}
-
-              >
-                Links
-              </TabsTrigger>
-              <TabsTrigger
-                value="upcoming"
-                className={`
-                  w-1/3 font-semibold
-                `}
-              >
-                Upcoming
-              </TabsTrigger>
-              <TabsTrigger
-                value="past"
-                className={`
-                  w-1/3
-                  font-semibold
-                `}
-              >
-                Past
-              </TabsTrigger>
+              {["links", "upcoming", "past"].map((value, index) => (
+                <TabsTriggers key={index} value={value} title={value} />
+              ))}
             </TabsList>
-            <TabsContent
-              value="links"
-              className={`
-                bg-transparent
-              `}
-            >
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    Links
-                  </CardTitle>
-                  <CardDescription>
-                    These are all the relevant links
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Dialog>
-                    {/* Map starts here */}
-                    <DialogTrigger asChild>
-                      <Button>
-                        Show Dialog
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>
-                          Share this link
-                        </DialogTitle>
-                      </DialogHeader>
-                      {/* Map here */}
-                      {["https://github.com/Womb0Comb0", "https://linkedin.com/mikeodnis", "https://mikeodnis.com"].map((link, index) => (
-                        <Button key={index} onClick={() => window.open(link, '_blank', 'noopener')}>
-                          {link.replace(/https?:\/\//, '')}
-                        </Button>
-                      ))}
-                    </DialogContent>
-                  </Dialog>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value="upcoming">
-              <Card>
-                <CardHeader>
-                  <CardTitle>
-                    Upcoming Events
-                  </CardTitle>
-                  <CardDescription>
-                    These are all upcoming events
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Dialog>
-                    {/* Map starts here */}
-                    <DialogTrigger asChild>
-                      <Button>
-                        Show Dialog
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>
-                          Share this link
-                        </DialogTitle>
-                      </DialogHeader>
-                      {/* Map here */}
-                      {["https://github.com/Womb0Comb0", "https://linkedin.com/mikeodnis", "https://mikeodnis.com"].map((link, index) => (
-                        <Button key={index} onClick={() => window.open(link, '_blank', 'noopener')}>
-                          {link.replace(/https?:\/\//, '')}
-                        </Button>
-                      ))}
-                    </DialogContent>
-                  </Dialog>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent
-              value="past"
-              className={`
-                flex flex-col items-center justify-start w-full h-full bg-transparent
-              `}
-            >
-              <Card
-                className={`
-                  w-full flex flex-col items-center justify-start h-full rounded-lg bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] relative shadow-md transition-all ease-in-out duration-[85ms] border-none
-                `}
+            {["links", "upcoming", "past"].map((value, index) => (
+              <TabsContentWrapper
+                key={index}
+                value={value}
               >
-                <CardHeader
-                  className={`
-                    w-full flex flex-col items-center justify-start h-fit 2 p-2 rounded-t-sm bg-black bg-opacity-20 relative shadow-lg transition-all ease-in-out duration-[85ms]
-                  `}
-                  role={`article`}
-                >
-                  <CardTitle
-                    className={`text-white text-md font-bold`}
-                  >
-                    Past Events
-                  </CardTitle>
-                </CardHeader>
-                {/* <Separator /> */}
-                <CardContent
-                  className={`w-full flex flex-col items-center h-full pt-0 rounded-b-sm p-2`}
-                >
-                  <ScrollArea
-                    className={`
-                      w-full h-fit max-h-[400px] min-h-[200px] overflow-y-auto overflow-x-hidden flex flex-col items-center justify-start gap-1
-                    `}
-                  >
-                    <Section
-                      className={`
-                        w-full flex flex-row items-center justify-between h-14 mt-[0.2rem] rounded-lg shadow-md transition-all ease-in-out duration-[85ms] bg-slate-200 relative
-                      `}
-                      onMouseOver={(e) => {
-                        e.preventDefault()
-                        e.currentTarget.style.scale = '.98'
-                      }}
-                      onMouseOut={(e) => {
-                        e.preventDefault()
-                        e.currentTarget.style.scale = '1'
-                      }}
-                    >
-                      <Link
-                        href="https://github.com/WomB0ComB0"
-                        className={`
-                          flex flex-row items-center justify-center w-full px-16 text-center break-words appearance-none align-middle box-border relative h-full hyphens-auto whitespace-normal`}
-                        target={`_blank`}
-                        rel={`noopener`}
-                      >
-                        <div className={`w-full h-full flex justify-center items-center`}>
-                          <Picture
-                            className={`
-                              cursor-none absolute top-[50%] transform -translate-y-1/2 justify-center flex left-[0.22rem]
-                            `}
-                          >
-                            <img
-                              src="https://github.com/WomB0ComB0.png"
-                              className={`
-                              size-12 rounded-md
-                            `}
-                              loading="lazy"
-                              alt={``}
-                            />
-                          </Picture>
-                          <p
-                            className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal`}
-                          >
-                            hello
-                          </p>
-                        </div>
-                      </Link>
-                      <Dialog>
-                        {/* Map starts here */}
-                        <DialogTrigger
-                          asChild
-                          className={`
-                            flex absolute h-[40px] w-[40px] items-center justify-center lg:group-hover:flex rounded-full  transition z-[1] top-0 bottom-0 my-auto mx-0 right-[6px]
-                        `}
-                          role={`button`}
-                        >
-                          <Button
-                            variant={`ghost`}
-                          >
-                            <DotsHorizontalIcon
-                              className={`
-                                scale-150
-                              `}
-                            />
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                          <DialogHeader>
-                            <DialogTitle>
-                              Share this link
-                            </DialogTitle>
-                          </DialogHeader>
-                          {/* Map here */}
-                          {links.map((link, index) => (
-                            <Button key={index} onClick={() => window.open(link.href, '_blank', 'noopener')}>
-                              {link.href.replace(/https?:\/\//, '')}
-                            </Button>
-                          ))}
-                          {/* One big share */}
-                        </DialogContent>
-                      </Dialog>
-                    </Section>
-                    <ScrollBar />
-                  </ScrollArea>
-                </CardContent>
-              </Card>
-            </TabsContent>
+                {value === "links" ? (
+                  <Links />
+                ) : value === "upcoming" ? (
+                  <UpcomingEvents />
+                ) : (
+                  <PastEvents />
+                )}
+              </TabsContentWrapper>
+            ))}
           </Tabs>
         </CardContent>
       </Card>

@@ -19,7 +19,7 @@ export const NewsLetter = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <FormInput id={""} placeholder={`Email address`} {...register("email")} errors={errors.email} type={`email`}/>
+      <FormInput id={""} placeholder={`Email address`} {...register("email")} errors={errors.email} type={`email`} />
       {/* type="submit" is not necessary since the submit handling is being  handled by the form element*/}
       <FormSubmit>
         Subscribe

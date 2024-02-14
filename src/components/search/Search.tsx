@@ -43,7 +43,7 @@ export function CommandMenu() {
     };
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [open, setOpen ]);
+  }, [open, setOpen]);
 
   const handleShortcutAction = useCallback((route: string) => {
     const kebabRoute = camelToKebab(route);

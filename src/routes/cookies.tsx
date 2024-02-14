@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ConstructMetadata } from '@/src/components/templates/metadata';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '@/src/constants/app';

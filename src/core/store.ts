@@ -7,6 +7,20 @@ export const useSearchStore = create<SearchState>((set) => ({
   setOpen: (open) => set({ open }),
 }));
 
+export const usePastEventsStore = create<EventsState['past']>((set) => ({
+  pastEvents: [],
+  setPastEvents: (pastEvents) => set({ pastEvents }),
+}));
+
+export const useUpcomingEventsStore = create<EventsState['upcoming']>((set) => ({
+  upcomingEvents: [],
+  setUpcomingEvents: (upcomingEvents) => set({ upcomingEvents }),
+}));
+
+export const useLinksStore = create<LinksState>((set) => ({
+  links: [],
+  setLinks: (links) => set({ links }),
+}));
 
 
 export const store = createStore();
