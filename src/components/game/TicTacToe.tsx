@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-case-declarations */
 import React, { useState, useEffect, useCallback } from "react";
 import {
@@ -14,7 +15,7 @@ import { minimax } from "@/src/utils/minimax";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/src/components/ui/card";
 import { Button } from "@/src/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/src/components/ui/select";
-import { ParticlesContainer } from "@/src/components/particles/Confetti";
+// import { ParticlesContainer } from "@/src/components/particles/Confetti";
 import { Section, Article } from "@/src/components/templates/index";
 import { cn } from "@/src/lib/utils";
 
@@ -36,9 +37,6 @@ const TicTacToe = ({ squares = arr }: Props) => {
   const [mode, setMode] = useState(GAME_MODES.medium);
   const [appear, setAppear] = useState<boolean>(false);
 
-  /**
-   * On every move, check if there is a winner. If yes, set game state to over and open result modal
-  */
   useEffect(() => {
     const boardWinner = board.getWinner(grid);
 
@@ -155,7 +153,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
   return gameState === GAME_STATES.notStarted ? (
     <Card
       className={`
-        border-none shadow-none p-2 bg-transparent not-sr-only
+        border-none shadow-none p-2 bg-transparent not-sr-only absolute z-50
       `}
     >
       <CardContent
@@ -163,7 +161,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
         flex flex-row items-center justify-between w-full h-fit gap-4
         `}
       >
-        <Article
+        <article
           role={`button`}
           onClick={() => choosePlayer(PLAYER_X)}
           className={`
@@ -176,7 +174,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
           >
             ✖️
           </span>
-        </Article>
+        </article>
         <p
           className={`
             text-[24px] font-bold text-uppercase select-none
@@ -184,8 +182,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
         >
           {"or"}
         </p>
-        <Article
-          framer
+        <article
           role={`button`}
           onClick={() => choosePlayer(PLAYER_O)}
           className={`
@@ -197,11 +194,13 @@ const TicTacToe = ({ squares = arr }: Props) => {
           >
             ⭕
           </span>
-        </Article>
+        </article>
       </CardContent>
       <CardFooter>
         <Select>
-          <SelectTrigger>
+          <SelectTrigger
+            className={`bg-background`}
+          >
             <SelectValue
               onChange={changeMode} placeholder={`Select difficulty`}
             />
@@ -223,11 +222,11 @@ const TicTacToe = ({ squares = arr }: Props) => {
     <>
       {(gameState === GAME_STATES.over) && (
         <>
-          {
+          {/* {
             appear && (
               <ParticlesContainer />
             )
-          }
+          } */}
           {/* Disappear after 5 seconds */}
           <Card
             style={{
@@ -251,7 +250,7 @@ const TicTacToe = ({ squares = arr }: Props) => {
       )}
       <Section
         className={`
-        flex flex-col items-center justify-center gap-4
+        flex flex-col items-center justify-center gap-4 z-50
         `}
       >
         <h3

@@ -7,7 +7,7 @@ const SectionWrapper: React.FC<{
   return (
     <Section
       className={`
-          w-full flex flex-row items-center justify-between h-14 mt-[0.2rem] rounded-lg shadow-md transition-all ease-in-out duration-[85ms] bg-slate-200 relative
+          w-full flex flex-row items-center justify-between h-14 mt-[0.2rem] rounded-lg shadow-md transition-all ease-in-out duration-[85ms] hover:bg-white/70 aria-selected:bg-black/20 bg-white/90 relative
         `}
       onMouseOver={(e) => {
         e.preventDefault()

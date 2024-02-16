@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, FC } from "react";
 
 export type CarouselContextValue = {
   mediaType: 'image' | 'video';
-  setMediaType: React.Dispatch<React.SetStateAction<CarouselContextValue['mediaType']>>;
+  setMediaType: React.Dispatch<React.SetStateAction<'image' | 'video'>>;
 };
 
 export const CarouselContext = createContext<CarouselContextValue | null>(null);
@@ -27,7 +27,9 @@ export const CarouselProvider: FC<{
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useCarousel() {
-  return useContext(CarouselContext);
+  const context = useContext(CarouselContext);
+  if (!context) {
+    throw new Error('useCarousel must be used within a CarouselProvider');
+  }
+  return context;
 }
-
-export default CarouselProvider

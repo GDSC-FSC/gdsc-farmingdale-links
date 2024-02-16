@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { blurHashToDataURL } from '@/src/utils/bluredHash';
 import { images } from '@/src/constants/images';
-
-const ImageCarousel = () => {
+import { Picture } from '@/src/components/templates';
+export const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageRef = useRef<HTMLImageElement | null>(null);
 
@@ -31,7 +31,7 @@ const ImageCarousel = () => {
 
   return (
     <>
-      <picture
+      <Picture
         style={{
           width: '100%',
           height: '100%',
@@ -46,9 +46,7 @@ const ImageCarousel = () => {
           alt={images[currentIndex].alt_description}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
-      </picture>
+      </Picture>
     </>
   );
 };
-
-export default ImageCarousel;

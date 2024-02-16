@@ -4,7 +4,7 @@ import { Button } from '@/src/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/src/components/ui/dialog'
 import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import React from 'react'
-import { CopyToClipboard, CustomImage as Image } from '@/src/components/custom'
+import { CopyToClipboard } from '@/src/components/custom'
 import SectionWrapper from './SectionWrapper'
 import { ShareVia } from '@/src/components/custom/buttons/ShareVia'
 
@@ -31,7 +31,7 @@ const EventsDataContentWrapper: React.FC<Required<Events>> = (
                 cursor-none absolute top-[50%] transform -translate-y-1/2 justify-center flex left-[0.22rem]
               `}
             >
-              <Image
+              <img
                 src={thumbnailLink!}
                 className={`
                   size-12 rounded-md
@@ -40,7 +40,7 @@ const EventsDataContentWrapper: React.FC<Required<Events>> = (
               />
             </Picture>
             <p
-              className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal`}
+              className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal line-clamp-1 text-black`}
             >
               {title}
             </p>
@@ -55,16 +55,22 @@ const EventsDataContentWrapper: React.FC<Required<Events>> = (
             role={`button`}
           >
             <Button
-              variant={`ghost`}
+              variant={`secondary`}
+              className={`
+                hover:bg-black/20 aria-selected:bg-black/20 bg-white/90
+              `}
             >
               <DotsHorizontalIcon
                 className={`
                   scale-150
                 `}
+                color={`#000000`}
               />
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent
+            className={`bg-foreground-100`}
+          >
             <DialogHeader>
               <DialogTitle>
                 Share this link

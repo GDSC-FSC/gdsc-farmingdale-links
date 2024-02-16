@@ -4,7 +4,7 @@ export const GoogleIcon: React.FC<SVGIconProps> = ({ className, size, props }): 
     <svg
       role="img"
       viewBox="0 0 48 48"
-      className={cn(`size-${size}`, className)}
+      className={cn(`w-${size} h-${size}`, className)}
       {...props}
     >
       <title>Google</title>

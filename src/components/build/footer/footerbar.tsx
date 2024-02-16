@@ -1,12 +1,12 @@
-import { Div, Footer } from "../../templates";
-import { CustomImage as Image } from "../../custom/media/image/Image";
+import React from "react";
+import { Div, Footer } from "@/src/components/templates";
 import { FooterList } from "@/src/constants";
 import { Link } from '@/src/components/custom/index'
-
+import { Icons } from "../../icons/icons";
+import { links } from "@/src/constants/card-content";
 const FooterLeftList: React.FC<{
   links: {
-    name: string;
-    link: string;
+    href: string;
     icon: React.ReactNode;
   }[];
 }> = ({ links }) => {
@@ -17,9 +17,9 @@ const FooterLeftList: React.FC<{
       `}
     >
       {links.map((link, index) => (
-        <li key={index}>
+        <li key={index} className="flex items-center justify-center">
           <Link
-            href={link.link}
+            href={link.href}
             target={`_self`}
             rel={`noopener noreferrer`}
           >
@@ -35,56 +35,49 @@ export const FooterBar = () => {
   return (
     <Footer
       className={`
-        w-full bottom-0 flex flex-row items-center justify-between bg-accent-foreground/30 text-white p-4
+        w-full bottom-0 z-10 fixed flex flex-row items-center justify-between bg-transparent text-white px-4 bg-gradient-to-b to-black/40 from-transparent py-10
       `}
     >
-      <Div className="max-w-screen-xl px-4 pb-8 mx-auto sm:px-6 lg:px-8">
-        <Div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
+      <Div className="flex items-center justify-center max-w-screen-xl mx-auto px-4  sm:px-6 lg:px-8 h-full">
+        <Div
+          className="gap-8 flex flex-row items-center justify-center  w-full"
+        >
           <Div
             className={`
-              flex flex-row items-center justify-around gap-2
+              flex flex-row items-center justify-start gap-3
             `}
           >
-            <Image
-              src={`/assets/images/logo.png`}
-              className={``}
-              alt={``}
-            />
+            <Icons.logo size="10" />
             <Div
               className={`
-                flex flex-col gap-4
+                flex flex-col gap-4 items-center justify-center
               `}
             >
-              {FooterList.map((section, index) => (
-                <FooterLeftList
-                  key={index}
-                  links={section.left.socials.socialHandles.map((socialHandle) => ({
-                    name: socialHandle.aria,
-                    link: socialHandle.url,
-                    icon: socialHandle.icon as unknown as React.ReactNode,
-                  }))}
-                />
-              ))}
+                <FooterLeftList links={links} />
             </Div>
           </Div>
-          {FooterList.map((section, index) => (
-            <Div key={index} className="mb-4">
-              <h2 className="text-xl font-bold mb-2">Middle Section</h2>
-              <ul>
-                {section.middle.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <Link href={link.url}>{link.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </Div>
-          ))}
-          {FooterList.map((section, index) => (
-            <Div key={index}>
-              <h2 className="text-xl font-bold mb-2">Subscribe</h2>
-              {section.right.component}
-            </Div>
-          ))}
+          <Div className="flex items-center justify-center w-full">
+            <ul className="flex flex-row gap-4 w-full items-center justify-center ">
+              {FooterList.map((section, index) => (
+                <React.Fragment key={index}>
+                  {section.middle.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <Link href={link.url}
+                        className="text-white"
+                      >{link.title}</Link>
+                    </li>
+                  ))}
+                </React.Fragment>
+              ))}
+            </ul>
+          </Div>
+          <Div className={``}>
+            {FooterList.map((section, index) => (
+              <React.Fragment key={index}>
+                {section.right.component}
+              </React.Fragment>
+            ))}
+          </Div>
         </Div>
       </Div>
     </Footer>

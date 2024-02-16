@@ -8,6 +8,7 @@ import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { Button } from "@/src/components/ui/button";
 import { Link } from "@/src/components/custom/nextui/conversion";
 import { CustomImage as Image } from "@/src/components/custom";
+import { CardClasses } from "@/src/constants";
 
 const LinksContentWrapper: React.FC<Links> = ({
   name,
@@ -39,7 +40,7 @@ const LinksContentWrapper: React.FC<Links> = ({
             />
           </Picture>
           <p
-            className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal`}
+            className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal line-clamp-1 text-foreground-100`}
           >
             {name}
           </p>
@@ -55,15 +56,21 @@ const LinksContentWrapper: React.FC<Links> = ({
         >
           <Button
             variant={`ghost`}
+            className={`
+                bg-foreground-600
+              `}
           >
             <DotsHorizontalIcon
               className={`
                   scale-150
                 `}
+              color={`#000000`}
             />
           </Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent
+          className={CardClasses}
+        >
           <DialogHeader
             className={`
               w-full h-52 rounded-t-lg

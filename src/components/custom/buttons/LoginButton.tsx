@@ -1,4 +1,4 @@
-import { Button } from "../../ui/button";
+import { Button } from "@/src/components/ui/button";
 import { SignInMethod, useSignIn } from "@/src/core/auth";
 import { AnonymousIcon, GoogleIcon } from "@/src/components/icons/components";
 
@@ -12,6 +12,7 @@ export function LoginButton(props: LoginButtonProps): JSX.Element {
       variant={`outline`}
       onClick={signIn}
       disabled={inFlight}
+      className={`w-full`}
       children={
         <>
           {

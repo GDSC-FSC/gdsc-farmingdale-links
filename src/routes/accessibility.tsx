@@ -1,13 +1,14 @@
-import { ConstructMetadata } from '@/src/components/templates/metadata';
+
 import { usePageEffect } from '../core/page';
-import { appName, appOrigin, appEmail } from '@/src/constants/app';
-import { Link } from '@/src/components/custom';
+import { appName, appOrigin, appEmail } from '../constants/app';
+import { Link } from '../components/custom';
+import React from 'react';
+import { ContainerWrapper } from '../components/layouts';
 
 export const Component = function Accessibility(): JSX.Element {
   usePageEffect({ title: `Accessibility` });
-  ConstructMetadata({ title: `Accessibility`, description: `Accessibility Policy`, url: import.meta.url, image: `${import.meta.url}/assets/images/og.png` });
   return (
-    <>
+    <ContainerWrapper Element={`article`} className={`gap-2 flex flex-col z-40 overflow-scroll py-14`}>
       <h1 className={`
 
       `}>
@@ -16,8 +17,8 @@ export const Component = function Accessibility(): JSX.Element {
       <p className={`
 
       `}>
-        {appName} is committed to making our website, <Link href={appOrigin}>{appOrigin}</Link>, accessible to all individuals, including those with disabilities. We strive to ensure that our website complies with the Web Content Accessibility Guidelines <Link href={`https://www.w3.org/TR/WCAG21/#requirements-for-wcag-2-1`} className={`underline`}>(WCAG) 2.1 Level AA</Link>.
-      </p>
+        {appName} is committed to making our website, <Link className={`underline`} href={appOrigin}>{appOrigin}</Link>, accessible to all individuals, including those with disabilities. We strive to ensure that our website complies with the Web Content Accessibility Guidelines <Link href={`https://www.w3.org/TR/WCAG21/#requirements-for-wcag-2-1`} className={`underline`}>(WCAG) 2.1 Level AA</Link>.
+      </p >
       <p className={`
 
       `}>
@@ -52,6 +53,6 @@ export const Component = function Accessibility(): JSX.Element {
       `}>
         This policy was last updated on 26 December 2023.
       </p>
-    </>
+    </ContainerWrapper >
   )
 }

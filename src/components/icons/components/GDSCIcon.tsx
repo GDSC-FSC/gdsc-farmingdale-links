@@ -8,7 +8,7 @@ export const GDSCIcon: React.FC<SVGIconProps> = ({ className, size, props }): JS
       version="1.1"
       xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"
       aria-hidden={true}
-      className={cn(`border-white rounded-full size-${size} border-[1px]`, className)}
+      className={cn(`border-white rounded-full w-${size} h-${size} border-[1px]`, className)}
       {...props}
     >
       <g>

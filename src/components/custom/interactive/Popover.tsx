@@ -19,7 +19,7 @@ export const CustomPopover = ({
       </PopoverTrigger>
       <PopoverContent
         align={align}
-        className="w-44 pt-3 mt-4 mr-2"
+        className="w-44 pt-3 mt-4 mr-2 p-1"
         side={side}
         sideOffset={sideOffset}
       >

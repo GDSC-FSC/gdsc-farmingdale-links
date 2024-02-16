@@ -1,9 +1,8 @@
-import { useRouteError } from 'react-router-dom';
+
 import { Main, Section, Article, Menu } from '@/src/components/templates/index';
 import { Button } from '@nextui-org/react';
 
 export const NotFound = (): JSX.Element => {
-  const err = useRouteError() as RouteError;
 
   return (
     <>
@@ -26,7 +25,7 @@ export const NotFound = (): JSX.Element => {
               <span
                 className={``}
               >
-                {err.status}
+                404
               </span>
               <i
                 className={`
@@ -38,7 +37,7 @@ export const NotFound = (): JSX.Element => {
 
                 `}
               >
-                <>{err.name}</>
+                Not Found
               </span>
             </h1>
             <p
@@ -49,7 +48,7 @@ export const NotFound = (): JSX.Element => {
               <b
                 className={``}
               >
-                {err.statusText}
+                The page you are looking for does not exist.
               </b>
             </p>
           </Article>
@@ -60,12 +59,12 @@ export const NotFound = (): JSX.Element => {
               `}
             >
               <Button radius={`md`} color={`primary`} variant={`ghost`}>
-
+                Home
               </Button>
             </li>
             <li>
               <Button radius={`md`} color={`primary`} variant={`ghost`}>
-
+                Back
               </Button>
             </li>
           </Menu>
@@ -74,5 +73,3 @@ export const NotFound = (): JSX.Element => {
     </>
   );
 }
-
-type RouteError = Error & { status?: number; statusText?: string };

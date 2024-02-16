@@ -22,10 +22,3 @@ declare module 'react' {
     fetchpriority?: 'high' | 'low' | 'auto';
   }
 }
-
-declare global {
-  interface Window {
-    google: any;
-    googleTranslateElementInit: any;
-  }
-}

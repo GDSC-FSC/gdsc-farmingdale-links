@@ -6,8 +6,6 @@ import {
   getAuth,
   signInAnonymously,
   signInWithPopup,
-  sendPasswordResetEmail,
-  confirmPasswordReset
 } from "firebase/auth";
 import { atom, useAtomValue } from "jotai";
 import { atomEffect } from "jotai-effect";
@@ -102,31 +100,6 @@ export function useSignOut(): [signOut: () => void, inFlight: boolean] {
   return [signOut, inFlight] as const;
 }
 
-export const passwordReset = async (email: string) => {
-  if (!email) return;
-  const auth = getAuth(app);
-
-  try {
-    await sendPasswordResetEmail(auth, email);
-    toast.success("Password reset email sent successfully! 🎉");
-  } catch (error: any) {
-    console.error(error);
-    toast.error(`Password reset error: ${error.message || new Error}`);
-  }
-};
-
-export const confirmThePasswordReset = async (oobCode: string, newPassword: string) => {
-  if (!oobCode || !newPassword) return;
-  const auth = getAuth(app);
-
-  try {
-    await confirmPasswordReset(auth, oobCode, newPassword);
-    toast.success("Password reset successful! 🎉");
-  } catch (error: any) {
-    console.error(error);
-    toast.error(`Password reset confirmation error: ${error.message || new Error}`);
-  }
-};
 
 export type SignInMethod = "google.com" | "anonymous";
 export const signout: SignOutMethod = `Sign out`;

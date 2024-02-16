@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { videos } from '@/src/constants/videos';
 
-function VideoCarousel() {
+export const VideoCarousel = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const playerRef = useRef<HTMLVideoElement | null>(null);
 
@@ -29,7 +29,9 @@ function VideoCarousel() {
             borderRadius: "15px",
             width: "100dvw",
             display: index === currentVideoIndex ? 'block' : 'none',
-            height: "100dvh"
+            height: "100dvh",
+            objectFit: "cover",
+            position: "absolute",
           }}
           poster={video.image}
           preload="auto"
@@ -40,5 +42,3 @@ function VideoCarousel() {
     </>
   );
 }
-
-export default VideoCarousel;

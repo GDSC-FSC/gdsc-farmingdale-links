@@ -23,7 +23,7 @@ export const TabsContentWrapper: React.FC<{
       <TabsContent
         value={value}
         className={`
-          flex flex-col items-center justify-start w-full h-full bg-transparent
+          flex flex-col items-center justify-start w-full h-full bg-transparent top-0 mt-0
         `}
       >
         <Card

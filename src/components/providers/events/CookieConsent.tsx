@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { Link } from '@/src/components/custom';
 import { Button } from '@/src/components/ui/button';
-declare function consentGranted(): void;
-declare function getCookieConsent(): string;
+import { consentGranted, getCookieConsent } from '@/src/utils/cookies';
 
 export const CookieConsent = function CookieConsent() {
   const [cookies, setCookies] = React.useState("unk");
@@ -14,7 +13,7 @@ export const CookieConsent = function CookieConsent() {
   const handleAccept = () => {
     setCookies("granted");
     document.cookie = "cookie-consent=granted; expires=" + oneYear + "; path=/";
-    consentGranted();
+    consentGranted("granted");
   };
 
   const handleDecline = () => {

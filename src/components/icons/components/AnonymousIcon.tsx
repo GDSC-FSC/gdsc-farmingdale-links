@@ -4,7 +4,7 @@ export const AnonymousIcon: React.FC<SVGIconProps> = ({ className, size, props }
     <svg
       role="img"
       viewBox="0 0 32 32"
-      className={cn(`size-${size}`, className)}
+      className={cn(`w-${size} h-${size}`, className)}
       {...props}
     >
       <title>Anonymous</title>

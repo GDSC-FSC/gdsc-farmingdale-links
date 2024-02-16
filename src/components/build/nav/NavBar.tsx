@@ -1,75 +1,69 @@
-import { memo } from "react";
-import { Icons } from "../../icons/icons";
+import React from "react";
+import { Icons } from "@/src/components/icons/icons";
 import { CustomPopover } from "@/src/components/custom/index";
 import { Nav, PrimitiveDiv as Div } from "@/src/components/templates/index";
 import { MobileSidebar } from "./mobile-sidebar";
 import { ModeToggle } from "@/src/components/providers/theme/index";
-import { Hint, Language } from "@/src/components/custom/index";
+import { Language } from "@/src/components/custom/index";
 import { useCurrentUser } from "@/src/core/auth";
-import { UserAvatar } from "../../auth";
-import { SearchButton } from "../../search";
+import { UserAvatar } from "@/src/components/auth";
+import { SearchButton } from "@/src/components/search";
+import { CardClasses } from "@/src/constants";
 
-export const Navbar = memo(function NavBar() {
+export const Navbar = function NavBar() {
   const user = useCurrentUser();
   return (
-    <Nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm  flex items-center bg-background">
-      <Div className="flex items-center gap-x-4 justify-center">
-        <Div className="hidden md:flex items-center">
-          {Icons.logo({
-            size: `12`
-          })}
+    <Nav className={`fixed z-50 top-0 px-4 w-screen h-14 border-none shadow-sm  flex items-center ${CardClasses} bg-transparent rounded-none shadow-none transition-all duration-300 ease-in-out bg-gradient-to-b from-black/40 to-transparent`}>
+      <Div className="flex items-center gap-x-4 justify-between w-full">
+        <Div className="flex items-center gap-2 justify-center cursor-pointer" onClick={() => {
+          window.location.href = '/'
+        }}
+        >
+          <Icons.logo size={`10`}  />
           <p
             className={`
-              text-xl font-bold text-primary
+              text-xl font-bold text-white
             `}
           >
             GDSC Farmingdale
           </p>
         </Div>
       </Div>
-      <Div className="ml-auto flex items-center gap-x-2 md:hidden sm:block">
+      <Div className="ml-auto items-center gap-x-2 hidden md:flex">
         <NavFeatures />
         {user?.displayName !== '' ? (
           <CustomPopover>
-            <Hint
-              description="User profile"
-              sideOffset={10}
-            >
+            <>
               <UserAvatar />
-            </Hint>
+            </>
           </CustomPopover>
         ) : (null)}
       </Div>
       <MobileSidebar />
     </Nav>
   );
-});
+};
 
 const NavFeatures = () => {
   const Features = [
     {
-      description: "Search",
       component: <SearchButton />
     },
     {
-      description: "Change Language",
       component: <Language />
     },
     {
-      description: "Toggle theme",
       component: <ModeToggle />
     },
   ]
   return (
     <>
       {Features.map((feature, i) => (
-        <Hint
+        <React.Fragment
           key={i}
-          description={feature.description}
-          sideOffset={10}
         >
           {feature.component}
-        </Hint>
+        </React.Fragment>
       ))}
     </>
   )

@@ -1,24 +1,23 @@
 import React from 'react'
-import { ConstructMetadata } from '@/src/components/templates/metadata';
-import { usePageEffect } from '@/src/core/page';
-import { appName, appOrigin, appEmail } from '@/src/constants/app';
+import { usePageEffect } from '../core/page';
+import { appName, appEmail } from '../constants/app';
 import { useState } from 'react'
 import { SubmitHandler } from 'react-hook-form'
-import { CustomButton as Button } from '@/src/components/custom';
-import { ContactForm, contactFormSchema } from '@/src/schema/contact';
+import { Button } from '../components/ui/button';
+import { ContactForm, contactFormSchema } from '../schema/contact';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Input } from "@/src/components/ui/input"
-import ContactContainer from '@/src/components/custom/core/ContactContainer';
-import { Textarea } from '@/src/components/ui/textarea'
+import { Input } from "../components/ui/input"
+import ContactContainer from '../components/custom/core/ContactContainer';
+import { Textarea } from '../components/ui/textarea'
+interface ContactFormProps {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 export const Component: React.FC = function Contact() {
   usePageEffect({ title: `Contact | ${appName}` });
-  ConstructMetadata({
-    title: `Contact | ${appName}`,
-    description: `Contact ${appName} for any inquiries`,
-    url: `${appOrigin}/contact`,
-    image: `${appOrigin}/logo.png`,
-  })
   const onSubmit: SubmitHandler<ContactFormProps> = (formData) => { window.location.href = `mailto:${appEmail}?subject=${formData.subject}&body=${formData.message}` };
   const [charactersLeft, setCharactersLeft] = useState(500);
   const form = useForm<ContactForm>({
@@ -52,7 +51,7 @@ export const Component: React.FC = function Contact() {
               className="input-style max-h-[500px] min-h-[100px]"
             />
             <p className="text-sm text-gray-500">Characters left: {charactersLeft}</p>
-            <Button type="submit" className="submit-button">
+            <Button type="submit" className="submit-button w-full">
               Submit
             </Button>
           </form>

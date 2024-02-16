@@ -1,5 +1,4 @@
 import { z } from "zod";
-// import { EmailRegex } from "@/src/constants";
 export const sendEmail = z
   .object({
     email: z.string().email({

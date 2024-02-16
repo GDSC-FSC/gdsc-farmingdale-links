@@ -1,8 +1,8 @@
 import React from 'react'
-import { ThemeProvider, Events, ContextMenuProvider, CookieConsent } from '@/src/components/providers'
+import { ThemeProvider, Events, ContextMenuProvider, CookieConsent, CarouselProvider } from '../components/providers/index'
 import { AnimatePresence } from 'framer-motion'
 import { NextUIProvider } from '@nextui-org/react'
-import LazyImageWrapper from '@/src/components/wrappers/LazyImageWrapper'
+import LazyImageWrapper from '../components/wrappers/LazyImageWrapper'
 const Providers: React.FC<{
   children: React.ReactNode
 }> = ({ children }) => {
@@ -16,9 +16,12 @@ const Providers: React.FC<{
         <AnimatePresence>
           <LazyImageWrapper>
             <Events>
+              <CarouselProvider>
+
               <ContextMenuProvider>
                 {children}
               </ContextMenuProvider>
+              </CarouselProvider>
             </Events>
           </LazyImageWrapper>
         </AnimatePresence>

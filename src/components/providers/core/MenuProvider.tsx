@@ -1,74 +1,114 @@
 import { useEffect } from "react"
 import {
   ContextMenu,
-  ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
-  ContextMenuLabel,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuSeparator,
   ContextMenuShortcut,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from "@/src/components/ui/context-menu"
+import { useCarousel } from "."
+import { useLocation, useNavigate } from "react-router-dom"
+import { getBrowser } from "@/src/utils/platform"
+import { useOnlineStatus } from '../../../hooks/index'
+const getShortcutSymbol = (): string => {
+  const browser = getBrowser();
+  switch (browser) {
+    case 'safari':
+    case 'ios':
+      return '⌘';
+    case 'firefox':
+      return 'Ctrl';
+    default:
+      return 'Ctrl';
+  }
+}
 
 export function ContextMenuProvider({
   children
 }: {
   children: React.ReactNode
 }) {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { setMediaType } = useCarousel();
   useEffect(() => {
     window.addEventListener('contextmenu', (e) => {
       e.preventDefault()
     })
   }, [])
+
+  const handleSwitchToImageCarousel = () => {
+    setMediaType('image');
+  };
+
+  const handleSwitchToVideoCarousel = () => {
+    setMediaType(`video`);
+  };
+
+  const hideCarouselOptions = location.pathname.startsWith('/auth');
+
+  const isOnline = useOnlineStatus();
   return (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex items-center justify-center w-screen h-screen text-sm border border-dashed rounded-md" />
-      <ContextMenuContent className="w-64">
-        <ContextMenuItem inset>
+    <ContextMenu
+    >
+      <ContextMenuTrigger
+        className="flex items-center justify-center w-screen h-screen text-sm absolute z-10 top-0 right-0" />
+      <ContextMenuContent
+        className={`w-64 `}
+        style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(0, 0, 0, 0.1)',
+          borderRadius: '1rem',
+          boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+          color: 'var(--color-card-foreground)',
+        }}
+      >
+        <ContextMenuItem
+          inset
+          onClick={() => {
+            navigate(-1)
+          }}
+          className={` font-normal text-white`}
+
+        >
           Back
-          <ContextMenuShortcut>⌘[</ContextMenuShortcut>
+          <ContextMenuShortcut
+            className={`
+              text-xs tracking-widest text-background-50
+            `}
+          >Alt + ⇦</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem inset disabled>
-          Forward
-          <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem inset>
+        <ContextMenuItem
+          inset
+          onClick={() => {
+            window.location.reload()
+          }}
+          className={` font-normal text-white`}
+        >
           Reload
-          <ContextMenuShortcut>⌘R</ContextMenuShortcut>
+          <ContextMenuShortcut
+            className={`
+              text-xs tracking-widest text-background-50
+            `}
+          >{getShortcutSymbol()}+R</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuSub>
-          <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
-          <ContextMenuSubContent className="w-48">
-            <ContextMenuItem>
-              Save Page As...
-              <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
+        {!hideCarouselOptions && (
+          <>
+            <ContextMenuItem inset onClick={handleSwitchToImageCarousel}
+              className={` font-normal text-white`}
+            >
+              Image Carousel
             </ContextMenuItem>
-            <ContextMenuItem>Create Shortcut...</ContextMenuItem>
-            <ContextMenuItem>Name Window...</ContextMenuItem>
-            <ContextMenuSeparator />
-            <ContextMenuItem>Developer Tools</ContextMenuItem>
-          </ContextMenuSubContent>
-        </ContextMenuSub>
-        <ContextMenuSeparator />
-        <ContextMenuCheckboxItem checked>
-          Show Bookmarks Bar
-          <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
-        </ContextMenuCheckboxItem>
-        <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-        <ContextMenuSeparator />
-        <ContextMenuRadioGroup value="pedro">
-          <ContextMenuLabel inset>People</ContextMenuLabel>
-          <ContextMenuSeparator />
-          <ContextMenuRadioItem value="pedro">
-            Pedro Duarte
-          </ContextMenuRadioItem>
-          <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
-        </ContextMenuRadioGroup>
+            {isOnline && (
+            <ContextMenuItem inset onClick={handleSwitchToVideoCarousel}
+              className={` font-normal text-white `}
+            >
+              Video Carousel
+            </ContextMenuItem>
+            )}
+          </>
+        )}
       </ContextMenuContent>
       {children}
     </ContextMenu>

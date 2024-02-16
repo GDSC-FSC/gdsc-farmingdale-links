@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
   type Container,
@@ -145,7 +145,7 @@ export function ParticlesContainer() {
         particlesLoaded={particlesLoaded}
         options={options}
         className={`
-        absolute z-0
+          absolute z-50
         `}
       />
     );

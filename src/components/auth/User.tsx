@@ -6,7 +6,7 @@ import {
 import { useCurrentUser } from "@/src/core/auth"
 import { CustomPopover } from "../custom"
 export function UserAvatar() {
-  const user = useCurrentUser()
+  const user  = useCurrentUser()
   return (
     <CustomPopover side="bottom" >
       <Avatar
@@ -14,9 +14,9 @@ export function UserAvatar() {
           cursor-pointer relative flex items-center justify-center
         `}
       >
-        <AvatarImage src={user ? user.photoURL! : `/assets/images/NoImage.jpg`} alt={`${user?.displayName || ''}`} />
+        <AvatarImage src={`${user?.photoURL ?? ``}`} alt={`${user?.displayName || ''}`} />
         <AvatarFallback>
-          {user ? user.displayName!.charAt(0) : 'U'}
+          {user ? user.displayName?.charAt(0) : 'U'}
         </AvatarFallback>
       </Avatar>
     </CustomPopover>

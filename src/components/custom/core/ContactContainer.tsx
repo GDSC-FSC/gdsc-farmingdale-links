@@ -12,7 +12,7 @@ const ContactContainer: React.FC<
   return (
     <>
       <Card
-        className={``}
+        className={`z-10`}
         children={
           <>
             <CardHeader

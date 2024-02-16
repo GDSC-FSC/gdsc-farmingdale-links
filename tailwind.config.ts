@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
 
@@ -172,7 +174,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), nextui()],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"),nextui()],
 }
 
 export default config;

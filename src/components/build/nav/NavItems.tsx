@@ -6,8 +6,8 @@ import { LoginButton, LogoutButton } from "@/src/components/custom/index";
 import { iconComponents } from "@/src/constants";
 
 const AuthButtons = [
-  <LoginButton signInMethod={`google.com`} />,
-  <LogoutButton />,
+  <LoginButton className={`rounded-t-none w-full`} signInMethod={`google.com`} />,
+  <LogoutButton className={`rounded-t-none w-full`}/>,
 ]
 
 interface AuthRoutesProps {
@@ -69,16 +69,17 @@ export const NavItems = () => {
           return (
             <Button
               key={index}
-              onClick={() => onClick(route.href)}
+              onClick={() => onClick(route.href)
+              }
               className={cn(
-                "flex items-center justify-center w-full h-12 px-4 text-left",
+                "flex items-center justify-between w-full h-10 text-left rounded-none bg-foreground-100 dark:bg-background-800",
                 pathname.pathname === route.href
                   ? "bg-gray-100 text-gray-900"
                   : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
               )}
             >
               {route.icon}
-              <span className="ml-4">{route.label}</span>
+              <span className="right-0">{route.label}</span>
             </Button>
           );
         } else if (route.authenticated !== !!user) {
@@ -87,7 +88,7 @@ export const NavItems = () => {
               key={index}
               onClick={() => onClick(route.href)}
               className={cn(
-                "flex items-center justify-center w-full h-12 px-4 text-left",
+                "flex items-center justify-between w-full h-10 text-left  rounded-none bg-foreground-100 dark:bg-background-800",
                 pathname.pathname === route.href
                   ? "bg-gray-100 text-gray-900"
                   : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",

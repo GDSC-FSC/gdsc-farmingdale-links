@@ -10,6 +10,7 @@ export function LogoutButton(props: LogoutButtonProps): JSX.Element {
       variant={`outline`}
       onClick={signOut}
       disabled={inFlight}
+      className={`w-full`}
       children={
         <>
           {`${signout}`}

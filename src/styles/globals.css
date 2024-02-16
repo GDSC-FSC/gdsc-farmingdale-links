@@ -76,7 +76,7 @@
     @apply bg-background text-foreground;
   }
 }
-/*
+
 @font-face {
     font-family: Palanquin;
     font-style: normal;
@@ -124,9 +124,9 @@
     font-style: normal;
     font-weight: 700;
     src: local(""), url(../../../public/fonts/Palanquin-Bold.ttf) format("truetype");
-} */
+}
 
-/* :host,html {
+:host,html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     font-family: Palanquin,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
@@ -137,6 +137,7 @@
     tab-size: 4;
     -webkit-tap-highlight-color: transparent;
     transition: all;
+    transition-duration:  0.3s;
     list-style: none;
     scroll-behavior: smooth;
     transition: all;
@@ -218,4 +219,6 @@
 		}
 	}
 }
- */
+
+
+

@@ -79,7 +79,7 @@ const ContentCard = () => {
 
             >
               <motion.img
-                src="https://github.com/WomB0ComB0.png"
+                src="/assets/images/Logo.png"
                 alt=""
                 className={`
                 size-24
@@ -136,15 +136,21 @@ const ContentCard = () => {
                   mt-2 text-2xl font-bold text-left w-full text-white
                 `}
               >
-                Mike Odnis
+                GDSC Farmingdale
               </h3>
-              <ScrollArea>
+              <ScrollArea
+                className={`flex flex-col`}
+              >
                 <p
                   className={`
-                    text-left text-sm text-white mt-2  h-full overflow-scroll w-full scrollbar-thin scrollbar-thumb-gray-400 overflow-x-hidden overflow-y-hidden
+                    text-left text-sm text-white mt-2 h-full overflow-scroll w-full scrollbar-thin scrollbar-thumb-gray-400 overflow-x-hidden overflow-y-hidden
                   `}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur qui ullam nostrum. Ea voluptas libero reprehenderit cumque accusantium delectus perferendis molestias, corporis soluta ex nemo modi natus, itaque rem esse earum excepturi necessitatibus. Necessitatibus, amet eos. Dolor reprehenderit harum id magni velit, autem deserunt excepturi consequatur atque adipisci debitis perferendis aperiam unde assumenda quisquam dolores ducimus a, molestiae, quo itaque.
+                  {"The mission of GDSCFarmingdale State College is an opportunity for students to gain practical experience in building applications and services, develop their skills in software engineering, and explore new areas of technology. This helps them to become better prepared for careers in the technology industry and to contribute to the development of innovative solutions that can make a positive impact on society."}
+                  <br className={`my-2`}/>
+                  {"Google Developer Student Clubs (DSC) are community groups for students who are interested in learning about and practicing development skills. These clubs are designed to help students learn how to build real-world solutions using Google's technologies and platforms, as well as to provide a platform for students to connect, learn, and grow together."}
+                  <br />
+                  {"The purpose of Google DSC is to empower students to learn, grow, and connect with other developers through hands-on workshops, mentorship, and collaboration. Google DSC provides a platform for students to explore new technologies, work on real-world projects, and build their professional networks."}
                 </p>
                 <ScrollBar />
               </ScrollArea>
@@ -164,7 +170,7 @@ const ContentCard = () => {
           >
             <TabsList
               className={`
-                flex flex-row items-center justify-center w-full h-9  rounded-lg p-1 text-white bg-black bg-opacity-20 backdrop-filter backdrop-blur-[10px] relative shadow-md transition-all ease-in-out duration-[85ms]
+                flex flex-row items-center justify-center w-full h-9  rounded-lg p-1 text-white bg-black bg-opacity-20 backdrop-filter backdrop-blur-[10px] relative shadow-md transition-all ease-in-out duration-[85ms] mb-2
               `}
             >
               {["links", "upcoming", "past"].map((value, index) => (
@@ -176,13 +182,9 @@ const ContentCard = () => {
                 key={index}
                 value={value}
               >
-                {value === "links" ? (
-                  <Links />
-                ) : value === "upcoming" ? (
-                  <UpcomingEvents />
-                ) : (
-                  <PastEvents />
-                )}
+                {value === "links" && <Links />}
+                {value === "upcoming" && <UpcomingEvents />}
+                {value === "past" && <PastEvents />}
               </TabsContentWrapper>
             ))}
           </Tabs>

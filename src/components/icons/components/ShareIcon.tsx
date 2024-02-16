@@ -7,7 +7,7 @@ export const ShareIcon: React.FC<SVGIconProps> = ({ className, size, props }): J
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className={cn(`size-${size}`, className)}
+      className={cn(`w-${size} h-${size}`, className)}
       aria-hidden={true}
       {...props}
     >
