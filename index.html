@@ -68,7 +68,6 @@
     // function to update GTM that consent is granted
     // You can set each type of cookie separately here
     window.consentGranted = function () {
-      console.log("consent granted");
       gtag("consent", "update", {
         ad_storage: "granted",
         analytics_storage: "granted",
@@ -90,7 +89,6 @@
 
     if (window.getCookieConsent() == "granted") {
       // If cookies already approved, set that
-      console.log("cookies already approved");
       gtag("consent", "default", {
         ad_storage: "granted",
         analytics_storage: "granted",
@@ -100,7 +98,6 @@
       });
     } else {
       // default all to 'denied'.
-      console.log("default set to denied");
       gtag("consent", "default", {
         ad_storage: "denied",
         analytics_storage: "denied",
@@ -113,7 +110,6 @@
   <!-- Google Tag Manager -->
   <script is:inline>
     (function (w, d, s, l, i) {
-      console.log("GTM");
       w[l] = w[l] || [];
       w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
       var f = d.getElementsByTagName(s)[0],
@@ -128,7 +124,7 @@
 </head>
 
 <body id="root"
-  class="dark:bg-[#171717] dark:text-[#f0f0f0] scroll-smooth m-0 p-0 h-screen w-full flex justify-center items-center">
+  class="">
   <noscript>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Poppins:wght@300;400;500;600&display=swap");

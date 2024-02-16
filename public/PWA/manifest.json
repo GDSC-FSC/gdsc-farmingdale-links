@@ -2,7 +2,7 @@
     "name": "GDSC Farmingdale | Links",
     "short_name": "GDSC FSC Links",
     "theme_color": "#66A266",
-    "background_color": 
+    "background_color":
     "#006400",
     "start_url": "/",
     "description": "This web application is a means to keep up to date with what GDSC FSC is doing, and will include upcoming events, and serve as a central hub for all our domains.",
@@ -19,13 +19,13 @@
             "purpose": "any"
         },
         {
-            "src": "../pwa/android/android-icon-192x192.png",
+            "src": "../PWA/android/android-icon-192x192.png",
             "type": "image/png",
             "sizes": "192x192",
             "purpose": "maskable"
         },
         {
-            "src": "../assets/images/logo.png",
+            "src": "../assets/images/Logo.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "maskable"
@@ -34,14 +34,14 @@
     "screenshots": [
         {
             "src": "../assets/images/Screenshot.png",
-            "sizes": "1200x677",
+            "sizes": "1467x1305",
             "type": "image/png",
             "form_factor": "wide",
             "label": "GDSC Farmingdale | Links"
         },
         {
             "src": "../assets/images/Screenshot2.png",
-            "sizes": "637x866",
+            "sizes": "779x1041",
             "type": "image/png",
             "form_factor": "narrow",
             "label": "GDSC Farmingdale | Links"

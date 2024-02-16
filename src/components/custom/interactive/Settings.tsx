@@ -12,7 +12,7 @@ const Settings = () => {
     <>
       <Div className="grid gap-4">
         <Div className="grid gap-2">
-          <Div className="grid grid-cols-2 items-center gap-4 mx-auto">
+          <Div className="grid grid-cols-2 items-center gap-4 mx-auto ">
             <SettingsContent />
           </Div>
         </Div>

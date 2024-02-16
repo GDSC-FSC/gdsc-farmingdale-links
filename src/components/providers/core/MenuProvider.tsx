@@ -52,7 +52,7 @@ export function ContextMenuProvider({
     <ContextMenu
     >
       <ContextMenuTrigger
-        className="flex items-center justify-center w-screen h-screen text-sm absolute z-10 top-0 right-0" />
+        className="flex items-center justify-center w-screen h-screen text-sm absolute z-10 top-0 left-0"/>
       <ContextMenuContent
         className={`w-64 `}
         style={{

@@ -26,24 +26,6 @@ const AuthRoutes: AuthRoutesProps['routes'] = [
     href: `/auth/login`,
     authenticated: false,
   },
-  {
-    label: "Signup",
-    icon: iconComponents[0].auth[1],
-    href: `/auth/signup`,
-    authenticated: false,
-  },
-  {
-    label: "Forgot Password",
-    icon: iconComponents[0].auth[2],
-    href: `/auth/forgot-password`,
-    authenticated: true,
-  },
-  {
-    label: "Reset Password",
-    icon: iconComponents[0].auth[3],
-    href: `/auth/reset-password`,
-    authenticated: true,
-  },
 ];
 
 export const AuthItems = () => {

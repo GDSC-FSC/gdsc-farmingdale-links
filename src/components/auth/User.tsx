@@ -14,7 +14,7 @@ export function UserAvatar() {
           cursor-pointer relative flex items-center justify-center
         `}
       >
-        <AvatarImage src={`${user?.photoURL ?? ``}`} alt={`${user?.displayName || ''}`} />
+        <AvatarImage src={`${user?.photoURL || `https://github.com/WomB0ComB0.png`}`} alt={`${user?.displayName || ''}`} />
         <AvatarFallback>
           {user ? user.displayName?.charAt(0) : 'U'}
         </AvatarFallback>

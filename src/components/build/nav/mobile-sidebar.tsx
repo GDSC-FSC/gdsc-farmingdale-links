@@ -53,7 +53,7 @@ backdrop-filter backdrop-blur-[10px] space-y-2`}
           <Accordion type="multiple">
             <AccordionItem value="settings" className="border-none">
               <AccordionTrigger
-                className="flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline"
+                className="flex items-center gap-x-2 p-1.5 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline bg-foreground-100 dark:bg-background-800"
               >        <Div className="flex items-center gap-x-2">
                   <Button
                     className="w-full"
