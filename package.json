@@ -6,7 +6,7 @@
   "author": "Mike Odnis",
   "scripts": {
     "dev": "vite dev",
-    "build": "npm run clean && npm run build:client",
+    "build": "vite build",
     "build:client": "vite build --outDir dist/app/client",
     "clean": "rimraf dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

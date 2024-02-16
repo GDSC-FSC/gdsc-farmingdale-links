@@ -8,7 +8,6 @@ import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { Button } from "@/src/components/ui/button";
 import { Link } from "@/src/components/custom/nextui/conversion";
 import { CustomImage as Image } from "@/src/components/custom";
-import { CardClasses } from "@/src/constants";
 
 const LinksContentWrapper: React.FC<Links> = ({
   name,
@@ -31,7 +30,7 @@ const LinksContentWrapper: React.FC<Links> = ({
                 cursor-none absolute top-[50%] transform -translate-y-1/2 justify-center flex left-[0.22rem]
               `}
           >
-            <Image
+            <img
               src={image}
               className={`
                   size-12 rounded-md
@@ -40,7 +39,7 @@ const LinksContentWrapper: React.FC<Links> = ({
             />
           </Picture>
           <p
-            className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal line-clamp-1 text-foreground-100`}
+            className={`relative hyphens-none w-full text-center break-words appearance-none align-middle box-border whitespace-normal line-clamp-1 text-black`}
           >
             {name}
           </p>
@@ -55,9 +54,9 @@ const LinksContentWrapper: React.FC<Links> = ({
           role={`button`}
         >
           <Button
-            variant={`ghost`}
+            variant={`secondary`}
             className={`
-                bg-foreground-600
+                hover:bg-black/20 aria-selected:bg-black/20 bg-white/90
               `}
           >
             <DotsHorizontalIcon
@@ -69,7 +68,7 @@ const LinksContentWrapper: React.FC<Links> = ({
           </Button>
         </DialogTrigger>
         <DialogContent
-          className={CardClasses}
+          className={`bg-foreground-100`}
         >
           <DialogHeader
             className={`
