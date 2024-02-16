@@ -7,7 +7,9 @@ export default function Fallback() {
   const { mediaType } = useCarousel();
   return (
     <Providers>
-      <CenterLayout Element={`main`} className={``}>
+      <CenterLayout Element={`main`} className={`
+        h-screen w-full
+      `}>
         <TicTacToe />
         {mediaType === 'image' ? (
           <ImageCarousel />

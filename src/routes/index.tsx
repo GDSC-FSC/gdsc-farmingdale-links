@@ -77,9 +77,9 @@ export const RootLayout: React.FC<{
       <StoreProvider>
         {isOnline ? (
           children
-        ) : (
-          <Fallback />
-        )}
+          ) : (
+            <Fallback />
+            )}
         {/* {children} */}
       </StoreProvider>
     </Providers>
