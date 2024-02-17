@@ -33,9 +33,9 @@ export const ImageCarousel = () => {
     <>
       <Picture
         style={{
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
+          width: '100dvw',
+          height: '100dvh',
+          position: 'fixed',
           top: 0,
           left: 0,
         }}

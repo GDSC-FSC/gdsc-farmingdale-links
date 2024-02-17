@@ -8,12 +8,11 @@ import { Language } from "@/src/components/custom/index";
 import { useCurrentUser } from "@/src/core/auth";
 import { UserAvatar } from "@/src/components/auth";
 import { SearchButton } from "@/src/components/search";
-import { CardClasses } from "@/src/constants";
 
 export const Navbar = function NavBar() {
   const user = useCurrentUser();
   return (
-    <Nav className={`fixed z-50 top-0 px-4 w-screen h-14 border-none shadow-sm  flex items-center ${CardClasses} bg-transparent rounded-none shadow-none transition-all duration-300 ease-in-out bg-gradient-to-b from-black/40 to-transparent`}>
+    <Nav className={`h-50 w-full flex justify-around items-center bg-gradient-to-b from-black/40 to-transparent sticky top-0 z-50 transition-all duration-300 ease-in-out bg-transparent rounded-none shadow-none py-4 px-8`}>
       <Div className="flex items-center gap-x-4 justify-between w-full">
         <Div className="flex items-center gap-2 justify-center cursor-pointer" onClick={() => {
           window.location.href = '/'

@@ -2,33 +2,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { Card } from ".";
+import { ContainerWrapper } from '@/src/components/layouts';
 import { CardHeader, CardTitle, CardDescription, CardContent } from '@/src/components/ui/card'
 const ContactContainer: React.FC<
-  Record<
-    string,
-    React.ReactNode
+  Partial<
+    {
+      cardContent: React.ReactNode;
+    }
   >
-> = ({ cardContent, cardTitle, cardDescription }) => {
+> = ({ cardContent }) => {
   return (
-    <>
+    <ContainerWrapper Element={`section`} className='h-[100dvh] items-center flex justify-center'>
       <Card
-        className={`z-10`}
+        className={`rounded-xl text-card-foreground max-w-[740px] shadow flex flex-col items-center mx-auto h-fit min-h-[400px] max-h-[80%] bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] fixed border border-black border-opacity-10 top-50`}
         children={
           <>
-            <CardHeader
-              className={``}
-            >
-              <CardTitle
-                className={``}
-              >
-
-              </CardTitle>
-              <CardDescription
-                className={``}
-              >
-
-              </CardDescription>
-            </CardHeader>
             <CardContent
               className={``}
             >
@@ -37,7 +25,7 @@ const ContactContainer: React.FC<
           </>
         }
       />
-    </>
+    </ContainerWrapper>
   )
 }
 

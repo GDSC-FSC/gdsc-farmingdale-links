@@ -1,12 +1,13 @@
 
 import { Main, Section, Article, Menu } from '@/src/components/templates/index';
 import { Button } from '@nextui-org/react';
+import { useNavigate } from 'react-router-dom';
 
 export const NotFound = (): JSX.Element => {
-
+  const navigate = useNavigate()
   return (
     <>
-      <Main className="flex flex-col items-center justify-center w-screen h-screen">
+      <Main className="flex flex-col items-center justify-center w-screen h-[100dvh]">
         <Section
           className={`
 
@@ -14,7 +15,7 @@ export const NotFound = (): JSX.Element => {
         >
           <Article
             className={`
-
+              flex flex-col items-center justify-center w-full h-full relative z-50
             `}
           >
             <h1
@@ -52,19 +53,29 @@ export const NotFound = (): JSX.Element => {
               </b>
             </p>
           </Article>
-          <Menu className={`flex  justify-around`}>
+          <Menu className={`flex  justify-around items-center w-full relative z-50`}>
             <li
               className={`
 
               `}
             >
-              <Button radius={`md`} color={`primary`} variant={`ghost`}>
+              <Button
+                radius={`md`}
+                color={`primary`}
+                variant={`ghost`}
+                onClick={() => navigate('/')}
+              >
                 Home
               </Button>
             </li>
             <li>
-              <Button radius={`md`} color={`primary`} variant={`ghost`}>
-                Back
+              <Button
+                radius={`md`}
+                color={`primary`}
+                variant={`ghost`}
+                onClick={() => navigate(-1)}
+              >
+                  Back
               </Button>
             </li>
           </Menu>

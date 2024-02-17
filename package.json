@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Mike Odnis",
   "scripts": {
-    "dev": "vite dev",
+    "dev": "vite --host",
     "build": "vite build",
     "build:client": "vite build --outDir dist/app/client",
     "clean": "rimraf dist",

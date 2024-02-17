@@ -4,14 +4,13 @@ import React from 'react';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '../constants/app';
 import { Link } from '../components/custom';
-import { ContainerWrapper } from '../components/layouts';
 export const Component = function Cookies(): JSX.Element {
   usePageEffect({
     title: 'Cookie Policy'
   })
 
   return (
-    <ContainerWrapper Element={`article`} className={`gap-2 flex flex-col z-40 overflow-scroll py-14`}>
+    <>
       <h1>Cookie Policy for <strong>GDSC Farmingdale | Links</strong></h1>
       <p>This is the Cookie Policy for GDSC Farmingdale | Links, accessible from gdsc-farmingdale-links.vercel.app</p>
       <p><strong>What Are Cookies</strong></p>
@@ -48,6 +47,6 @@ export const Component = function Cookies(): JSX.Element {
       <ul>
         <li>Email: mikeodnis3242004@gmail.com</li>
       </ul>
-    </ContainerWrapper>
+    </>
   )
 }

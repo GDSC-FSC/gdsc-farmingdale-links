@@ -53,10 +53,7 @@ const ContentCard = () => {
     <>
       <Card
         className={`
-          z-10 flex flex-col items-center mx-auto
-          h-fit w-[680px] max-w-[740px] min-w-[340px] min-h-[400px] max-h-[80%]
-        bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px]
-          border border-black border-opacity-10 relative overflow-x-hidden
+rounded-xl text-card-foreground max-w-[740px]  shadow z-10 flex flex-col items-center mx-auto h-fit min-h-[400px] max-h-[80%] bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] border border-black border-opacity-10 fixed overflow-x-hidden
         `}
       >
         <CardHeader

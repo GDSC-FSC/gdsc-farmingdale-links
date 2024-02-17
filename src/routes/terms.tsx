@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "../components/custom";
 import { usePageEffect } from "../core/page";
 import { appName, appOrigin } from "../constants/app";
-import { ContainerWrapper } from "../components/layouts";
+
 export const Component = function Terms(): JSX.Element {
   usePageEffect({ title: "Terms of Use" });
   return (
     <>
-      <ContainerWrapper Element={`article`} className={`gap-2 flex flex-col z-40 overflow-scroll py-14`}>
+      <>
         <h1 className={`
 
         `}>
@@ -220,7 +220,7 @@ export const Component = function Terms(): JSX.Element {
           the laws of United States. You irrevocably submit to the exclusive
           jurisdiction of the courts in that State or location.
         </p>
-      </ContainerWrapper>
+      </>
     </>
   );
 };

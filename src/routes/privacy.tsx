@@ -2,14 +2,13 @@ import React from "react";
 import { Link } from "../components/custom";
 import { usePageEffect } from "../core/page";
 import { appName, appOrigin, appEmail as email } from "../constants/app";
-import { ContainerWrapper } from "../components/layouts";
 
 export const Component = function Privacy(): JSX.Element {
   usePageEffect({ title: "Privacy Policy" });
   return (
     <>
 
-    <ContainerWrapper Element={`article`} className={`gap-2 flex flex-col z-40 overflow-scroll py-14`}>
+    <>
       <h1 className={`
 
       `}>
@@ -392,7 +391,7 @@ export const Component = function Privacy(): JSX.Element {
       `}>
         {appName} Support Team (<Link className={`underline`} href={`mailto:${email}`}>{email}</Link>)
       </p>
-    </ContainerWrapper>
+    </>
     </>
   );
 };

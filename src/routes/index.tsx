@@ -23,12 +23,11 @@ export const LegalNav = () => {
   return (
     <React.Fragment>
       <Nav
-        className={`h-50 w-full
-        flex justify-around items-center gap-[40rem]
-        bg-gradient-to-b from-black/40 to-transparent sticky top-0 z-50  transition-all duration-300 ease-in-out bg-transparent rounded-none shadow-none py-4`}
+        className={`h-50 w-full flex justify-around items-center bg-gradient-to-b from-black/40 to-transparent sticky top-0 z-50 transition-all duration-300 ease-in-out bg-transparent rounded-none shadow-none py-4  `}
       >
-        <Button className={`w-20 flex flex-row items-center justify-center`} size={`icon`} onClick={() => {
+        <Button className={`w-20 flex flex-row items-center justify-center pr-2 `} size={`icon`} onClick={() => {
           navigate(-1);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }}>
           <ChevronLeft /> Go back
         </Button>
@@ -77,9 +76,9 @@ export const RootLayout: React.FC<{
       <StoreProvider>
         {isOnline ? (
           children
-          ) : (
-            <Fallback />
-            )}
+        ) : (
+          <Fallback />
+        )}
         {/* {children} */}
       </StoreProvider>
     </Providers>

@@ -26,12 +26,12 @@ export const VideoCarousel = () => {
           onEnded={handleOnEnded}
           ref={index === currentVideoIndex ? playerRef : null}
           style={{
-            borderRadius: "15px",
             width: "100dvw",
             display: index === currentVideoIndex ? 'block' : 'none',
             height: "100dvh",
             objectFit: "cover",
-            position: "absolute",
+            position: "fixed",
+            top: 0,
           }}
           poster={video.image}
           preload="auto"

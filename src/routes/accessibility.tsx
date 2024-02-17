@@ -1,14 +1,12 @@
-
+import React from 'react';
 import { usePageEffect } from '../core/page';
 import { appName, appOrigin, appEmail } from '../constants/app';
 import { Link } from '../components/custom';
-import React from 'react';
-import { ContainerWrapper } from '../components/layouts';
 
 export const Component = function Accessibility(): JSX.Element {
   usePageEffect({ title: `Accessibility` });
   return (
-    <ContainerWrapper Element={`article`} className={`gap-2 flex flex-col z-40 overflow-scroll py-14`}>
+    <>
       <h1 className={`
 
       `}>
@@ -53,6 +51,6 @@ export const Component = function Accessibility(): JSX.Element {
       `}>
         This policy was last updated on 26 December 2023.
       </p>
-    </ContainerWrapper >
+    </ >
   )
 }

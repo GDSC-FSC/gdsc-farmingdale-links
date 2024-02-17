@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form"
 import { Input } from "../components/ui/input"
 import ContactContainer from '../components/custom/core/ContactContainer';
 import { Textarea } from '../components/ui/textarea'
+import { useCurrentUser } from '@/src/core/auth';
 interface ContactFormProps {
   name: string;
   email: string;
@@ -28,15 +29,15 @@ export const Component: React.FC = function Contact() {
     const remaining = 1000 - currentLength;
     setCharactersLeft(remaining);
   };
+  const user = useCurrentUser();
   return (
     <>
       <ContactContainer
-        title={`Contact form`}
         cardContent={
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col mx-auto space-y-8 select-none w-[80vw]">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="mt-10 flex flex-col mx-auto space-y-8 select-none ">
             <div className="flex space-x-2">
-              <Input {...form.register('name')} placeholder="Name" className="input-style" type="text" required maxLength={255} />
-              <Input {...form.register('email')} placeholder="Email" className="input-style" type="email" required maxLength={255} />
+              <Input {...form.register('name')} placeholder="Name" className="input-style" type="text" required maxLength={255} defaultValue={user?.displayName || ''} />
+              <Input {...form.register('email')} placeholder="Email" className="input-style" type="email" required maxLength={255} defaultValue={user?.email || ''} />
             </div>
             <Input {...form.register('subject')} placeholder="Subject" className="input-style" type="text" required maxLength={255} />
             <Textarea
