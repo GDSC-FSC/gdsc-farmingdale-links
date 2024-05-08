@@ -31,5 +31,6 @@
 **/values.dev.yaml
 **/build
 **/dist
+.env
 LICENSE
 README.md
