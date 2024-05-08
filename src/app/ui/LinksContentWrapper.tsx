@@ -1,13 +1,14 @@
 import SectionWrapper from "./SectionWrapper";
 import React from 'react'
 import { ShareVia } from "@/src/components/custom/buttons/ShareVia";
-import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/src/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTrigger } from "@/src/components/ui/dialog";
 import { CopyToClipboard } from "@/src/components/custom";
 import { Div, Picture } from "@/src/components/templates";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { Button } from "@/src/components/ui/button";
 import { Link } from "@/src/components/custom/nextui/conversion";
 import { CustomImage as Image } from "@/src/components/custom";
+import { ScrollArea, ScrollBar } from "@/src/components/ui/scroll-area";
 
 const LinksContentWrapper: React.FC<Links> = ({
   name,
@@ -33,7 +34,7 @@ const LinksContentWrapper: React.FC<Links> = ({
             <img
               src={image}
               className={`
-                  size-12 rounded-md
+                  size-12 rounded-md object-cover
                 `}
               alt={``}
             />
@@ -72,18 +73,34 @@ const LinksContentWrapper: React.FC<Links> = ({
         >
           <DialogHeader
             className={`
-              w-full h-52 rounded-t-lg
+              w-full h-fit rounded-t-lg
             `}
           >
             <Image
               src={image}
               className={`
-                  w-full h-
+                  w-full
               `}
-              alt={description}
+              alt={name}
             />
+            <DialogDescription>
+              <ScrollArea
+                className={`
+                    w-full h-fit flex flex-col items-center justify-center
+                  `}
+              >
+                <p
+                  className={`
+                    text-left text-sm  mt-2 h-full overflow-scroll w-full scrollbar-thin scrollbar-thumb-gray-400 overflow-x-hidden overflow-y-hidden
+                  `}
+                >
+                  {description}
+                </p>
+                <ScrollBar />
+              </ScrollArea>
+            </DialogDescription>
           </DialogHeader>
-          <ShareVia shareUrl={link} />
+          <ShareVia shareUrl={link} description={description} />
           <CopyToClipboard content={link} />
         </DialogContent>
       </Dialog>

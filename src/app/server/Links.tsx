@@ -25,8 +25,6 @@ export const Links = function Links() {
     }
   );
 
-  console.log(responseData);
-
   return (
     <>
       {isLoading && (

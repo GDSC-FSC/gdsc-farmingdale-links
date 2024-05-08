@@ -8,6 +8,53 @@ export const Component = function Terms(): JSX.Element {
   return (
     <>
       <>
+        <style>
+          {`
+          h1, h2, h3 {
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+          }
+
+          h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.4em;
+          }
+
+          h2 {
+            font-size: 2em;
+            margin-bottom: 0.3em;
+          }
+
+          h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.2em;
+          }
+
+          p {
+            margin: 0 0 0.7em 0;
+            padding: 0;
+            line-height: 1.5em;
+            text-indent: 1em;
+          }
+
+          ul {
+            margin: 0;
+            padding: 0;
+          }
+
+          li {
+            margin: 0 0 0.2em 0;
+            padding: 0;
+            line-height: 1.5em;
+            text-indent: 1em;
+          }
+
+          li::before {
+            content: "\\2192\\00a0";
+          }
+        `}
+        </style>
         <h1 className={`
 
         `}>
@@ -16,14 +63,14 @@ export const Component = function Terms(): JSX.Element {
         <p className={`
 
         `}>
-          These Terms of Service govern your use of the website located at{" "}
-          <Link className={`underline`} href={appOrigin}>{appOrigin}</Link> and any related services
+          These Terms of Service govern your use of the website located at
+          <Link className={`underline ml-[-14px]`} href={appOrigin}>{appOrigin}</Link> and any related services
           provided by {appName}.
         </p>
         <p className={`
 
         `}>
-          By accessing <Link className={`underline`} href={appOrigin}>{appOrigin}</Link>, you agree to
+          By accessing <Link className={`underline ml-[-14px]`} href={appOrigin}>{appOrigin}</Link>, you agree to
           abide by these Terms of Service and to comply with all applicable laws
           and regulations. If you do not agree with these Terms of Service, you
           are prohibited from using or accessing this website or using any other

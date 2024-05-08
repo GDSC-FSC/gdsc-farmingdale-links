@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/src/components/ui/card"
 import { Tabs, TabsList } from "@/src/components/ui/tabs"
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ScrollArea, ScrollBar } from "@/src/components/ui/scroll-area"
 import { Picture, Section, Article, Aside, Header } from '@/src/components/templates'
 import { Link } from '@/src/components/custom'
@@ -9,51 +8,11 @@ import TabsTriggers from '../ui/TabsTriggers'
 import { links } from '@/src/constants/card-content'
 import { Links, PastEvents, UpcomingEvents } from "../server/index";
 const ContentCard = () => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(
-    mouseYSpring,
-    [-0.5, 0.5],
-    ["17.5deg", "-17.5deg"]
-
-  );
-
-  const rotateY = useTransform(
-    mouseXSpring,
-    [-0.5, 0.5],
-    ["-17.5deg", "17.5deg"]
-  );
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleMouseMove = (e: any) => {
-    const rect = e.target.getBoundingClientRect();
-
-    const width = rect.width;
-    const height = rect.height;
-
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
   return (
     <>
       <Card
         className={`
-rounded-xl text-card-foreground max-w-[740px]  shadow z-10 flex flex-col items-center mx-auto h-fit min-h-[400px] max-h-[80%] bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] border border-black border-opacity-10 fixed overflow-x-hidden
+rounded-xl text-card-foreground max-w-[740px]  shadow z-10 flex flex-col items-center mx-auto h-fit min-h-[400px] max-h-[80%] bg-black bg-opacity-10 backdrop-filter backdrop-blur-[10px] border border-black border-opacity-10 fixed overflow-x-hidden mb-10
         `}
       >
         <CardHeader
@@ -75,7 +34,7 @@ rounded-xl text-card-foreground max-w-[740px]  shadow z-10 flex flex-col items-c
             `}
 
             >
-              <motion.img
+              <img
                 src="/assets/images/Logo.png"
                 alt=""
                 className={`
@@ -83,14 +42,6 @@ rounded-xl text-card-foreground max-w-[740px]  shadow z-10 flex flex-col items-c
                 object-cover object-center bg-center bg-no-repeat rounded-full
                 shadow-md transition-all ease-in-out duration-[85ms]
                 `}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  rotateY,
-                  rotateX,
-                  transformStyle: "preserve-3d",
-
-                }}
               />
             </Picture>
             <Section

@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { blurHashToDataURL } from '@/src/utils/bluredHash';
 import { images } from '@/src/constants/images';
 import { Picture } from '@/src/components/templates';
+
 export const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageRef = useRef<HTMLImageElement | null>(null);
@@ -22,9 +23,13 @@ export const ImageCarousel = () => {
       imageRef.current.style.transition = 'opacity 1s ease-out';
       imageRef.current.style.opacity = '0';
 
+      imageRef.current.src = dataURL;
+
       imageRef.current.onload = () => {
-        imageRef.current?.setAttribute('src', currentImage.urls.full);
-        imageRef.current!.style.opacity = '1';
+        if (imageRef.current) {
+          imageRef.current.src = currentImage.urls.full;
+          imageRef.current.style.opacity = '1';
+        }
       };
     }
   }, [currentIndex]);
@@ -33,13 +38,19 @@ export const ImageCarousel = () => {
     <>
       <Picture
         style={{
-          width: '100dvw',
-          height: '100dvh',
+          width: '100vw',
+          height: '100vh',
           position: 'fixed',
           top: 0,
           left: 0,
         }}
       >
+        {/* Add a fallback source in case the browser doesn't support the Picture element */}
+        <img
+          src={images[currentIndex].urls.full}
+          alt={images[currentIndex].alt_description}
+          style={{ display: 'none' }}
+        />
         <source srcSet={images[currentIndex].urls.raw} />
         <img
           ref={imageRef}

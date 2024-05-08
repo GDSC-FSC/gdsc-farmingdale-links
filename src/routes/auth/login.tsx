@@ -4,11 +4,11 @@ import { LoginButton, LogoutButton } from "../../components/custom";
 import { CardClasses } from '../../constants/index'
 import { useCurrentUser } from '../../core/auth'
 import { usePageEffect } from "../../core/page";
+
 export const Component = function Login(): JSX.Element {
   usePageEffect(({ title: `Login` }));
   const user = useCurrentUser();
   return (
-    // <AuthContainer title="Login">
     <AuthContainer title={`Login`}>
       <menu
         className={`flex flex-col gap-2`}

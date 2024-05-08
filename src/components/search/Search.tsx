@@ -19,6 +19,7 @@ export function CommandMenu({ open, setOpen }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+
   const navigate = useNavigate();
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -39,16 +40,29 @@ export function CommandMenu({ open, setOpen }: {
       navigate(`/${kebabRoute}`);
     }
   }, [navigate]);
-
+  /*
+        modal.addEventListener('click', (e) => {
+          const dialogDimensions = modal.getBoundingClientRect()
+          if (
+            e.clientX < dialogDimensions.left ||
+            e.clientX > dialogDimensions.right ||
+            e.clientY < dialogDimensions.top ||
+            e.clientY > dialogDimensions.bottom
+          ) {
+            modal.close()
+          }
+        })
+  */
   return (
     <CommandDialog
       open={open}
       onOpenChange={setOpen}
       aria-label="Search"
+      modal={false}
     >
       <CommandInput autoComplete="off" placeholder="Type a command or search..." />
       <CommandList
-        className={`border-t-0`}
+        className={`border-t-0 z-30`}
       >
         <CommandEmpty>No results found...</CommandEmpty>
         <SearchGroups groups={SearchGroupsList.groups} handleShortcutAction={handleShortcutAction} />

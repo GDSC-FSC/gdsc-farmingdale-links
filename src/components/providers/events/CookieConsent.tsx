@@ -33,7 +33,7 @@ export const CookieConsent = function CookieConsent() {
           <div
             id="cookie-banner"
             className={`${cookies === "granted" ? "hidden" : "block"
-              } fixed bottom-0 right-0 z-50 m-2 max-w-screen-sm rounded-lg border-2 border-slate-300 bg-purple-50 text-slate-800 shadow-xl`}
+              } fixed left-0 bottom-0 right-0 z-50 m-2 max-w-screen-sm rounded-lg border-2 border-slate-300 bg-purple-50 text-slate-800 shadow-xl mx-auto transition-all duration-300 ease-in-out`}
           >
             <div className="p-4 text-center">
               <p className="mb-4 text-sm sm:text-base">
@@ -41,7 +41,7 @@ export const CookieConsent = function CookieConsent() {
                 better. To learn more, see our{" "}
                 <Link
                   className="text-blue-600 underline hover:text-blue-700"
-                  href="/privacy-policy"
+                  href="/privacy"
                 >
                   Privacy Policy.
                 </Link>

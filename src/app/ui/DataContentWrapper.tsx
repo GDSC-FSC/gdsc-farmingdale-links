@@ -34,7 +34,7 @@ const EventsDataContentWrapper: React.FC<Required<Events>> = (
               <img
                 src={thumbnailLink!}
                 className={`
-                  size-12 rounded-md
+                  size-12 rounded-md object-cover
                 `}
                 alt={``}
               />

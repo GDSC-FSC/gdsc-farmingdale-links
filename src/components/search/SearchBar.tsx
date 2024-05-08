@@ -1,12 +1,15 @@
-import { Button } from '@/src/components/ui/button';
+import React from 'react';
 import { SearchIcon } from 'lucide-react';
 import { RESET_DELAY_MS } from '@/src/types/global/global';
 import { useToast } from '../ui/use-toast';
 import { useCallback, useEffect, useState } from 'react';
 import { CommandMenu } from '.';
 import { cn } from '@/src/lib/utils';
+import { Dialog, DialogTrigger } from '@/src/components/ui/dialog';
 export const SearchButton = ({className}: {className?: string}) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const onOverlayClick = () => {
+    setIsSearchOpen(false);
+  }
   const { SHORT } = RESET_DELAY_MS;
   const { toast } = useToast();
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
@@ -57,23 +60,42 @@ export const SearchButton = ({className}: {className?: string}) => {
     return () => { clearTimeout(timeoutId) };
   }, [SHORT, isSearchOpen, closeSearch, toast]);
   return (
-    <>
-      <Button
-        className={cn(`flex items-center justify-center space-x-2 bg-foreground-800/50 hover:bg-black/20 aria-selected:bg-black/20`, className)}
-        onClick={openSearch}
+    <Dialog>
+      <DialogTrigger
+        className={`${className}`}
       >
-        <span className={cn(`flex items-center justify-start gap-2 opacity-60 hover:opacity-100`, className)}>
-          <SearchIcon />
-          <span className="text-[13px] font-medium">Search</span>
-        </span>
-        <span className="border-1 flex space-x-1 rounded-[4px] border-primary-60 px-[3px]">
-          <kbd>Ctrl+</kbd>
-          <kbd>K</kbd>
-        </span>
-      </Button>
+
+
+        <div
+          className={cn(`p-2 rounded-lg flex items-center justify-center space-x-2 bg-foreground-800 hover:bg-black/20 aria-selected:bg-black/20`, className)}
+          onClick={openSearch}
+          >
+          <span className={cn(`flex items-center justify-start gap-2 opacity-60 hover:opacity-100`, className)}>
+            <SearchIcon color='grey' />
+            <span className="text-[16px] font-bold text-slate-400">Search</span>
+          </span>
+          <span className="border-1 flex space-x-1 rounded-[4px] border-primary-60 px-[3px] bg-slate-300">
+            <kbd
+              className={`text-black`}
+            >
+              Ctrl+
+            </kbd>
+            <kbd
+              className={`text-black`}
+            >
+              K
+            </kbd>
+          </span>
+        </div>
+      </DialogTrigger>
       {isSearchOpen && (
-        <CommandMenu open={isSearchOpen} setOpen={openSearch} />
+        <div
+          className={'fixed inset-0 z-50 bg-black/20  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0'}
+          onClick={onOverlayClick}
+        >
+          <CommandMenu open={isSearchOpen} setOpen={openSearch} />
+        </div>
       )}
-    </>
+    </Dialog>
   );
 };

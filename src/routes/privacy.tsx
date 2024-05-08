@@ -9,6 +9,53 @@ export const Component = function Privacy(): JSX.Element {
     <>
 
     <>
+        <style>
+          {`
+          h1, h2, h3 {
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+          }
+
+          h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.4em;
+          }
+
+          h2 {
+            font-size: 2em;
+            margin-bottom: 0.3em;
+          }
+
+          h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.2em;
+          }
+
+          p {
+            margin: 0 0 0.7em 0;
+            padding: 0;
+            line-height: 1.5em;
+            text-indent: 1em;
+          }
+
+          ul {
+            margin: 0;
+            padding: 0;
+          }
+
+          li {
+            margin: 0 0 0.2em 0;
+            padding: 0;
+            line-height: 1.5em;
+            text-indent: 1em;
+          }
+
+          li::before {
+            content: "\\2192\\00a0";
+          }
+        `}
+        </style>
       <h1 className={`
 
       `}>
@@ -20,7 +67,7 @@ export const Component = function Privacy(): JSX.Element {
         Your privacy is important to us. It is {appName}&#39; policy to respect
         your privacy and comply with any applicable law and regulation regarding
         any personal information we may collect about you, including across our
-        website, <Link className={`underline`} href={appOrigin}>{appOrigin}</Link>, and other sites we
+        website, <Link className={`underline ml-[-10px]`} href={appOrigin}>{appOrigin}</Link>, and other sites we
         own and operate.
       </p>
       <p className={`
@@ -76,9 +123,21 @@ export const Component = function Privacy(): JSX.Element {
         following:
       </p>
       <ul>
-        <li>Name</li>
-        <li>Email</li>
-        <li>Social media profiles</li>
+        <li>
+          <span>
+            Name
+          </span>
+        </li>
+        <li>
+          <span>
+            Email
+          </span>
+        </li>
+        <li>
+          <span>
+            Social media profiles
+          </span>
+        </li>
       </ul>
       <h3 className={`
 
@@ -106,13 +165,25 @@ export const Component = function Privacy(): JSX.Element {
       </p>
       <ul>
         <li>
-          Sign up to receive updates from us via email or social media channels
+          <span>
+            Sign up to receive updates from us via email or social media channels
+        </span>
         </li>
-        <li>Use a mobile device or web browser to access our content</li>
         <li>
-          Contact us via email, social media, or on any similar technologies
+          <span>
+            Use a mobile device or web browser to access our content
+          </span>
         </li>
-        <li>When you mention us on social media</li>
+        <li>
+          <span>
+              Contact us via email, social media, or on any similar technologies
+        </span>
+        </li>
+        <li>
+          <span>
+            When you mention us on social media
+          </span>
+        </li>
       </ul>
       <p className={`
 
@@ -130,25 +201,35 @@ export const Component = function Privacy(): JSX.Element {
       </p>
       <ul>
         <li>
-          to enable you to customize or personalize your experience of our
-          website
-        </li>
-        <li>to contact and communicate with you</li>
-        <li>
-          for analytics, market research, and business development, including to
-          operate and improve our website, associated applications, and
-          associated social media platforms
+          <span>
+            to enable you to customize or personalize your experience of our website
+          </span>
         </li>
         <li>
-          for advertising and marketing, including to send you promotional
-          information about our products and services and information about
-          third parties that we consider may be of interest to you
+          <span>
+            To contact and communicate with you
+          </span>
         </li>
         <li>
-          to enable you to access and use our website, associated applications,
-          and associated social media platforms
+          <span>
+            for analytics, market research, and business development, including to operate and improve our website, associated applications, and associated social media platforms
+        </span>
         </li>
-        <li>for internal record keeping and administrative purposes</li>
+        <li>
+          <span>
+            For advertising and marketing, including to send you promotional information about our products and services and information about third parties that we consider may be of interest to you
+          </span>
+        </li>
+        <li>
+          <span>
+            To enable you to access and use our website, associated applications, and associated social media platforms
+          </span>
+        </li>
+        <li>
+          <span>
+            For internal record keeping and administrative purposes
+          </span>
+        </li>
       </ul>
       <p className={`
 
@@ -230,29 +311,40 @@ export const Component = function Privacy(): JSX.Element {
         We may disclose personal information to:{" "}
       </p>
       <ul>
-        <li>a parent, subsidiary, or affiliate of our company</li>
         <li>
-          third party service providers for the purpose of enabling them to
-          provide their services, for example, IT service providers, data
-          storage, hosting and server providers, advertisers, or analytics
-          platforms
-        </li>
-        <li>our employees, contractors, and/or related entities</li>
-        <li>our existing or potential agents or business partners</li>
-        <li>
-          sponsors or promoters of any competition, sweepstakes, or promotion we
-          run
+          <span>
+            A parent, subsidiary, or affiliate of our company
+          </span>
         </li>
         <li>
-          courts, tribunals, regulatory authorities, and law enforcement
-          officers, as required by law, in connection with any actual or
-          prospective legal proceedings, or in order to establish, exercise, or
-          defend our legal rights
+          <span>
+            Third party service providers for the purpose of enabling them to provide their services, for example, IT service providers, data storage, hosting and server providers, advertisers, or analytics platforms
+          </span>
         </li>
         <li>
-          third parties, including agents or sub-contractors, who assist us in
-          providing information, products, services, or direct marketing to you
-          third parties to collect and process data
+          <span>
+            Our employees, contractors, and/or related entities
+          </span>
+        </li>
+        <li>
+          <span>
+            Our existing or potential agents or business partners
+          </span>
+        </li>
+        <li>
+          <span>
+            Sponsors or promoters of any competition, sweepstakes, or promotion we run
+          </span>
+        </li>
+        <li>
+          <span>
+            Courts, tribunals, regulatory authorities, and law enforcement officers, as required by law, in connection with any actual or prospective legal proceedings, or in order to establish, exercise, or defend our legal rights
+          </span>
+        </li>
+        <li>
+          <span>
+            Third parties, including agents or sub-contractors, who assist us in providing information, products, services, or direct marketing to you third parties to collect and process data
+          </span>
         </li>
       </ul>
       <h2 className={`
@@ -389,7 +481,7 @@ export const Component = function Privacy(): JSX.Element {
       <p className={`
 
       `}>
-        {appName} Support Team (<Link className={`underline`} href={`mailto:${email}`}>{email}</Link>)
+        {appName} Support Team (<Link className={`underline ml-[-14px]`} href={`mailto:${email}`}>{email}</Link>)
       </p>
     </>
     </>

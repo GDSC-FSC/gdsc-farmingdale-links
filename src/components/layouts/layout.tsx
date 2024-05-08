@@ -16,7 +16,7 @@ export function MainLayout(): JSX.Element {
       {isBasePath ? <Navbar /> : <LegalNav />}
       <ContainerWrapper
         Element={`main`}
-        className={`h-full w-screen flex items-center justify-center flex-col overflow-y-hidden ${isBasePath ? 'h-screen' : 'h-screen relative '}`}
+        className={`h-full w-screen flex items-center justify-center flex-col overflow-y-hidden z-40 ${isBasePath ? 'h-screen' : 'h-screen relative '}`}
       >
         {isBasePath ? (
           <Suspense>
@@ -24,12 +24,27 @@ export function MainLayout(): JSX.Element {
           </Suspense>
         ) : (
           <>
-            <ScrollArea className="p-8 w-full gap-2 flex flex-col py-14">
-              <Suspense>
+            {location.pathname === '/contact' ? (
+              <>
+                <Suspense>
+                  <Outlet />
+                </Suspense>
+              </>
+            ) : (
+
+            <ScrollArea
+              className={`px-10 w-screen gap-2 flex flex-col pb-10`}
+              style={{
+                height: '100dvh',
+                width: '100%',
+              }}
+            >
+              <Suspense >
                 <Outlet />
               </Suspense>
-              <ScrollBar />
+
             </ScrollArea>
+            )}
             <ScrollToTopButton />
           </>
         )}

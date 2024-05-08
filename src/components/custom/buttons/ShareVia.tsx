@@ -3,15 +3,16 @@ import { Icons } from "@/src/components/icons/icons";
 import { Button } from "@/src/components/ui/button";
 import { CardClasses } from "@/src/constants";
 import { LinkedinIcon } from "lucide-react";
-export const ShareVia = ({ shareUrl }: { shareUrl: string }) => {
+export const ShareVia = ({ shareUrl, description }: { shareUrl: string, description?: string }) => {
   const handleLinkedInShare = () => {
-    const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+    const descriptionWithAmpersands = description?.replace(/\s+/g, '&');
+    const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}&shareActive=true&text=${encodeURIComponent(descriptionWithAmpersands!) ?? 'Just sharing this link'}`;
     window.open(linkedInShareUrl, '_blank', 'noopener noreferrer');
   };
 
   const handleEmailShare = () => {
     const emailSubject = encodeURIComponent('Check out this link');
-    const emailBody = encodeURIComponent(`I thought you might find this interesting: ${shareUrl}`);
+    const emailBody = encodeURIComponent(`I thought you might find this interesting: ${shareUrl} \n ${description}`);
     const mailToUrl = `mailto:?subject=${emailSubject}&body=${emailBody}`;
     window.location.href = mailToUrl;
   };

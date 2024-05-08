@@ -2,11 +2,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler } from 'react-hook-form'
 import { useForm } from "react-hook-form"
 import { sendEmail, TSendEmail } from "@/src/schema/send-emails";
-// import { FormInput } from "@/src/components/form/form-input";
-// import { FormSubmit } from "@/src/components/form/form-submit";
 import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Div } from "../../templates";
+import { Label } from "@/srccomponents/ui/label";
 export const NewsLetter = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<TSendEmail>({
     defaultValues: {
@@ -23,11 +22,12 @@ export const NewsLetter = () => {
     <form onSubmit={handleSubmit(onSubmit)}
       className={`flex flex-col items-center justify-center`}
     >
+      <Label htmlFor={"UserEmail"} className={`sr-only`}>Email address</Label>
       <Div
         className="flex flex-row items-center justify-center "
       >
 
-        <Input id={""} placeholder={`Email address`} {...register("email")} type={`email`} className={` rounded-r-none w-36`} />
+        <Input id={"UserEmail"} placeholder={`Email address`} {...register("email")} type={`email`} className={` rounded-r-none w-36`} />
         <Button type={`submit`} className={`rounded-l-none`}>Subscribe</Button>
       </Div>
       {

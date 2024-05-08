@@ -30,7 +30,7 @@ export const Language = () => {
     if (!document.getElementById(scriptId)) {
       const addScript = document.createElement("script");
       addScript.id = scriptId;
-      addScript.src = "//translate.google.com/translate_a/element.js";
+      addScript.src = "https://translate.google.com/translate_a/element.js";
       addScript.onload = googleTranslateElementInit;
       document.body.appendChild(addScript);
     } else {
