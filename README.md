@@ -2,7 +2,7 @@
 
 ![GDSC Farmingdale Links](.github/assets/img.png)
 
-Welcome to GDSC Farmingdale Links, your go-to portal for staying updated on GDSC Farmingdale events. This project fetches data from the [Links API](https://github.com/GDSC-FSC/gdsc-farmingdale-links-api) and presents it through an intuitive and interactive user interface.
+Welcome to GDSC Farmingdale Links, your go-to portal for staying updated on GDSC Farmingdale events. This project fetches data from the [Links API](https://github.com/GDSC-FSC/gdsc-farmingdale-links-api) and [Links Links API](https://github.com/WomB0ComB0/gdsc-farmingdale-links-links-api) which presents them through an intuitive and interactive user interface.
 
 ## Diagram
 
