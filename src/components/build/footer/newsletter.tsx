@@ -5,7 +5,7 @@ import { sendEmail, TSendEmail } from "@/src/schema/send-emails";
 import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 import { Div } from "../../templates";
-import { Label } from "@/srccomponents/ui/label";
+import { Label } from "@/src/components/ui/label";
 export const NewsLetter = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<TSendEmail>({
     defaultValues: {
