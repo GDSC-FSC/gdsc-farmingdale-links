@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const useHasMounted = () => {
-  const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setLoading(false);
+		}, 1000);
 
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, []);
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, []);
 
-  return loading;
+	return loading;
 };

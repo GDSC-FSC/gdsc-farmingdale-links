@@ -1,46 +1,56 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { CommandDialog, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandInput } from "../ui/command";
-
+import {
+	CommandDialog,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
+} from "../ui/command";
 
 const camelToKebab = (str: string) => {
-  return str.replace(/[A-Z\s]/g, match => {
-    if (match === " ") {
-      return "-";
-    } else {
-      return `-${match.toLowerCase()}`;
-    }
-  });
+	return str.replace(/[A-Z\s]/g, (match) => {
+		if (match === " ") {
+			return "-";
+		} else {
+			return `-${match.toLowerCase()}`;
+		}
+	});
 };
 
-
-export function CommandMenu({ open, setOpen }: {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+export function CommandMenu({
+	open,
+	setOpen,
+}: {
+	open: boolean;
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+	const navigate = useNavigate();
+	useEffect(() => {
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "k" && e.ctrlKey) {
+				e.preventDefault();
+				setOpen(!open);
+			}
+		};
+		document.addEventListener("keydown", handleKeyDown);
+		return () => document.removeEventListener("keydown", handleKeyDown);
+	}, [open, setOpen]);
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "k" && (e.ctrlKey)) {
-        e.preventDefault();
-        setOpen(!open);
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [open, setOpen]);
-
-  const handleShortcutAction = useCallback((route: string) => {
-    const kebabRoute = camelToKebab(route);
-    if (route.startsWith('auth/')) {
-      navigate(`${kebabRoute.replace('auth/', '/auth/')}`);
-    } else {
-      navigate(`/${kebabRoute}`);
-    }
-  }, [navigate]);
-  /*
+	const handleShortcutAction = useCallback(
+		(route: string) => {
+			const kebabRoute = camelToKebab(route);
+			if (route.startsWith("auth/")) {
+				navigate(`${kebabRoute.replace("auth/", "/auth/")}`);
+			} else {
+				navigate(`/${kebabRoute}`);
+			}
+		},
+		[navigate],
+	);
+	/*
         modal.addEventListener('click', (e) => {
           const dialogDimensions = modal.getBoundingClientRect()
           if (
@@ -53,81 +63,88 @@ export function CommandMenu({ open, setOpen }: {
           }
         })
   */
-  return (
-    <CommandDialog
-      open={open}
-      onOpenChange={setOpen}
-      aria-label="Search"
-      modal={false}
-    >
-      <CommandInput autoComplete="off" placeholder="Type a command or search..." />
-      <CommandList
-        className={`border-t-0 z-30`}
-      >
-        <CommandEmpty>No results found...</CommandEmpty>
-        <SearchGroups groups={SearchGroupsList.groups} handleShortcutAction={handleShortcutAction} />
-      </CommandList>
-    </CommandDialog>
-  );
+	return (
+		<CommandDialog
+			open={open}
+			onOpenChange={setOpen}
+			aria-label="Search"
+			modal={false}
+		>
+			<CommandInput
+				autoComplete="off"
+				placeholder="Type a command or search..."
+			/>
+			<CommandList className={`border-t-0 z-30`}>
+				<CommandEmpty>No results found...</CommandEmpty>
+				<SearchGroups
+					groups={SearchGroupsList.groups}
+					handleShortcutAction={handleShortcutAction}
+				/>
+			</CommandList>
+		</CommandDialog>
+	);
 }
 
 interface SearchGroupsListProps {
-  groups: {
-    heading: string;
-    items: Array<string>;
-  }[];
-  handleShortcutAction: (route: string) => void;
+	groups: {
+		heading: string;
+		items: Array<string>;
+	}[];
+	handleShortcutAction: (route: string) => void;
 }
 
 const SearchGroupsList: SearchGroupsListProps = {
-  groups: [
-    {
-      heading: 'Legal',
-      items: ['Privacy', 'Terms', 'Accessibility', 'Cookies', 'Contact'],
-    },
-    {
-      heading: 'Auth',
-      items: ['Login'],
-    }
-  ],
-  handleShortcutAction: () => { },
+	groups: [
+		{
+			heading: "Legal",
+			items: ["Privacy", "Terms", "Accessibility", "Cookies", "Contact"],
+		},
+		{
+			heading: "Auth",
+			items: ["Login"],
+		},
+	],
+	handleShortcutAction: () => {},
 };
 
-export const SearchGroups: React.FC<SearchGroupsListProps> = ({ groups, handleShortcutAction }) => {
-  return (
-    <>
-      {groups.map((group, groupIndex) => (
-        <CommandGroup
-          key={groupIndex}
-          heading={group.heading}
-
-        >
-          {group.items.map((item, itemIndex) => {
-            const route = group.heading.toLowerCase() === 'auth' ? `auth/${item.toLowerCase()}` : item.toLowerCase();
-            return (
-              <Item key={itemIndex} onSelect={() => handleShortcutAction(route)}>
-                {item}
-              </Item>
-            );
-          })}
-        </CommandGroup>
-      ))}
-    </>
-  );
+export const SearchGroups: React.FC<SearchGroupsListProps> = ({
+	groups,
+	handleShortcutAction,
+}) => {
+	return (
+		<>
+			{groups.map((group, groupIndex) => (
+				<CommandGroup key={groupIndex} heading={group.heading}>
+					{group.items.map((item, itemIndex) => {
+						const route =
+							group.heading.toLowerCase() === "auth"
+								? `auth/${item.toLowerCase()}`
+								: item.toLowerCase();
+						return (
+							<Item
+								key={itemIndex}
+								onSelect={() => handleShortcutAction(route)}
+							>
+								{item}
+							</Item>
+						);
+					})}
+				</CommandGroup>
+			))}
+		</>
+	);
 };
 
 function Item({
-  children,
-  onSelect = () => { },
+	children,
+	onSelect = () => {},
 }: {
-  children: React.ReactNode;
-  onSelect?: () => void;
+	children: React.ReactNode;
+	onSelect?: () => void;
 }) {
-  return (
-    <CommandItem className={` focus-within:opacity-15`} onSelect={onSelect}>
-      <span>
-        {children}
-      </span>
-    </CommandItem>
-  );
+	return (
+		<CommandItem className={` focus-within:opacity-15`} onSelect={onSelect}>
+			<span>{children}</span>
+		</CommandItem>
+	);
 }

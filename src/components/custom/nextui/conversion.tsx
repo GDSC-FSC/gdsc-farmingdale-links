@@ -1,5 +1,2 @@
-import {
-  Link as NextUiLink,
-  LinkProps,
-} from "@nextui-org/react";
+import { type LinkProps, Link as NextUiLink } from "@nextui-org/react";
 export const Link = (props: LinkProps) => <NextUiLink {...props} />;

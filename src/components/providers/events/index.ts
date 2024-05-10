@@ -1,2 +1,2 @@
-export * from './CookieConsent'
-export * from './Events'
+export * from "./CookieConsent";
+export * from "./Events";
