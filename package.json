@@ -89,7 +89,7 @@
 		"tailwind-container-break-out": "^2.0.9",
 		"tailwind-merge": "^2.3.0",
 		"tailwindcss-animate": "^1.0.7",
-		"tsparticles": "^3.3.0",
+		"tsparticles": "^3.5.0",
 		"usehooks-ts": "^3.1.0",
 		"vaul": "^0.9.1",
 		"vitest": "^1.6.0",
