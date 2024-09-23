@@ -72,7 +72,7 @@
 		"framer-motion": "^11.1.9",
 		"jotai": "^2.8.0",
 		"jotai-effect": "^1.0.0",
-		"jotai-tanstack-query": "^0.8.5",
+		"jotai-tanstack-query": "^0.8.8",
 		"lucide-react": "^0.378.0",
 		"million": "^3.0.6",
 		"react": "^18.3.1",
