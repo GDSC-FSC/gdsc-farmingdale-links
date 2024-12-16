@@ -70,7 +70,7 @@
 		"embla-carousel-react": "^8.0.4",
 		"firebase": "^10.11.1",
 		"framer-motion": "^11.1.9",
-		"jotai": "^2.8.0",
+		"jotai": "^2.10.4",
 		"jotai-effect": "^1.0.0",
 		"jotai-tanstack-query": "^0.8.5",
 		"lucide-react": "^0.378.0",
