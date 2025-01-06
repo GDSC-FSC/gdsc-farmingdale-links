@@ -96,7 +96,7 @@
 		"web-vitals": "^3.5.2",
 		"wonka": "^6.3.4",
 		"zod": "^3.23.8",
-		"zustand": "^4.5.2"
+		"zustand": "^5.0.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",
