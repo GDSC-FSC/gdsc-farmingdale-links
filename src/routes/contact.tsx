@@ -20,7 +20,7 @@ interface ContactFormProps {
 export const Component: React.FC = function Contact() {
 	usePageEffect({ title: `Contact | ${appName}` });
 	const onSubmit: SubmitHandler<ContactFormProps> = (formData) => {
-		window.location.href = `mailto:${appEmail}?subject=${formData.subject}&body=${formData.message}`;
+		window.location.href = `mailto:${appEmail}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
 	};
 	const [charactersLeft, setCharactersLeft] = useState(500);
 	const form = useForm<ContactForm>({
