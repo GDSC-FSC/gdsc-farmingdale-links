@@ -130,31 +130,31 @@ The following diagram illustrates the primary components of the GDSC Farmingdale
 
 ```mermaid
 graph TD
-    subgraph Client: GDSC Farmingdale Links (Frontend Application)
-        A[User Interface<br>(React, Shadcn UI, NextUI)] --> B(Routing & Pages<br>/events, /links, /contact)
-        B --> C{Core Components<br>(Auth, Search, Media, Layouts)}
-        C --> D(State Management<br>(Zustand/Context API))
-        D --> E[Data Fetching & Transformation]
+    subgraph Client_GDSC_Farmingdale_Links_Frontend
+        A[User Interface React Shadcn UI NextUI] --> B[Routing and Pages - events links contact]
+        B --> C[Core Components - Auth Search Media Layouts]
+        C --> D[State Management - Zustand Context API]
+        D --> E[Data Fetching and Transformation]
     end
 
-    subgraph Backend Services
+    subgraph Backend_Services
         F[GDSC Events API]
         G[GDSC Links API]
-        H[Contact Form API/Service]
+        H[Contact Form Service]
     end
 
-    subgraph External Infrastructure
+    subgraph External_Infrastructure
         I[Firebase Authentication]
         J[Firebase Hosting]
-        K[Google Analytics/Tag Manager]
+        K[Google Analytics Tag Manager]
     end
 
-    E -- REST/GraphQL --> F
-    E -- REST/GraphQL --> G
-    C -- Form Submission --> H
-    A -- User Interaction --> I
-    A -- Deployed on --> J
-    A -- Tracks User Behavior --> K
+    E --> F
+    E --> G
+    C --> H
+    A --> I
+    A --> J
+    A --> K
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style B fill:#bbf,stroke:#333,stroke-width:2px
